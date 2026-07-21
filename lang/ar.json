@@ -1,0 +1,55 @@
+{
+    "skip_to_content": "تخطَّ إلى المحتوى",
+
+    "site.tagline": "منظمة إنسانية غير ربحية تعرف بالموحدين الدروز – بني معروف",
+    "site.logo_alt": "شعار منظمة الهوية الدرزية",
+
+    "nav.home": "الرئيسية",
+    "nav.projects": "مشاريع المنظمة",
+    "nav.about": "تعريف بالمنظمة",
+    "nav.contact": "اتصل بنا",
+    "nav.primary_label": "القائمة الرئيسية",
+    "nav.open_menu": "افتح القائمة",
+    "nav.close_menu": "أغلق القائمة",
+    "nav.expand": "توسيع",
+
+    "search.label": "ابحث في الموقع",
+    "search.placeholder": "ابحث…",
+    "search.submit": "بحث",
+    "search.open": "افتح البحث",
+
+    "lang.label": "اللغة",
+    "lang.switcher_label": "اختيار اللغة",
+    "lang.current": "اللغة الحالية",
+
+    "footer.sections": "أقسام الموقع",
+    "footer.organization": "المنظمة",
+    "footer.contact": "تواصل معنا",
+    "footer.rights": "جميع الحقوق محفوظة.",
+    "footer.social_label": "تابعنا",
+
+    "contact.title": "اتصل بنا",
+    "contact.name": "الاسم",
+    "contact.email": "البريد الإلكتروني",
+    "contact.subject": "الموضوع",
+    "contact.message": "الرسالة",
+    "contact.send": "إرسال",
+    "contact.sending": "جارٍ الإرسال…",
+    "contact.success": "شكراً لتواصلكم معنا. تم استلام رسالتكم وسنرد عليكم قريباً.",
+    "contact.error": "تعذّر إرسال الرسالة. يرجى المحاولة مرة أخرى.",
+    "contact.required": "حقل مطلوب",
+
+    "status.under_construction": "قيد الإنشاء",
+    "status.coming_soon": "قريباً",
+    "status.planned_sections": "الأقسام المخطط لها",
+    "status.visit_site": "زيارة الموقع",
+
+    "common.read_more": "التفاصيل",
+    "common.back_home": "عودة للرئيسية",
+    "common.next_page": "الصفحة التالية",
+    "common.previous_page": "الصفحة السابقة",
+    "common.page_not_found": "الصفحة غير موجودة",
+    "common.page_not_found_body": "تعذّر العثور على الصفحة المطلوبة. قد تكون قد نُقلت أو حُذفت.",
+    "common.error": "حدث خطأ",
+    "common.loading": "جارٍ التحميل…"
+}

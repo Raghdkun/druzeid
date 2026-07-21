@@ -1,0 +1,9 @@
+<svg viewBox="0 0 100 104" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="الهوية الدرزية">
+  <title>الهوية الدرزية</title>
+  <!-- Five-pointed Druze star: green / blue / yellow / red / white principles -->
+  <polygon points="50,52 43.03,32.14 50,5 56.97,32.14" fill="#00843D"/>
+  <polygon points="50,52 68.90,42.51 94.69,33.51 74.68,50.41" fill="#0057B8"/>
+  <polygon points="50,52 61.66,68.06 79.04,89.51 56.65,71.99" fill="#FFB81C"/>
+  <polygon points="50,52 38.34,68.06 20.96,89.51 43.35,71.99" fill="#C8102E"/>
+  <polygon points="50,52 31.10,42.51 5.31,33.51 25.32,50.41" fill="#ffffff" stroke="#C9C9C9" stroke-width="0.75"/>
+</svg>

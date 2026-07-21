@@ -1,0 +1,55 @@
+{
+    "skip_to_content": "Aller au contenu",
+
+    "site.tagline": "Une organisation humanitaire à but non lucratif faisant connaître les Druzes — Bani Ma'ruf",
+    "site.logo_alt": "Logo de l'Organisation de l'Identité Druze",
+
+    "nav.home": "Accueil",
+    "nav.projects": "Nos projets",
+    "nav.about": "À propos de l'organisation",
+    "nav.contact": "Nous contacter",
+    "nav.primary_label": "Navigation principale",
+    "nav.open_menu": "Ouvrir le menu",
+    "nav.close_menu": "Fermer le menu",
+    "nav.expand": "Développer",
+
+    "search.label": "Rechercher sur le site",
+    "search.placeholder": "Rechercher…",
+    "search.submit": "Rechercher",
+    "search.open": "Ouvrir la recherche",
+
+    "lang.label": "Langue",
+    "lang.switcher_label": "Choix de la langue",
+    "lang.current": "Langue actuelle",
+
+    "footer.sections": "Sections du site",
+    "footer.organization": "Organisation",
+    "footer.contact": "Nous joindre",
+    "footer.rights": "Tous droits réservés.",
+    "footer.social_label": "Suivez-nous",
+
+    "contact.title": "Nous contacter",
+    "contact.name": "Nom",
+    "contact.email": "Courriel",
+    "contact.subject": "Sujet",
+    "contact.message": "Message",
+    "contact.send": "Envoyer",
+    "contact.sending": "Envoi en cours…",
+    "contact.success": "Merci de nous avoir contactés. Nous avons bien reçu votre message et vous répondrons bientôt.",
+    "contact.error": "Le message n'a pas pu être envoyé. Veuillez réessayer.",
+    "contact.required": "Champ obligatoire",
+
+    "status.under_construction": "En construction",
+    "status.coming_soon": "Bientôt disponible",
+    "status.planned_sections": "Sections prévues",
+    "status.visit_site": "Visiter le site",
+
+    "common.read_more": "En savoir plus",
+    "common.back_home": "Retour à l'accueil",
+    "common.next_page": "Page suivante",
+    "common.previous_page": "Page précédente",
+    "common.page_not_found": "Page introuvable",
+    "common.page_not_found_body": "La page demandée est introuvable. Elle a peut-être été déplacée ou supprimée.",
+    "common.error": "Une erreur s'est produite",
+    "common.loading": "Chargement…"
+}
