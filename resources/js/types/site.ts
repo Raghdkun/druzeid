@@ -42,6 +42,8 @@ export interface ContactPhone {
 export interface SiteSettings {
     'site.tagline': string | null;
     'site.short_name': string | null;
+    /** Uploaded header logo; null falls back to the built-in Druze star. */
+    'site.logo_url': string | null;
     'contact.email': string | null;
     'contact.phones': ContactPhone[] | null;
     'contact.address': string | null;

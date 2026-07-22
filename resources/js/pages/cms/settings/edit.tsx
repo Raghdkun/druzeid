@@ -2,6 +2,8 @@ import { Head, useForm } from '@inertiajs/react';
 import { Plus, Save, Trash2 } from 'lucide-react';
 
 import type { LocaleMeta } from '@/components/cms/locale-badges';
+import type { LibraryImage } from '@/components/cms/media-picker';
+import { MediaPicker } from '@/components/cms/media-picker';
 import { TranslatableField } from '@/components/cms/translatable-field';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -22,11 +24,16 @@ interface Social {
 interface SettingsData {
     siteShortName: Record<string, string>;
     siteTagline: Record<string, string>;
+    siteSeoDescription: Record<string, string>;
     footerNote: Record<string, string>;
     contactEmail: string;
     contactPhones: Phone[];
     contactAddress: string | null;
     socialLinks: Social[];
+    iconMediaId: number | null;
+    logoMediaId: number | null;
+    ogImageMediaId: number | null;
+    themeColor: string;
 }
 
 const breadcrumbs: BreadcrumbItem[] = [
@@ -37,18 +44,27 @@ const breadcrumbs: BreadcrumbItem[] = [
 export default function SettingsEdit({
     settings,
     locales,
+    mediaLibrary,
+    iconPreview,
 }: {
     settings: SettingsData;
     locales: LocaleMeta[];
+    mediaLibrary: LibraryImage[];
+    iconPreview: string | null;
 }) {
     const form = useForm<SettingsData>({
         siteShortName: settings.siteShortName ?? {},
         siteTagline: settings.siteTagline ?? {},
+        siteSeoDescription: settings.siteSeoDescription ?? {},
         footerNote: settings.footerNote ?? {},
         contactEmail: settings.contactEmail ?? '',
         contactPhones: settings.contactPhones ?? [],
         contactAddress: settings.contactAddress ?? '',
         socialLinks: settings.socialLinks ?? [],
+        iconMediaId: settings.iconMediaId ?? null,
+        logoMediaId: settings.logoMediaId ?? null,
+        ogImageMediaId: settings.ogImageMediaId ?? null,
+        themeColor: settings.themeColor ?? '#0057B8',
     });
 
     return (
@@ -90,6 +106,87 @@ export default function SettingsEdit({
                         locales={locales}
                         onChange={(v) => form.setData('footerNote', v)}
                         multiline
+                    />
+                </section>
+
+                <section className="space-y-4 rounded-xl border border-border bg-card p-5">
+                    <h2 className="font-display text-lg font-bold">الهوية البصرية</h2>
+                    <p className="text-sm text-muted-foreground">
+                        أيقونة التطبيق تُستخدم لأيقونة المتصفح (Favicon) وأيقونة الشاشة الرئيسية على
+                        الهواتف. اختر صورة مربّعة بدقة 512×512 على الأقل.
+                    </p>
+
+                    <div className="grid gap-5 sm:grid-cols-3">
+                        <div className="space-y-2">
+                            <MediaPicker
+                                label="أيقونة التطبيق"
+                                value={form.data.iconMediaId}
+                                onChange={(id) => form.setData('iconMediaId', id)}
+                                library={mediaLibrary}
+                            />
+                            {iconPreview && (
+                                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                                    <img
+                                        src={iconPreview}
+                                        alt=""
+                                        className="size-8 rounded border border-border"
+                                    />
+                                    الأيقونة الحالية
+                                </div>
+                            )}
+                            {form.errors.iconMediaId && (
+                                <p className="text-sm text-destructive">{form.errors.iconMediaId}</p>
+                            )}
+                        </div>
+
+                        <MediaPicker
+                            label="شعار الترويسة (اختياري)"
+                            value={form.data.logoMediaId}
+                            onChange={(id) => form.setData('logoMediaId', id)}
+                            library={mediaLibrary}
+                        />
+
+                        <MediaPicker
+                            label="صورة المشاركة الافتراضية"
+                            value={form.data.ogImageMediaId}
+                            onChange={(id) => form.setData('ogImageMediaId', id)}
+                            library={mediaLibrary}
+                        />
+                    </div>
+
+                    <div className="space-y-1.5">
+                        <Label htmlFor="themeColor">لون الواجهة (Theme color)</Label>
+                        <div className="flex items-center gap-2">
+                            <input
+                                id="themeColor"
+                                type="color"
+                                value={form.data.themeColor}
+                                onChange={(e) => form.setData('themeColor', e.target.value)}
+                                className="h-9 w-14 cursor-pointer rounded-md border border-input bg-background p-1"
+                            />
+                            <Input
+                                dir="ltr"
+                                value={form.data.themeColor}
+                                onChange={(e) => form.setData('themeColor', e.target.value)}
+                                className="max-w-32 font-mono"
+                                aria-label="لون الواجهة بصيغة hex"
+                            />
+                        </div>
+                        <p className="text-xs text-muted-foreground">
+                            يلوّن شريط المتصفح على الهواتف.
+                        </p>
+                        {form.errors.themeColor && (
+                            <p className="text-sm text-destructive">{form.errors.themeColor}</p>
+                        )}
+                    </div>
+
+                    <TranslatableField
+                        label="وصف الموقع الافتراضي (SEO)"
+                        value={form.data.siteSeoDescription}
+                        locales={locales}
+                        onChange={(v) => form.setData('siteSeoDescription', v)}
+                        multiline
+                        hint="يُستخدم في نتائج البحث ومعاينات المشاركة للصفحات التي ليس لها وصف خاص."
                     />
                 </section>
 

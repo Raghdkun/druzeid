@@ -5,7 +5,6 @@ import { LanguageSwitcher } from '@/components/site/language-switcher';
 import { MobileNav } from '@/components/site/mobile-nav';
 import { PrimaryNav } from '@/components/site/primary-nav';
 import { useI18n } from '@/hooks/use-i18n';
-import { home } from '@/lib/site-routes';
 import type { NavItem, SiteSettings } from '@/types/site';
 
 /**
@@ -21,7 +20,7 @@ export function SiteHeader({
     menu: NavItem[];
     settings: SiteSettings;
 }) {
-    const { t } = useI18n();
+    const { t, homeUrl } = useI18n();
 
     return (
         <header className="relative z-30">
@@ -35,8 +34,16 @@ export function SiteHeader({
             {/* Masthead */}
             <div className="border-b border-hairline bg-white">
                 <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
-                    <Link href={home()} className="flex items-center gap-3">
-                        <DruzeStar className="h-12 w-12 shrink-0" decorative />
+                    <Link href={homeUrl} className="flex items-center gap-3">
+                        {settings['site.logo_url'] ? (
+                            <img
+                                src={settings['site.logo_url']}
+                                alt=""
+                                className="h-12 w-12 shrink-0 object-contain"
+                            />
+                        ) : (
+                            <DruzeStar className="h-12 w-12 shrink-0" decorative />
+                        )}
                         <span className="flex flex-col">
                             <span className="font-display text-lg font-bold leading-tight text-ink sm:text-xl">
                                 {settings['site.short_name'] ?? t('site.logo_alt')}

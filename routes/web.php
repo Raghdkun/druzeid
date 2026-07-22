@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Site\ManifestController;
 use App\Http\Controllers\Site\SitemapController;
 use App\Http\Middleware\SetLocale;
 use App\Support\Locale;
@@ -15,6 +16,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 Route::get('robots.txt', [SitemapController::class, 'robots'])->name('robots');
+Route::get('site.webmanifest', ManifestController::class)->name('manifest');
 
 /*
 |--------------------------------------------------------------------------

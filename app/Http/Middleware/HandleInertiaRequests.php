@@ -56,8 +56,14 @@ class HandleInertiaRequests extends Middleware
             // locale has been applied.
             'locale' => fn () => App::getLocale(),
             'dir' => fn () => Locale::dir(),
+            'htmlLang' => fn () => Locale::htmlLang(),
             'locales' => fn () => Locale::switcher(),
             'translations' => fn () => $this->translations(App::getLocale()),
+
+            // The home URL *in the active locale*. Components must link here
+            // rather than to the bare `home` route, which is always Arabic and
+            // would silently drop a visitor out of their chosen language.
+            'homeUrl' => fn () => Locale::path('home'),
 
             // One-request flash for the public contact form and CMS saves.
             'flash' => [

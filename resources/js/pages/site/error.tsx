@@ -2,7 +2,6 @@ import { Head, Link } from '@inertiajs/react';
 
 import { useI18n } from '@/hooks/use-i18n';
 import { SiteLayout } from '@/layouts/site-layout';
-import { home } from '@/lib/site-routes';
 import type { SiteMenus, SiteSettings } from '@/types/site';
 
 interface Props {
@@ -19,7 +18,7 @@ interface Props {
  * the rest of the site.
  */
 export default function SiteError({ status, menus, settings }: Props) {
-    const { t } = useI18n();
+    const { t, homeUrl } = useI18n();
 
     const titles: Record<number, string> = {
         404: t('common.page_not_found'),
@@ -47,7 +46,7 @@ export default function SiteError({ status, menus, settings }: Props) {
                 {body && <p className="mt-4 max-w-md text-ink-muted">{body}</p>}
 
                 <Link
-                    href={home()}
+                    href={homeUrl}
                     className="mt-10 inline-flex items-center gap-2 rounded-md border-2 border-druze-blue px-6 py-2.5 font-semibold text-druze-blue transition-colors hover:bg-druze-blue hover:text-white"
                 >
                     {t('common.back_home')}

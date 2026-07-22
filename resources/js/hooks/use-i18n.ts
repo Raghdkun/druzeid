@@ -18,10 +18,15 @@ export interface I18n {
     dir: Direction;
     isRtl: boolean;
     locales: LocaleOption[];
+    /**
+     * Home URL in the active locale. Always link here instead of the bare
+     * `home` route, which is Arabic-only and drops the visitor's language.
+     */
+    homeUrl: string;
 }
 
 export function useI18n(): I18n {
-    const { locale, dir, locales, translations } = usePage().props;
+    const { locale, dir, locales, translations, homeUrl } = usePage().props;
 
     const t = useCallback(
         (key: string, replacements?: Replacements) => {
@@ -39,7 +44,7 @@ export function useI18n(): I18n {
     );
 
     return useMemo(
-        () => ({ t, locale, dir, isRtl: dir === 'rtl', locales }),
-        [t, locale, dir, locales],
+        () => ({ t, locale, dir, isRtl: dir === 'rtl', locales, homeUrl }),
+        [t, locale, dir, locales, homeUrl],
     );
 }

@@ -16,8 +16,12 @@ declare module '@inertiajs/core' {
             sidebarOpen: boolean;
             locale: LocaleCode;
             dir: Direction;
+            /** BCP-47 tag for <html lang>, e.g. "en-GB". */
+            htmlLang: string;
             locales: LocaleOption[];
             translations: Translations;
+            /** Home URL in the ACTIVE locale — never the bare Arabic root. */
+            homeUrl: string;
             [key: string]: unknown;
         };
     }

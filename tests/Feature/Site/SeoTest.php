@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Models\Media;
 use App\Models\Page;
 
 it('serves a sitemap with an entry per page per locale', function () {
@@ -26,7 +27,7 @@ it('serves a sitemap with an entry per page per locale', function () {
 });
 
 it('lists a page hero image in the sitemap', function () {
-    $media = App\Models\Media::factory()->create(['alt' => ['ar' => 'شعار']]);
+    $media = Media::factory()->create(['alt' => ['ar' => 'شعار']]);
     Page::factory()->home()->create(['hero_media_id' => $media->id]);
 
     $this->get('/sitemap.xml')

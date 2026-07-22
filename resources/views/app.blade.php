@@ -38,9 +38,23 @@
             }
         </style>
 
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-        <link rel="icon" href="/favicon.svg" sizes="any">
-        <meta name="theme-color" content="#0057B8">
+        {{-- Icons, theme colour and manifest come from the CMS branding
+             settings, falling back to the bundled emblem until an icon is
+             uploaded there. --}}
+        @php
+            $brandIcons = \App\Support\Branding::icons();
+            $fallbackIcon = \App\Support\Branding::FALLBACK_ICON;
+        @endphp
+        @if ($brandIcons !== [])
+            <link rel="icon" type="image/png" sizes="32x32" href="{{ $brandIcons[32] ?? $fallbackIcon }}">
+            <link rel="icon" type="image/png" sizes="192x192" href="{{ $brandIcons[192] ?? $fallbackIcon }}">
+            <link rel="apple-touch-icon" sizes="180x180" href="{{ $brandIcons[180] ?? $fallbackIcon }}">
+        @else
+            <link rel="icon" href="{{ $fallbackIcon }}" type="image/svg+xml">
+            <link rel="icon" href="{{ $fallbackIcon }}" sizes="any">
+        @endif
+        <link rel="manifest" href="{{ url('/site.webmanifest') }}">
+        <meta name="theme-color" content="{{ \App\Support\Branding::themeColor() }}">
 
         @fonts
 
@@ -50,10 +64,18 @@
              client-side navigation. --}}
         @php
             $meta = $page['props']['meta'] ?? null;
+            // Fall back to the site-wide description and share image from the
+            // CMS branding settings when a page defines none of its own.
+            $metaDescription = filled($meta['description'] ?? null)
+                ? $meta['description']
+                : \App\Support\Branding::description();
+            $metaOgImage = filled($meta['ogImage'] ?? null)
+                ? $meta['ogImage']
+                : \App\Support\Branding::ogImageUrl();
         @endphp
         @if ($meta)
-            @if (!empty($meta['description']))
-                <meta name="description" content="{{ $meta['description'] }}">
+            @if (filled($metaDescription))
+                <meta name="description" content="{{ $metaDescription }}">
             @endif
             <link rel="canonical" href="{{ $meta['canonical'] }}">
             @foreach (($meta['alternates'] ?? []) as $alt)
@@ -62,25 +84,25 @@
 
             <meta property="og:type" content="website">
             <meta property="og:title" content="{{ $meta['title'] }}">
-            @if (!empty($meta['description']))
-                <meta property="og:description" content="{{ $meta['description'] }}">
+            @if (filled($metaDescription))
+                <meta property="og:description" content="{{ $metaDescription }}">
             @endif
             <meta property="og:url" content="{{ $meta['canonical'] }}">
             <meta property="og:locale" content="{{ $meta['ogLocale'] ?? 'ar' }}">
             @if (!empty($meta['siteName']))
                 <meta property="og:site_name" content="{{ $meta['siteName'] }}">
             @endif
-            @if (!empty($meta['ogImage']))
-                <meta property="og:image" content="{{ $meta['ogImage'] }}">
+            @if (filled($metaOgImage))
+                <meta property="og:image" content="{{ $metaOgImage }}">
             @endif
 
-            <meta name="twitter:card" content="{{ !empty($meta['ogImage']) ? 'summary_large_image' : 'summary' }}">
+            <meta name="twitter:card" content="{{ filled($metaOgImage) ? 'summary_large_image' : 'summary' }}">
             <meta name="twitter:title" content="{{ $meta['title'] }}">
-            @if (!empty($meta['description']))
-                <meta name="twitter:description" content="{{ $meta['description'] }}">
+            @if (filled($metaDescription))
+                <meta name="twitter:description" content="{{ $metaDescription }}">
             @endif
-            @if (!empty($meta['ogImage']))
-                <meta name="twitter:image" content="{{ $meta['ogImage'] }}">
+            @if (filled($metaOgImage))
+                <meta name="twitter:image" content="{{ $metaOgImage }}">
             @endif
 
             @php
@@ -90,11 +112,11 @@
                     'name' => $meta['siteName'] ?? config('app.name'),
                     'url' => $meta['canonical'],
                 ];
-                if (! empty($meta['ogImage'])) {
-                    $ld['logo'] = $meta['ogImage'];
+                if (filled($metaOgImage)) {
+                    $ld['logo'] = $metaOgImage;
                 }
-                if (! empty($meta['description'])) {
-                    $ld['description'] = $meta['description'];
+                if (filled($metaDescription)) {
+                    $ld['description'] = $metaDescription;
                 }
             @endphp
             <script type="application/ld+json" nonce="{{ \Illuminate\Support\Facades\Vite::cspNonce() }}">{!! json_encode($ld, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>

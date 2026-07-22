@@ -1,3 +1,5 @@
+import { Link } from '@inertiajs/react';
+
 import { useI18n } from '@/hooks/use-i18n';
 import { cn } from '@/lib/utils';
 
@@ -15,7 +17,10 @@ export function LanguageSwitcher({ className }: { className?: string }) {
             <ul className="flex flex-wrap items-center gap-x-1 gap-y-1">
                 {locales.map((locale) => (
                     <li key={locale.code}>
-                        <a
+                        {/* An Inertia visit, so switching language keeps the SPA
+                            alive; <html lang>/<html dir> are re-synced from the
+                            new page's shared props (see app.tsx). */}
+                        <Link
                             href={locale.url}
                             hrefLang={locale.code}
                             lang={locale.code}
@@ -29,7 +34,7 @@ export function LanguageSwitcher({ className }: { className?: string }) {
                             )}
                         >
                             {locale.name}
-                        </a>
+                        </Link>
                     </li>
                 ))}
             </ul>

@@ -7,6 +7,7 @@ namespace App\Services;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use App\Models\Setting;
+use App\Support\Branding;
 use App\Support\Locale;
 use App\Support\Translate;
 use Illuminate\Support\Facades\App;
@@ -75,6 +76,9 @@ class SiteChrome
         foreach ($keys as $key) {
             $settings[$key] = Translate::resolve(Setting::get($key), $locale);
         }
+
+        // Resolved branding the header needs; null keeps the built-in emblem.
+        $settings['site.logo_url'] = Branding::logoUrl();
 
         return $settings;
     }
