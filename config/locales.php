@@ -49,6 +49,30 @@ return [
             'regional' => 'nl_NL',
             'html_lang' => 'nl-NL',
         ],
+        'es' => [
+            'name' => 'Español',
+            'english_name' => 'Spanish',
+            'dir' => 'ltr',
+            'prefix' => 'es',
+            'regional' => 'es_ES',
+            'html_lang' => 'es',
+        ],
+        'he' => [
+            'name' => 'עברית',
+            'english_name' => 'Hebrew',
+            'dir' => 'rtl',
+            'prefix' => 'he',
+            'regional' => 'he_IL',
+            'html_lang' => 'he',
+        ],
+        'de' => [
+            'name' => 'Deutsch',
+            'english_name' => 'German',
+            'dir' => 'ltr',
+            'prefix' => 'de',
+            'regional' => 'de_DE',
+            'html_lang' => 'de',
+        ],
     ],
 
     /*

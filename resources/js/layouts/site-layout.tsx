@@ -1,8 +1,10 @@
 import { useLayoutEffect } from 'react';
 import type { PropsWithChildren } from 'react';
 
+import { ContactBubble } from '@/components/site/contact-bubble';
 import { SiteFooter } from '@/components/site/site-footer';
 import { SiteHeader } from '@/components/site/site-header';
+import { SocialBubble } from '@/components/site/social-bubble';
 import { useI18n } from '@/hooks/use-i18n';
 import type { SiteMenus, SiteSettings } from '@/types/site';
 
@@ -53,6 +55,9 @@ export function SiteLayout({
                 organization={menus.footerOrganization}
                 settings={settings}
             />
+
+            <ContactBubble settings={settings} />
+            <SocialBubble settings={settings} />
         </div>
     );
 }

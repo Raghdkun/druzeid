@@ -56,7 +56,11 @@ function NavTopItem({ item }: { item: NavItem }) {
 
     const itemClasses = cn(
         'flex h-full items-center gap-1 px-5 py-4 text-[15px] font-semibold transition-colors',
-        active ? 'bg-white text-bar-dark' : 'text-white/90 hover:bg-white hover:text-bar-dark',
+        // The menu turns the organisation's blue on hover and when its dropdown
+        // is open — the "international blue" highlight the client asked for.
+        active || open
+            ? 'bg-druze-blue text-white'
+            : 'text-white/90 hover:bg-druze-blue hover:text-white',
     );
 
     if (!hasChildren) {

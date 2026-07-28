@@ -1,3 +1,5 @@
+import { Color } from '@tiptap/extension-color';
+import { TextStyle } from '@tiptap/extension-text-style';
 import { EditorContent, useEditor  } from '@tiptap/react';
 import type {Editor} from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
@@ -15,11 +17,23 @@ import {
     Underline as UnderlineIcon,
     Undo,
 } from 'lucide-react';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { Separator } from '@/components/ui/separator';
 import { Toggle } from '@/components/ui/toggle';
 import { cn } from '@/lib/utils';
+
+/**
+ * The text-colour palette offered in the toolbar — the brand colours (readable
+ * on white) plus a reset. Kept to a small fixed set so the sanitiser only has
+ * to permit these; arbitrary colours are neither offered nor needed.
+ */
+const TEXT_COLORS: Array<{ label: string; value: string }> = [
+    { label: 'أزرق', value: '#069ed9' },
+    { label: 'أخضر', value: '#00843d' },
+    { label: 'أحمر', value: '#c8102e' },
+    { label: 'رمادي', value: '#555555' },
+];
 
 /**
  * Rich-text (HTML) editor built on Tiptap with a shadcn-styled toolbar.
@@ -54,6 +68,10 @@ export function RichTextEditor({
                     HTMLAttributes: { rel: 'noreferrer noopener', target: '_blank' },
                 },
             }),
+            // Text colour: TextStyle carries the mark, Color sets it. Emitted as
+            // <span style="color:…">, allowed by the `content` purifier profile.
+            TextStyle,
+            Color,
         ],
         content: value || '',
         editorProps: {
@@ -156,12 +174,80 @@ return;
 
             <Divider />
 
+            <ColorControl editor={editor} />
+
+            <Divider />
+
             <Btn onClick={() => editor.chain().focus().undo().run()} disabled={!editor.can().undo()} label="تراجع">
                 <Undo className="size-4" />
             </Btn>
             <Btn onClick={() => editor.chain().focus().redo().run()} disabled={!editor.can().redo()} label="إعادة">
                 <Redo className="size-4" />
             </Btn>
+        </div>
+    );
+}
+
+function ColorControl({ editor }: { editor: Editor }) {
+    const [open, setOpen] = useState(false);
+    const active = (editor.getAttributes('textStyle').color as string | undefined) ?? null;
+
+    return (
+        <div className="relative">
+            <Toggle
+                size="sm"
+                pressed={open || active !== null}
+                onPressedChange={() => setOpen((v) => !v)}
+                aria-label="لون النص"
+                aria-expanded={open}
+                title="لون النص"
+                className="size-8 p-0"
+            >
+                <span
+                    className="flex size-4 items-center justify-center rounded-sm border border-border text-[11px] font-bold"
+                    style={{ color: active ?? 'currentColor' }}
+                >
+                    A
+                </span>
+            </Toggle>
+
+            {open && (
+                <>
+                    <div className="fixed inset-0 z-10" onClick={() => setOpen(false)} aria-hidden />
+                    <div className="absolute top-full z-20 mt-1 flex items-center gap-1 rounded-md border border-border bg-popover p-1.5 shadow-md">
+                        {TEXT_COLORS.map((color) => (
+                            <button
+                                key={color.value}
+                                type="button"
+                                aria-label={color.label}
+                                title={color.label}
+                                onClick={() => {
+                                    editor.chain().focus().setColor(color.value).run();
+                                    setOpen(false);
+                                }}
+                                className={cn(
+                                    'size-6 rounded-full ring-offset-1 transition hover:ring-2 hover:ring-ring',
+                                    active === color.value && 'ring-2 ring-ring',
+                                )}
+                                style={{ backgroundColor: color.value }}
+                            />
+                        ))}
+                        <Separator orientation="vertical" className="mx-0.5 h-5" />
+                        <button
+                            type="button"
+                            aria-label="بلا لون"
+                            title="بلا لون"
+                            onClick={() => {
+                                editor.chain().focus().unsetColor().run();
+                                setOpen(false);
+                            }}
+                            className="flex size-6 items-center justify-center rounded-full border border-border text-xs text-muted-foreground hover:bg-muted"
+                        >
+                            ✕
+                        </button>
+                    </div>
+                </>
+            )}
         </div>
     );
 }

@@ -1,6 +1,7 @@
 import { Link } from '@inertiajs/react';
 import { useEffect, useState } from 'react';
 
+import { BrandLockup } from '@/components/site/brand-lockup';
 import { Picture } from '@/components/site/picture';
 import { useI18n } from '@/hooks/use-i18n';
 import { cn } from '@/lib/utils';
@@ -49,6 +50,10 @@ export function HeroSection({ section }: { section: HeroData }) {
             </div>
 
             <div className="mx-auto w-full max-w-6xl px-4 py-24 text-center sm:px-6 lg:px-8">
+                {/* The emblem sits within the image frame; the name is the h1. */}
+                <div className="mb-6 flex justify-center">
+                    <BrandLockup variant="emblem" />
+                </div>
                 <h1 className="mx-auto max-w-3xl font-display text-4xl font-black text-white drop-shadow-sm sm:text-5xl lg:text-6xl">
                     {section.title}
                 </h1>
@@ -100,7 +105,7 @@ function HeroButton({
     children: React.ReactNode;
 }) {
     const classes = cn(
-        'inline-flex items-center justify-center rounded-md border-2 px-6 py-2.5 text-base font-semibold transition-colors',
+        'inline-flex items-center justify-center rounded-full border-2 px-7 py-2.5 text-base font-semibold transition-colors',
         primary
             ? 'border-white bg-white text-bar-dark hover:bg-white/90'
             : 'border-white/80 text-white hover:bg-white/10',

@@ -1,9 +1,7 @@
 {
     "skip_to_content": "Skip to content",
-
     "site.tagline": "A non-profit humanitarian organization introducing the Druze — Bani Ma'ruf",
     "site.logo_alt": "Druze Identity Organization logo",
-
     "nav.home": "Home",
     "nav.projects": "Our Projects",
     "nav.about": "About the Organization",
@@ -12,22 +10,18 @@
     "nav.open_menu": "Open menu",
     "nav.close_menu": "Close menu",
     "nav.expand": "Expand",
-
     "search.label": "Search the site",
     "search.placeholder": "Search…",
     "search.submit": "Search",
     "search.open": "Open search",
-
     "lang.label": "Language",
     "lang.switcher_label": "Language selection",
     "lang.current": "Current language",
-
     "footer.sections": "Site Sections",
     "footer.organization": "Organization",
     "footer.contact": "Get in Touch",
     "footer.rights": "All rights reserved.",
     "footer.social_label": "Follow us",
-
     "contact.title": "Contact Us",
     "contact.name": "Name",
     "contact.email": "Email",
@@ -38,12 +32,10 @@
     "contact.success": "Thank you for reaching out. We have received your message and will reply soon.",
     "contact.error": "The message could not be sent. Please try again.",
     "contact.required": "Required field",
-
     "status.under_construction": "Under construction",
     "status.coming_soon": "Coming soon",
     "status.planned_sections": "Planned sections",
     "status.visit_site": "Visit site",
-
     "common.read_more": "Read more",
     "common.back_home": "Back to home",
     "common.next_page": "Next page",
@@ -51,5 +43,15 @@
     "common.page_not_found": "Page not found",
     "common.page_not_found_body": "The page you requested could not be found. It may have been moved or removed.",
     "common.error": "An error occurred",
-    "common.loading": "Loading…"
+    "common.loading": "Loading…",
+    "nav.news": "Druze News",
+    "news.title": "News",
+    "news.read_article": "Read article",
+    "news.source": "Source",
+    "news.empty": "No news yet.",
+    "news.latest": "Latest news",
+    "contact.call": "Call us",
+    "contact.whatsapp": "WhatsApp",
+    "contact.bubble_label": "Contact us",
+    "news.all": "All news"
 }

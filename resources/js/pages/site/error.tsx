@@ -47,7 +47,7 @@ export default function SiteError({ status, menus, settings }: Props) {
 
                 <Link
                     href={homeUrl}
-                    className="mt-10 inline-flex items-center gap-2 rounded-md border-2 border-druze-blue px-6 py-2.5 font-semibold text-druze-blue transition-colors hover:bg-druze-blue hover:text-white"
+                    className="mt-10 inline-flex items-center gap-2 rounded-full border-2 border-druze-blue px-7 py-2.5 font-semibold text-druze-blue transition-colors hover:bg-druze-blue hover:text-white"
                 >
                     {t('common.back_home')}
                 </Link>

@@ -27,10 +27,20 @@ export function SiteFooter({
         <footer className="border-t-4 border-druze-blue bg-bar-dark text-white/85">
             <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
                 <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-4">
-                    {/* Identity */}
+                    {/* Identity — the logo shares its source with the header
+                        (settings['site.logo_url']), so changing the main logo
+                        in the dashboard updates the footer automatically. */}
                     <div className="lg:col-span-1">
                         <div className="flex items-center gap-3">
-                            <DruzeStar className="h-11 w-11" decorative />
+                            {settings['site.logo_url'] ? (
+                                <img
+                                    src={settings['site.logo_url']}
+                                    alt=""
+                                    className="h-11 w-11 shrink-0 object-contain"
+                                />
+                            ) : (
+                                <DruzeStar className="h-11 w-11" decorative />
+                            )}
                             <span className="font-display text-base font-bold text-white">
                                 {settings['site.short_name']}
                             </span>

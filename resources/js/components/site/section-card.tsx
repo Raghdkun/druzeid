@@ -39,7 +39,7 @@ export function SectionCard({ card }: { card: Card }) {
                     <span aria-hidden className={cn('h-[3px] w-8', accent.rule)} />
                 </div>
 
-                <h3 className="mt-2 font-display text-lg font-bold text-ink transition-colors group-hover:text-druze-blue sm:text-xl">
+                <h3 className="mt-2 font-display text-lg font-bold text-druze-blue transition-colors group-hover:text-druze-blue-deep sm:text-xl">
                     {card.title}
                 </h3>
 

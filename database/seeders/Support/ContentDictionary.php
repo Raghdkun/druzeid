@@ -32,6 +32,9 @@ final class ContentDictionary
             'en' => $entry['en'] ?? null,
             'fr' => $entry['fr'] ?? null,
             'nl' => $entry['nl'] ?? null,
+            'es' => $entry['es'] ?? null,
+            'he' => $entry['he'] ?? null,
+            'de' => $entry['de'] ?? null,
         ];
     }
 
@@ -58,26 +61,33 @@ final class ContentDictionary
      * A handful of labels the seeder introduces itself (they are not part of
      * the extracted source, so they are not in ContentTranslations).
      *
-     * @var array<string, array{en: string, fr: string, nl: string}>
+     * @var array<string, array{en: string, fr: string, nl: string, es: string, he: string, de: string}>
      */
     private const SUPPLEMENT = [
         'الأقسام المخطط لها' => [
             'en' => 'Planned sections',
             'fr' => 'Sections prévues',
             'nl' => 'Geplande secties',
+            'es' => 'Secciones previstas',
+            'he' => 'מדורים מתוכננים',
+            'de' => 'Geplante Bereiche',
         ],
         'أقســام الموقع' => [
             'en' => 'Site sections',
             'fr' => 'Sections du site',
             'nl' => 'Sitesecties',
+            'es' => 'Secciones del sitio',
+            'he' => 'מדורי האתר',
+            'de' => 'Website-Bereiche',
         ],
     ];
 
     /**
      * The translation table, keyed by the normalised Arabic source: the
-     * generated ContentTranslations plus the seeder's own labels.
+     * generated ContentTranslations plus the seeder's own labels, merged with
+     * the es/he/de data file.
      *
-     * @return array<string, array{en?: string, fr?: string, nl?: string}>
+     * @return array<string, array{en?: string, fr?: string, nl?: string, es?: string, he?: string, de?: string}>
      */
     private static function map(): array
     {
@@ -92,11 +102,46 @@ final class ContentDictionary
                 ? ContentTranslations::all() + self::SUPPLEMENT
                 : self::SUPPLEMENT;
 
+            // es/he/de were translated in a later round and live in a separate
+            // data file (keyed by the same Arabic source); merge them in.
+            $extra = self::extra();
+
             foreach ($source as $arabic => $translations) {
-                $normalised[ArabicText::key($arabic)] = $translations;
+                $key = ArabicText::key($arabic);
+                $normalised[$key] = array_merge($translations, $extra[$key] ?? []);
             }
         }
 
         return $normalised;
+    }
+
+    /**
+     * The es/he/de translations, keyed by normalised Arabic source.
+     *
+     * @return array<string, array{es?: string, he?: string, de?: string}>
+     */
+    private static function extra(): array
+    {
+        $path = database_path('seeders/data/content-extra-translations.json');
+
+        if (! is_file($path)) {
+            return [];
+        }
+
+        $data = json_decode((string) file_get_contents($path), true);
+
+        if (! is_array($data)) {
+            return [];
+        }
+
+        $out = [];
+
+        foreach ($data as $arabic => $translations) {
+            if (is_array($translations)) {
+                $out[ArabicText::key($arabic)] = $translations;
+            }
+        }
+
+        return $out;
     }
 }

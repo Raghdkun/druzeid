@@ -1,3 +1,4 @@
+import { BrandLockup } from '@/components/site/brand-lockup';
 import { Picture } from '@/components/site/picture';
 import { accentClasses } from '@/lib/accent';
 import { cn } from '@/lib/utils';
@@ -32,6 +33,9 @@ export function PageHeader({
                     className="absolute inset-0 -z-10 h-full w-full object-cover opacity-40"
                 />
                 <div className="mx-auto max-w-6xl px-4 py-20 sm:px-6 lg:px-8">
+                    <div className="mb-6">
+                        <BrandLockup tone="light" />
+                    </div>
                     <h1 className="max-w-3xl font-display text-3xl font-bold text-white sm:text-5xl">
                         {title}
                     </h1>
@@ -47,7 +51,10 @@ export function PageHeader({
     return (
         <div className="border-b border-hairline bg-white">
             <div className="mx-auto max-w-6xl px-4 py-14 sm:px-6 lg:px-8">
-                <h1 className="font-display text-3xl font-bold text-ink sm:text-4xl">{title}</h1>
+                <div className="mb-6">
+                    <BrandLockup tone="ink" />
+                </div>
+                <h1 className="font-display text-3xl font-bold text-druze-blue sm:text-4xl">{title}</h1>
                 <span aria-hidden className={cn('mt-4 block h-1 w-16', accentClass.rule)} />
                 {excerpt && <p className="mt-4 max-w-2xl text-lg text-ink-muted">{excerpt}</p>}
             </div>

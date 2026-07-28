@@ -45,6 +45,7 @@ export interface SiteSettings {
     /** Uploaded header logo; null falls back to the built-in Druze star. */
     'site.logo_url': string | null;
     'contact.email': string | null;
+    'contact.whatsapp': string | null;
     'contact.phones': ContactPhone[] | null;
     'contact.address': string | null;
     'social.links': Array<{ platform: string; url: string }> | null;
@@ -143,6 +144,18 @@ export interface VideoSection {
      * (so the field arrives under the key `image`). `kind` is 'video'.
      */
     image: ImageProps | null;
+}
+
+/** A news item as shown in the index and cards. */
+export interface NewsCard {
+    id: number;
+    slug: string;
+    href: string;
+    title: string;
+    excerpt: string | null;
+    image: ImageProps | null;
+    publishedAt: string | null;
+    category: string | null;
 }
 
 export interface ContactSection {

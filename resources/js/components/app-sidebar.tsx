@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { FileText, Home, Images, LayoutGrid, ListTree, Settings, Users } from 'lucide-react';
+import { FileText, Home, Images, LayoutGrid, ListTree, Newspaper, Settings, Users } from 'lucide-react';
 
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -15,6 +15,7 @@ import {
 } from '@/components/ui/sidebar';
 import { useI18n } from '@/hooks/use-i18n';
 import { overview } from '@/routes/cms';
+import * as articles from '@/routes/cms/articles';
 import * as media from '@/routes/cms/media';
 import * as menus from '@/routes/cms/menus';
 import * as pages from '@/routes/cms/pages';
@@ -36,6 +37,7 @@ export function AppSidebar() {
     const contentNav: NavItem[] = [
         { title: 'لوحة التحكم', href: overview(), icon: LayoutGrid },
         { title: 'الصفحات', href: pages.index(), icon: FileText },
+        { title: 'الأخبار', href: articles.index(), icon: Newspaper },
         { title: 'الوسائط', href: media.index(), icon: Images },
         { title: 'القوائم', href: menus.index(), icon: ListTree },
     ];

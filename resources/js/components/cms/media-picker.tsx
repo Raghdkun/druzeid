@@ -1,4 +1,4 @@
-import { ImageOff, Play, Plus, X } from 'lucide-react';
+import { Check, ImageOff, Play, Plus, X } from 'lucide-react';
 import { useState } from 'react';
 
 import { Button } from '@/components/ui/button';
@@ -18,16 +18,25 @@ export interface LibraryImage {
 
 type MediaKind = 'image' | 'video';
 
-/** A library item's thumbnail: the poster (with a play badge) for video. */
-function Thumb({ item, className }: { item: LibraryImage; className?: string }) {
+/**
+ * A library item's thumbnail: the poster (with a play badge) for video. The
+ * image is absolutely positioned to fill its (aspect-ratio) parent exactly, so
+ * it always cover-crops cleanly regardless of the grid/flex context.
+ */
+function Thumb({ item }: { item: LibraryImage }) {
     const src = item.kind === 'video' ? item.poster : item.url;
 
     return (
-        <span className={cn('relative block h-full w-full overflow-hidden bg-muted', className)}>
+        <>
             {src ? (
-                <img src={src} alt={item.alt} loading="lazy" className="h-full w-full object-cover" />
+                <img
+                    src={src}
+                    alt={item.alt}
+                    loading="lazy"
+                    className="absolute inset-0 h-full w-full object-cover"
+                />
             ) : (
-                <span className="flex h-full w-full items-center justify-center text-muted-foreground">
+                <span className="absolute inset-0 flex items-center justify-center text-muted-foreground">
                     <Play className="size-5" aria-hidden />
                 </span>
             )}
@@ -38,7 +47,7 @@ function Thumb({ item, className }: { item: LibraryImage; className?: string }) 
                     </span>
                 </span>
             )}
-        </span>
+        </>
     );
 }
 
@@ -71,7 +80,7 @@ export function MediaPicker({
 
             {selected ? (
                 <div className="relative w-40">
-                    <span className="block aspect-[3/2] overflow-hidden rounded-md border border-border">
+                    <span className="relative block aspect-[3/2] overflow-hidden rounded-md border border-border bg-muted">
                         <Thumb item={selected} />
                     </span>
                     <button
@@ -148,7 +157,7 @@ export function MultiMediaPicker({
             <div className="flex flex-wrap gap-2">
                 {selected.map((image) => (
                     <div key={image.id} className="relative">
-                        <span className="block size-20 overflow-hidden rounded-md border border-border">
+                        <span className="relative block size-20 overflow-hidden rounded-md border border-border bg-muted">
                             <Thumb item={image} />
                         </span>
                         <button
@@ -212,56 +221,67 @@ function MediaPickerModal({
         multi ? (selectedIds ?? []).includes(id) : selectedId === id;
 
     return (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4" role="dialog" aria-modal="true">
-            <div className="absolute inset-0 bg-black/40" onClick={onClose} aria-hidden />
-            <div className="relative flex max-h-[80vh] w-full max-w-3xl flex-col overflow-hidden rounded-xl border border-border bg-background shadow-xl">
-                <header className="flex items-center gap-3 border-b border-border p-4">
+        <div className="fixed inset-0 z-50 flex items-end justify-center sm:items-center sm:p-4" role="dialog" aria-modal="true">
+            <div className="absolute inset-0 bg-black/50" onClick={onClose} aria-hidden />
+            {/* A near-full-height sheet on mobile; a centred dialog on larger
+                screens. Flex column so the grid scrolls within a fixed frame. */}
+            <div className="relative flex max-h-[92vh] w-full max-w-4xl flex-col overflow-hidden rounded-t-2xl border border-border bg-background shadow-xl sm:max-h-[85vh] sm:rounded-2xl">
+                <header className="flex flex-wrap items-center gap-3 border-b border-border p-4">
                     <h2 className="font-display font-bold">اختر من مكتبة الوسائط</h2>
+                    <Button variant="ghost" size="icon" onClick={onClose} aria-label="إغلاق" className="ms-auto sm:order-last">
+                        <X className="size-4" />
+                    </Button>
                     <Input
                         value={query}
                         onChange={(e) => setQuery(e.target.value)}
                         placeholder="بحث بالنص البديل…"
-                        className="ms-auto max-w-xs"
+                        className="order-last w-full sm:order-none sm:ms-auto sm:w-auto sm:max-w-xs"
                     />
-                    <Button variant="ghost" size="icon" onClick={onClose} aria-label="إغلاق">
-                        <X className="size-4" />
-                    </Button>
                 </header>
 
-                <div className="grid grid-cols-3 gap-3 overflow-y-auto p-4 sm:grid-cols-4 md:grid-cols-5">
-                    {filtered.map((image) => (
-                        <button
-                            key={image.id}
-                            type="button"
-                            onClick={() => onSelect(image.id)}
-                            className={cn(
-                                'group relative aspect-square overflow-hidden rounded-md border-2 transition-colors',
-                                isSelected(image.id)
-                                    ? 'border-druze-blue'
-                                    : 'border-transparent hover:border-druze-blue/40',
-                            )}
-                        >
-                            <Thumb item={image} />
-                            {image.needsAltReview && (
-                                <span
-                                    className="absolute top-1 end-1 size-2 rounded-full bg-[color-mix(in_srgb,var(--color-druze-yellow)_85%,black)]"
-                                    title="بحاجة إلى نص بديل"
-                                />
-                            )}
-                        </button>
-                    ))}
+                <div className="grid min-h-0 flex-1 auto-rows-min grid-cols-3 gap-3 overflow-y-auto p-4 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6">
+                    {filtered.map((image) => {
+                        const selected = isSelected(image.id);
+
+                        return (
+                            <button
+                                key={image.id}
+                                type="button"
+                                onClick={() => onSelect(image.id)}
+                                aria-pressed={selected}
+                                className={cn(
+                                    'group relative aspect-square overflow-hidden rounded-lg border-2 bg-muted transition-colors',
+                                    selected
+                                        ? 'border-druze-blue ring-2 ring-druze-blue/30'
+                                        : 'border-transparent hover:border-druze-blue/50',
+                                )}
+                            >
+                                <Thumb item={image} />
+                                {selected && (
+                                    <span className="absolute inset-0 flex items-center justify-center bg-druze-blue/25">
+                                        <Check className="size-6 text-white drop-shadow" aria-hidden />
+                                    </span>
+                                )}
+                                {image.needsAltReview && (
+                                    <span
+                                        className="absolute top-1.5 end-1.5 size-2.5 rounded-full bg-[color-mix(in_srgb,var(--color-druze-yellow)_85%,black)] ring-2 ring-black/20"
+                                        title="بحاجة إلى نص بديل"
+                                    />
+                                )}
+                            </button>
+                        );
+                    })}
                     {filtered.length === 0 && (
-                        <p className="col-span-full py-10 text-center text-sm text-muted-foreground">
+                        <p className="col-span-full py-16 text-center text-sm text-muted-foreground">
                             لا توجد نتائج.
                         </p>
                     )}
                 </div>
 
-                {multi && (
-                    <footer className="border-t border-border p-3 text-end">
-                        <Button onClick={onClose}>تم</Button>
-                    </footer>
-                )}
+                <footer className="flex items-center justify-between gap-2 border-t border-border p-3">
+                    <span className="text-xs text-muted-foreground">{filtered.length} عنصر</span>
+                    <Button onClick={onClose}>{multi ? 'تم' : 'إغلاق'}</Button>
+                </footer>
             </div>
         </div>
     );

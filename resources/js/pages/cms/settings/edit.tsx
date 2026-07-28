@@ -27,6 +27,7 @@ interface SettingsData {
     siteSeoDescription: Record<string, string>;
     footerNote: Record<string, string>;
     contactEmail: string;
+    contactWhatsapp: string;
     contactPhones: Phone[];
     contactAddress: string | null;
     socialLinks: Social[];
@@ -58,6 +59,7 @@ export default function SettingsEdit({
         siteSeoDescription: settings.siteSeoDescription ?? {},
         footerNote: settings.footerNote ?? {},
         contactEmail: settings.contactEmail ?? '',
+        contactWhatsapp: settings.contactWhatsapp ?? '',
         contactPhones: settings.contactPhones ?? [],
         contactAddress: settings.contactAddress ?? '',
         socialLinks: settings.socialLinks ?? [],
@@ -192,14 +194,29 @@ export default function SettingsEdit({
 
                 <section className="space-y-4 rounded-xl border border-border bg-card p-5">
                     <h2 className="font-display text-lg font-bold">التواصل</h2>
-                    <div className="space-y-1.5">
-                        <Label htmlFor="email">البريد الإلكتروني</Label>
-                        <Input
-                            id="email"
-                            dir="ltr"
-                            value={form.data.contactEmail}
-                            onChange={(e) => form.setData('contactEmail', e.target.value)}
-                        />
+                    <div className="grid gap-4 sm:grid-cols-2">
+                        <div className="space-y-1.5">
+                            <Label htmlFor="email">البريد الإلكتروني</Label>
+                            <Input
+                                id="email"
+                                dir="ltr"
+                                value={form.data.contactEmail}
+                                onChange={(e) => form.setData('contactEmail', e.target.value)}
+                            />
+                        </div>
+                        <div className="space-y-1.5">
+                            <Label htmlFor="whatsapp">واتساب (بصيغة دولية)</Label>
+                            <Input
+                                id="whatsapp"
+                                dir="ltr"
+                                placeholder="+9639xxxxxxxx"
+                                value={form.data.contactWhatsapp}
+                                onChange={(e) => form.setData('contactWhatsapp', e.target.value)}
+                            />
+                            {form.errors.contactWhatsapp && (
+                                <p className="text-sm text-destructive">{form.errors.contactWhatsapp}</p>
+                            )}
+                        </div>
                     </div>
 
                     <div className="space-y-2">

@@ -1,0 +1,1087 @@
+{
+    "يضم": {
+        "es": "Incluye",
+        "he": "כולל",
+        "de": "Umfasst"
+    },
+    "الرؤية": {
+        "es": "Visión",
+        "he": "חזון",
+        "de": "Vision"
+    },
+    "الرسالة": {
+        "es": "Misión",
+        "he": "שליחות",
+        "de": "Mission"
+    },
+    "الأهداف": {
+        "es": "Objetivos",
+        "he": "יעדים",
+        "de": "Ziele"
+    },
+    "يحكى أن": {
+        "es": "Se cuenta que",
+        "he": "מסופר כי",
+        "de": "Man erzählt, dass"
+    },
+    "فرص عمل": {
+        "es": "Oportunidades de empleo",
+        "he": "הזדמנויות תעסוקה",
+        "de": "Beschäftigungsmöglichkeiten"
+    },
+    "وحمايته.": {
+        "es": "y protegerlo.",
+        "he": "והגנתו.",
+        "de": "und ihn zu schützen."
+    },
+    "فرص ومنح": {
+        "es": "Oportunidades y subvenciones",
+        "he": "הזדמנויות ומענקים",
+        "de": "Chancen und Zuschüsse"
+    },
+    "read more": {
+        "es": "leer más",
+        "he": "קרא עוד",
+        "de": "Weiterlesen"
+    },
+    "كاريكاتير": {
+        "es": "Caricatura",
+        "he": "קריקטורה",
+        "de": "Karikatur"
+    },
+    "ويهدف إلى:": {
+        "es": "Y tiene como objetivo:",
+        "he": "והוא נועד ל:",
+        "de": "Und es zielt darauf ab:"
+    },
+    "منح دراسية": {
+        "es": "Becas de estudio",
+        "he": "מלגות לימוד",
+        "de": "Studienstipendien"
+    },
+    "التعريف بها": {
+        "es": "Darla a conocer",
+        "he": "הצגתה",
+        "de": "Sie bekannt machen"
+    },
+    "دعم التعاون": {
+        "es": "Apoyar la cooperación",
+        "he": "תמיכה בשיתוף הפעולה",
+        "de": "Förderung der Zusammenarbeit"
+    },
+    "برامج تدريب": {
+        "es": "Programas de formación",
+        "he": "תוכניות הכשרה",
+        "de": "Schulungsprogramme"
+    },
+    "أعضاء الشرف": {
+        "es": "Miembros de honor",
+        "he": "חברי כבוד",
+        "de": "Ehrenmitglieder"
+    },
+    "مراكز أبحاث": {
+        "es": "Centros de investigación",
+        "he": "מרכזי מחקר",
+        "de": "Forschungszentren"
+    },
+    "تاريخ الدروز": {
+        "es": "Historia de los Drusos",
+        "he": "תולדות הדרוזים",
+        "de": "Geschichte der Drusen"
+    },
+    "آداب المضافة": {
+        "es": "Etiqueta de la madafa",
+        "he": "כללי הנימוס של המדאפה",
+        "de": "Etikette der Madafa"
+    },
+    "شخصيات درزية": {
+        "es": "Personalidades drusas",
+        "he": "דמויות דרוזיות",
+        "de": "Drusische Persönlichkeiten"
+    },
+    "مشاريع مائية": {
+        "es": "Proyectos hídricos",
+        "he": "פרויקטים של מים",
+        "de": "Wasserprojekte"
+    },
+    "مشاريع حرفية": {
+        "es": "Proyectos artesanales",
+        "he": "פרויקטים של מלאכת יד",
+        "de": "Handwerksprojekte"
+    },
+    "مشاريع خدمية": {
+        "es": "Proyectos de servicios",
+        "he": "פרויקטים של שירותים",
+        "de": "Dienstleistungsprojekte"
+    },
+    "أعضاء داعمين": {
+        "es": "Miembros de apoyo",
+        "he": "חברים תומכים",
+        "de": "Fördernde Mitglieder"
+    },
+    "منظمات دولية": {
+        "es": "Organizaciones internacionales",
+        "he": "ארגונים בין-לאומיים",
+        "de": "Internationale Organisationen"
+    },
+    "وكالات أنباء": {
+        "es": "Agencias de noticias",
+        "he": "סוכנויות ידיעות",
+        "de": "Nachrichtenagenturen"
+    },
+    "تعزيز التواصل": {
+        "es": "Fortalecer la comunicación",
+        "he": "חיזוק התקשורת",
+        "de": "Stärkung der Kommunikation"
+    },
+    "مشاريع الطاقة": {
+        "es": "Proyectos de energía",
+        "he": "פרויקטים של אנרגיה",
+        "de": "Energieprojekte"
+    },
+    "مشاريع زراعية": {
+        "es": "Proyectos agrícolas",
+        "he": "פרויקטים חקלאיים",
+        "de": "Landwirtschaftsprojekte"
+    },
+    "مشاريع صناعية": {
+        "es": "Proyectos industriales",
+        "he": "פרויקטים תעשייתיים",
+        "de": "Industrieprojekte"
+    },
+    "مشاريع سياحية": {
+        "es": "Proyectos turísticos",
+        "he": "פרויקטים תיירותיים",
+        "de": "Tourismusprojekte"
+    },
+    "مشاريع حكومية": {
+        "es": "Proyectos gubernamentales",
+        "he": "פרויקטים ממשלתיים",
+        "de": "Regierungsprojekte"
+    },
+    "مشاريع تنموية": {
+        "es": "Proyectos de desarrollo",
+        "he": "פרויקטים של פיתוח",
+        "de": "Entwicklungsprojekte"
+    },
+    "مشاريع تجارية": {
+        "es": "Proyectos comerciales",
+        "he": "פרויקטים מסחריים",
+        "de": "Handelsprojekte"
+    },
+    "فرص استثمارية": {
+        "es": "Oportunidades de inversión",
+        "he": "הזדמנויות השקעה",
+        "de": "Investitionsmöglichkeiten"
+    },
+    "وسيشمل الموقع": {
+        "es": "Y el sitio incluirá",
+        "he": "והאתר יכלול",
+        "de": "Und die Website wird umfassen"
+    },
+    "أعضاء منتسبين": {
+        "es": "Miembros afiliados",
+        "he": "חברים נלווים",
+        "de": "Angeschlossene Mitglieder"
+    },
+    "مثقفن ومؤثرين": {
+        "es": "Intelectuales e influencers",
+        "he": "אנשי רוח ומשפיענים",
+        "de": "Intellektuelle und Influencer"
+    },
+    "تقارير تحليلية": {
+        "es": "Informes analíticos",
+        "he": "דוחות אנליטיים",
+        "de": "Analytische Berichte"
+    },
+    "أبحاث أكاديمية": {
+        "es": "Investigación académica",
+        "he": "מחקר אקדמי",
+        "de": "Akademische Forschung"
+    },
+    "مشاريع إنشائية": {
+        "es": "Proyectos de construcción",
+        "he": "פרויקטים של בנייה",
+        "de": "Bauprojekte"
+    },
+    "مشاريع تعليمية": {
+        "es": "Proyectos educativos",
+        "he": "פרויקטים חינוכיים",
+        "de": "Bildungsprojekte"
+    },
+    "التجارة العامة": {
+        "es": "Comercio general",
+        "he": "מסחר כללי",
+        "de": "Allgemeiner Handel"
+    },
+    "البنوك والقروض": {
+        "es": "Bancos y préstamos",
+        "he": "בנקים והלוואות",
+        "de": "Banken und Kredite"
+    },
+    "الاعياد الدينية": {
+        "es": "Fiestas religiosas",
+        "he": "החגים הדתיים",
+        "de": "Religiöse Feiertage"
+    },
+    "القضاء العشائري": {
+        "es": "La justicia tribal",
+        "he": "השיפוט השבטי",
+        "de": "Die Stammesgerichtsbarkeit"
+    },
+    "الفزعات والحروب": {
+        "es": "Los llamados de auxilio y las guerras",
+        "he": "קריאות לעזרה ומלחמות",
+        "de": "Beistandsrufe und Kriege"
+    },
+    "الكتب والمؤلفات": {
+        "es": "Libros y obras",
+        "he": "ספרים וחיבורים",
+        "de": "Bücher und Schriften"
+    },
+    "دراسات اجتماعية": {
+        "es": "Estudios sociales",
+        "he": "מחקרים חברתיים",
+        "de": "Sozialstudien"
+    },
+    "قالوا في الدروز": {
+        "es": "Lo que se dijo sobre los Drusos",
+        "he": "מה שנאמר על הדרוזים",
+        "de": "Was über die Drusen gesagt wurde"
+    },
+    "العودة للرئيسية": {
+        "es": "Volver al inicio",
+        "he": "חזרה לעמוד הראשי",
+        "de": "Zurück zur Startseite"
+    },
+    "الاخبار المنوعة": {
+        "es": "Noticias variadas",
+        "he": "חדשות מגוונות",
+        "de": "Vermischte Nachrichten"
+    },
+    "مؤسسات أكاديمية": {
+        "es": "Instituciones académicas",
+        "he": "מוסדות אקדמיים",
+        "de": "Akademische Einrichtungen"
+    },
+    "المشاريع الحالية": {
+        "es": "Proyectos actuales",
+        "he": "הפרויקטים הנוכחיים",
+        "de": "Aktuelle Projekte"
+    },
+    "العائلات الدرزية": {
+        "es": "Las familias drusas",
+        "he": "המשפחות הדרוזיות",
+        "de": "Die drusischen Familien"
+    },
+    "الزعامات الدرزية": {
+        "es": "Los liderazgos drusos",
+        "he": "ההנהגות הדרוזיות",
+        "de": "Die drusischen Führungen"
+    },
+    "الفنون التشكيلية": {
+        "es": "Artes plásticas",
+        "he": "האמנויות הפלסטיות",
+        "de": "Bildende Künste"
+    },
+    "الصيرفة والتحويل": {
+        "es": "Cambio y transferencia de divisas",
+        "he": "המרת מטבע והעברות כספים",
+        "de": "Geldwechsel und Überweisung"
+    },
+    "الأخبار الرياضية": {
+        "es": "Noticias deportivas",
+        "he": "חדשות ספורט",
+        "de": "Sportnachrichten"
+    },
+    "الأعضاء المؤسسون": {
+        "es": "Miembros fundadores",
+        "he": "החברים המייסדים",
+        "de": "Gründungsmitglieder"
+    },
+    "موقع أرشيف الدروز": {
+        "es": "Sitio del Archivo Druso",
+        "he": "אתר ארכיון הדרוזים",
+        "de": "Website des Drusen-Archivs"
+    },
+    "الهجرات التاريخية": {
+        "es": "Las migraciones históricas",
+        "he": "ההגירות ההיסטוריות",
+        "de": "Historische Migrationen"
+    },
+    "العادات والتقاليد": {
+        "es": "Costumbres y tradiciones",
+        "he": "מנהגים ומסורות",
+        "de": "Bräuche und Traditionen"
+    },
+    "الدراسات والأبحاث": {
+        "es": "Estudios e investigaciones",
+        "he": "מחקרים ועיונים",
+        "de": "Studien und Forschung"
+    },
+    "المشاريع والأعمال": {
+        "es": "Proyectos y negocios",
+        "he": "פרויקטים ועסקים",
+        "de": "Projekte und Unternehmen"
+    },
+    "موقع أخبار الدروز": {
+        "es": "Sitio de Noticias Drusas",
+        "he": "אתר חדשות הדרוזים",
+        "de": "Website der Drusen-Nachrichten"
+    },
+    "القوانين والأنظمة": {
+        "es": "Leyes y reglamentos",
+        "he": "חוקים ותקנות",
+        "de": "Gesetze und Vorschriften"
+    },
+    "تهدف المنظمة إلى …": {
+        "es": "La organización tiene como objetivo …",
+        "he": "הארגון שואף ל…",
+        "de": "Die Organisation zielt darauf ab …"
+    },
+    "تسهيل الوصول إليها": {
+        "es": "Facilitar el acceso a ella",
+        "he": "הקלת הגישה אליה",
+        "de": "Den Zugang dazu erleichtern"
+    },
+    "الأعراف الاجتماعية": {
+        "es": "Las normas sociales",
+        "he": "הנורמות החברתיות",
+        "de": "Gesellschaftliche Normen"
+    },
+    "دور المرأة الدرزية": {
+        "es": "El papel de la mujer drusa",
+        "he": "תפקידה של האישה הדרוזית",
+        "de": "Die Rolle der drusischen Frau"
+    },
+    "وثائق وصور تاريخية": {
+        "es": "Documentos y fotografías históricas",
+        "he": "מסמכים ותצלומים היסטוריים",
+        "de": "Historische Dokumente und Fotos"
+    },
+    "الاستيراد والتصدير": {
+        "es": "Importación y exportación",
+        "he": "ייבוא וייצוא",
+        "de": "Import und Export"
+    },
+    "الاخبار الاقتصادية": {
+        "es": "Noticias económicas",
+        "he": "חדשות כלכלה",
+        "de": "Wirtschaftsnachrichten"
+    },
+    "الأخبار الاجتماعية": {
+        "es": "Noticias sociales",
+        "he": "חדשות חברה",
+        "de": "Gesellschaftsnachrichten"
+    },
+    "موقع دروز أون لاين": {
+        "es": "Sitio Druze Online",
+        "he": "אתר דרוז אונליין",
+        "de": "Website Druze Online"
+    },
+    "العضوية في المنظمة": {
+        "es": "La membresía en la organización",
+        "he": "החברות בארגון",
+        "de": "Die Mitgliedschaft in der Organisation"
+    },
+    "أعضاء مجلس الإدارة": {
+        "es": "Miembros del consejo de administración",
+        "he": "חברי מועצת המנהלים",
+        "de": "Vorstandsmitglieder"
+    },
+    "للتواصل مع المنظمة": {
+        "es": "Para contactar con la organización",
+        "he": "ליצירת קשר עם הארגון",
+        "de": "Um die Organisation zu kontaktieren"
+    },
+    "دعوة التوحيد في مصر": {
+        "es": "El llamado unitario en Egipto",
+        "he": "הקריאה לייחוד במצרים",
+        "de": "Der unitarische Ruf in Ägypten"
+    },
+    "موقع الارشيف الدرزي": {
+        "es": "El sitio del Archivo Druso",
+        "he": "אתר הארכיון הדרוזי",
+        "de": "Die Website des drusischen Archivs"
+    },
+    "النشاطات والمبادرات": {
+        "es": "Actividades e iniciativas",
+        "he": "פעילויות ויוזמות",
+        "de": "Aktivitäten und Initiativen"
+    },
+    "مراسم الزواج والطلاق": {
+        "es": "Los ritos del matrimonio y el divorcio",
+        "he": "טקסי הנישואין והגירושין",
+        "de": "Die Hochzeits- und Scheidungsriten"
+    },
+    "المتاحف وحراس التراث": {
+        "es": "Los museos y los guardianes del patrimonio",
+        "he": "המוזיאונים ושומרי המורשת",
+        "de": "Die Museen und die Hüter des Erbes"
+    },
+    "موقع الإقتصاد الدرزي": {
+        "es": "El sitio de la Economía Drusa",
+        "he": "אתר הכלכלה הדרוזית",
+        "de": "Die Website der drusischen Wirtschaft"
+    },
+    "موقع الاقتصاد الدرزي": {
+        "es": "El sitio de la Economía Drusa",
+        "he": "אתר הכלכלה הדרוזית",
+        "de": "Die Website der drusischen Wirtschaft"
+    },
+    "موقع مضافة بني معروف": {
+        "es": "El sitio de la Madafa de Banu Ma'ruf",
+        "he": "אתר המדאפה של בני מערוף",
+        "de": "Die Website der Madafa von Banu Maruf"
+    },
+    "ترندات السوشال ميديا": {
+        "es": "Tendencias de las redes sociales",
+        "he": "מגמות המדיה החברתית",
+        "de": "Social-Media-Trends"
+    },
+    "قسم القوانين والأنظمة": {
+        "es": "Sección de leyes y reglamentos",
+        "he": "מדור החוקים והתקנות",
+        "de": "Abschnitt Gesetze und Vorschriften"
+    },
+    "نشأة الدعوة التوحيدية": {
+        "es": "El surgimiento del llamado unitario",
+        "he": "היווצרות הקריאה לייחוד",
+        "de": "Die Entstehung des unitarischen Rufs"
+    },
+    "مراسم العزاء والتأبين": {
+        "es": "Los ritos de duelo y homenaje",
+        "he": "טקסי האבל וההספד",
+        "de": "Die Trauer- und Gedenkriten"
+    },
+    "الدين التوحيدي الدرزي": {
+        "es": "La religión unitaria drusa",
+        "he": "דת הייחוד הדרוזית",
+        "de": "Die unitarische drusische Religion"
+    },
+    "موقع ثورة الدروز 1925": {
+        "es": "El sitio de la Revuelta Drusa de 1925",
+        "he": "אתר מרד הדרוזים 1925",
+        "de": "Die Website des Drusenaufstands von 1925"
+    },
+    "أعضاء مجلس المستشارين": {
+        "es": "Miembros del consejo consultivo",
+        "he": "חברי המועצה המייעצת",
+        "de": "Mitglieder des Beirats"
+    },
+    "مراسم الولادات الجديدة": {
+        "es": "Los ritos de los recién nacidos",
+        "he": "טקסי הלידות החדשות",
+        "de": "Die Riten für Neugeborene"
+    },
+    "تضمن دقة الخبر المنشور": {
+        "es": "Garantizar la exactitud de la noticia publicada",
+        "he": "הבטחת דיוק הידיעה המתפרסמת",
+        "de": "Die Richtigkeit der veröffentlichten Nachricht gewährleisten"
+    },
+    "موقع مجزرة الدروز 2025": {
+        "es": "El sitio de la Masacre Drusa de 2025",
+        "he": "אתר טבח הדרוזים 2025",
+        "de": "Die Website des Drusen-Massakers von 2025"
+    },
+    "موبايل : 0096179025597": {
+        "es": "Móvil: 0096179025597",
+        "he": "נייד: 0096179025597",
+        "de": "Mobil: 0096179025597"
+    },
+    "قسم النشاطات والمبادرات": {
+        "es": "Sección de actividades e iniciativas",
+        "he": "מדור הפעילויות והיוזמות",
+        "de": "Abschnitt Aktivitäten und Initiativen"
+    },
+    "مراسم عقد الراية والدية": {
+        "es": "Las ceremonias de reconciliación (el anudado del estandarte) y del precio de sangre",
+        "he": "טקסי הפיוס (קשירת הדגל) והכופר (דייה)",
+        "de": "Die Versöhnungszeremonien (das Binden des Banners) und des Blutgeldes"
+    },
+    "مشاريع الثروات الباطنية": {
+        "es": "Proyectos de recursos del subsuelo",
+        "he": "פרויקטים של אוצרות טבע תת-קרקעיים",
+        "de": "Projekte für Bodenschätze"
+    },
+    "السواء لتحقيق هذا الهدف.": {
+        "es": "por igual, para alcanzar este objetivo.",
+        "he": "כאחד, כדי להשיג מטרה זו.",
+        "de": "gleichermaßen, um dieses Ziel zu erreichen."
+    },
+    "المكتبة الصوتية والمرئية": {
+        "es": "La biblioteca de audio y vídeo",
+        "he": "הספרייה הקולית והחזותית",
+        "de": "Die Audio- und Videobibliothek"
+    },
+    "واتس أب : 00963994315333": {
+        "es": "WhatsApp: 00963994315333",
+        "he": "וואטסאפ: 00963994315333",
+        "de": "WhatsApp: 00963994315333"
+    },
+    "مشاريع دعم الهوية الدرزية": {
+        "es": "Proyectos de apoyo a la identidad drusa",
+        "he": "פרויקטים לתמיכה בזהות הדרוזית",
+        "de": "Projekte zur Förderung der drusischen Identität"
+    },
+    "موقع منظمة الهوية الدرزية": {
+        "es": "El sitio de la Organización de la Identidad Drusa",
+        "he": "אתר ארגון הזהות הדרוזית",
+        "de": "Die Website der Organisation der drusischen Identität"
+    },
+    "مواسم القطاف وجني المحاصيل": {
+        "es": "Las temporadas de recolección y cosecha",
+        "he": "עונות הקטיף והאיסוף של היבולים",
+        "de": "Die Ernte- und Pflücksaisons"
+    },
+    "مشاريع فرز وتدوير النفايات": {
+        "es": "Proyectos de clasificación y reciclaje de residuos",
+        "he": "פרויקטים למיון ומיחזור פסולת",
+        "de": "Projekte zur Abfalltrennung und -verwertung"
+    },
+    "شكراً لزيارتكم موقع منظمتنا": {
+        "es": "Gracias por visitar el sitio de nuestra organización",
+        "he": "תודה שביקרתם באתר הארגון שלנו",
+        "de": "Danke für Ihren Besuch auf der Website unserer Organisation"
+    },
+    "وسيحتوي على الأقسام التالية": {
+        "es": "Y contendrá las siguientes secciones",
+        "he": "והוא יכלול את המדורים הבאים",
+        "de": "Und sie wird die folgenden Abschnitte enthalten"
+    },
+    "الأخبار الاجتماعية والمحلية": {
+        "es": "Noticias sociales y locales",
+        "he": "חדשות חברתיות ומקומיות",
+        "de": "Gesellschaftliche und lokale Nachrichten"
+    },
+    "مساحة تفاعلية رقمية تهدف إلى": {
+        "es": "Un espacio digital interactivo que tiene como objetivo",
+        "he": "מרחב דיגיטלי אינטראקטיבי שנועד ל",
+        "de": "Ein interaktiver digitaler Raum, der darauf abzielt"
+    },
+    "تفضلوا للتعرف على أقسام الموقع": {
+        "es": "Le invitamos a conocer las secciones del sitio",
+        "he": "אנא הכירו את מדורי האתר",
+        "de": "Entdecken Sie bitte die Bereiche der Website"
+    },
+    "إحياء روح “المضافة” التقليدية،": {
+        "es": "Revivir el espíritu de la “madafa” tradicional,",
+        "he": "החייאת רוח ה“מדאפה” המסורתית,",
+        "de": "Die Wiederbelebung des Geistes der traditionellen „Madafa“,"
+    },
+    "مضافة بني معروف الموحدين الدروز": {
+        "es": "La Madafa de Banu Ma'ruf, los Drusos unitarios",
+        "he": "המדאפה של בני מערוף, הדרוזים המייחדים",
+        "de": "Die Madafa von Banu Maruf, den unitarischen Drusen"
+    },
+    "لماذا يحتاج الدروز هوية عالمية؟!": {
+        "es": "¿Por qué los Drusos necesitan una identidad global?!",
+        "he": "מדוע הדרוזים זקוקים לזהות עולמית?!",
+        "de": "Warum brauchen die Drusen eine globale Identität?!"
+    },
+    "برامج تمكين الشباب الدروز من خلال:": {
+        "es": "Programas para empoderar a la juventud drusa a través de:",
+        "he": "תוכניות להעצמת הצעירים הדרוזים באמצעות:",
+        "de": "Programme zur Stärkung der drusischen Jugend durch:"
+    },
+    "اللباس التقليدي (التراثي – الديني)": {
+        "es": "El vestido tradicional (patrimonial – religioso)",
+        "he": "הלבוש המסורתי (מורשתי – דתי)",
+        "de": "Die traditionelle Kleidung (Erbe – religiös)"
+    },
+    "تسهيل الوصول إلى المعلومات القانونية": {
+        "es": "Facilitar el acceso a la información jurídica",
+        "he": "הקלת הגישה למידע המשפטי",
+        "de": "Den Zugang zu Rechtsinformationen erleichtern"
+    },
+    "عناويننا على مواقع التواصل الإجتماعي": {
+        "es": "Nuestras direcciones en las redes sociales",
+        "he": "הכתובות שלנו ברשתות החברתיות",
+        "de": "Unsere Adressen in den sozialen Medien"
+    },
+    "المناسبات الرسمية والاحتفالات الوطنية": {
+        "es": "Las ocasiones oficiales y las celebraciones nacionales",
+        "he": "האירועים הרשמיים והחגיגות הלאומיות",
+        "de": "Die offiziellen Anlässe und nationalen Feierlichkeiten"
+    },
+    "المبادرات المجتمعية و الأنشطة الثقافية": {
+        "es": "Las iniciativas comunitarias y las actividades culturales",
+        "he": "היוזמות הקהילתיות והפעילויות התרבותיות",
+        "de": "Die Gemeinschaftsinitiativen und kulturellen Aktivitäten"
+    },
+    "بريد إلكتروني : DRUZE.IDENTITY@gmail.com": {
+        "es": "Correo electrónico: DRUZE.IDENTITY@gmail.com",
+        "he": "דוא\"ל: DRUZE.IDENTITY@gmail.com",
+        "de": "E-Mail: DRUZE.IDENTITY@gmail.com"
+    },
+    "توثيق التطورات التشريعية المتعلقة بالدروز": {
+        "es": "Documentar los desarrollos legislativos relativos a los Drusos",
+        "he": "תיעוד ההתפתחויות החקיקתיות הנוגעות לדרוזים",
+        "de": "Dokumentation der gesetzgeberischen Entwicklungen, die die Drusen betreffen"
+    },
+    "التطورات التعليمية والاقتصادية والقانونية": {
+        "es": "Los desarrollos educativos, económicos y jurídicos",
+        "he": "ההתפתחויות החינוכיות, הכלכליות והמשפטיות",
+        "de": "Die bildungsbezogenen, wirtschaftlichen und rechtlichen Entwicklungen"
+    },
+    "دعم مشاريع توثيق وحفظ التراث ونشره عالمياً": {
+        "es": "Apoyar los proyectos de documentación, preservación y difusión mundial del patrimonio",
+        "he": "תמיכה בפרויקטים לתיעוד המורשת, שימורה והפצתה ברחבי העולם",
+        "de": "Förderung von Projekten zur Dokumentation, Bewahrung und weltweiten Verbreitung des Erbes"
+    },
+    "وسيتم ربطه بمواقع المنظمة والمنصة المباشرة": {
+        "es": "Y se vinculará con los sitios de la organización y la plataforma en directo",
+        "he": "והוא יקושר לאתרי הארגון ולפלטפורמה החיה",
+        "de": "Und sie wird mit den Websites der Organisation und der Live-Plattform verknüpft"
+    },
+    "دليل بالمنصات الإخبارية والإعلاميين الموثوقين": {
+        "es": "Un directorio de plataformas informativas y profesionales de los medios de confianza",
+        "he": "מדריך של פלטפורמות חדשות ואנשי תקשורת מהימנים",
+        "de": "Ein Verzeichnis vertrauenswürdiger Nachrichtenplattformen und Medienschaffender"
+    },
+    "وسيكون هو المشروع الثالث لمنظمة الهوية الدرزية": {
+        "es": "Y será el tercer proyecto de la Organización de la Identidad Drusa",
+        "he": "והוא יהיה הפרויקט השלישי של ארגון הזהות הדרוזית",
+        "de": "Und es wird das dritte Projekt der Organisation der drusischen Identität sein"
+    },
+    "دورات تثقيفية بالهوية الدرزية (تاريخ، عادات، فكر)": {
+        "es": "Cursos formativos sobre la identidad drusa (historia, costumbres, pensamiento)",
+        "he": "קורסים חינוכיים על הזהות הדרוזית (היסטוריה, מנהגים, הגות)",
+        "de": "Bildungskurse zur drusischen Identität (Geschichte, Bräuche, Denken)"
+    },
+    "برامج قيادة شبابية (كيف تتم إدارة مبادرات أو منظمات)": {
+        "es": "Programas de liderazgo juvenil (cómo se gestionan iniciativas u organizaciones)",
+        "he": "תוכניות מנהיגות צעירה (כיצד מנוהלות יוזמות או ארגונים)",
+        "de": "Jugendführungsprogramme (wie Initiativen oder Organisationen verwaltet werden)"
+    },
+    "منصات ومؤتمرات حوار تناقش قضايا الشباب الدروز اليوم.": {
+        "es": "Plataformas y conferencias de diálogo que abordan las cuestiones de la juventud drusa de hoy.",
+        "he": "פלטפורמות וכנסי דיאלוג הדנים בסוגיות הצעירים הדרוזים כיום.",
+        "de": "Dialogplattformen und -konferenzen, die die Fragen der drusischen Jugend von heute erörtern."
+    },
+    "وسيكون بمثابة مشروعها الثاني للتعريف بالهوية الدرزية.": {
+        "es": "Y servirá como su segundo proyecto para dar a conocer la identidad drusa.",
+        "he": "והוא ישמש כפרויקט השני שלו להצגת הזהות הדרוזית.",
+        "de": "Und es wird als ihr zweites Projekt zur Bekanntmachung der drusischen Identität dienen."
+    },
+    "دعم القانونيين والباحثين والمهتمين بالشأن الدرزي عموماً": {
+        "es": "Apoyar a los juristas, investigadores y personas interesadas en los asuntos drusos en general",
+        "he": "תמיכה במשפטנים, בחוקרים ובמתעניינים בעניין הדרוזי בכלל",
+        "de": "Unterstützung von Juristen, Forschern und an drusischen Angelegenheiten Interessierten im Allgemeinen"
+    },
+    "معرض يضم أعمال فنانين دروز، مع نبذة عن كل فنان وأعماله.": {
+        "es": "Una exposición que reúne las obras de artistas drusos, con una reseña de cada artista y sus obras.",
+        "he": "תערוכה הכוללת את יצירותיהם של אמנים דרוזים, עם מבוא על כל אמן ויצירותיו.",
+        "de": "Eine Ausstellung mit den Werken drusischer Künstler, mit einem Porträt jedes Künstlers und seiner Werke."
+    },
+    "منظمة إنسانية غير ربحية تعرف بالموحدين الدروز - بني معروف": {
+        "es": "Una organización humanitaria sin fines de lucro que da a conocer a los Drusos unitarios - Banu Ma'ruf",
+        "he": "ארגון הומניטרי ללא מטרות רווח המציג את הדרוזים המייחדים - בני מערוף",
+        "de": "Eine gemeinnützige humanitäre Organisation, die die unitarischen Drusen - Banu Maruf bekannt macht"
+    },
+    "من مشاريع “منظمة الهوية الدرزية” برمجة وإدارة موقع أرشيفي": {
+        "es": "Entre los proyectos de la “Organización de la Identidad Drusa” figura el desarrollo y la gestión de un sitio de archivo",
+        "he": "בין פרויקטיו של “ארגון הזהות הדרוזית” נמנים בניית אתר ארכיוני וניהולו",
+        "de": "Zu den Projekten der „Organisation der drusischen Identität“ gehören die Entwicklung und Verwaltung einer Archiv-Website"
+    },
+    "تعزيز قيم التسامح والتعددية والحوار بين الثقافات والأديان.": {
+        "es": "Promover los valores de la tolerancia, el pluralismo y el diálogo entre las culturas y las religiones.",
+        "he": "קידום ערכי הסובלנות, הפלורליזם והדיאלוג בין התרבויות והדתות.",
+        "de": "Förderung der Werte von Toleranz, Pluralismus und Dialog zwischen den Kulturen und Religionen."
+    },
+    "يضم هذا التصنيف الأعضاء المساهمين بجهد أو بدعم مادي أو خدمي.": {
+        "es": "Esta categoría incluye a los miembros que contribuyen con su esfuerzo o con un apoyo material o en servicios.",
+        "he": "קטגוריה זו כוללת את החברים התורמים במאמץ או בתמיכה חומרית או בשירותים.",
+        "de": "Diese Kategorie umfasst die Mitglieder, die durch Einsatz oder durch materielle oder dienstliche Unterstützung beitragen."
+    },
+    "التوزع الجغرافي (لبنان، سوريا، فلسطين، الجولان، الأردن، المهجر)": {
+        "es": "La distribución geográfica (Líbano, Siria, Palestina, el Golán, Jordania, la diáspora)",
+        "he": "הפיזור הגאוגרפי (לבנון, סוריה, פלסטין, רמת הגולן, ירדן, התפוצות)",
+        "de": "Die geografische Verteilung (Libanon, Syrien, Palästina, der Golan, Jordanien, die Diaspora)"
+    },
+    "والمهتمين للبحث عن مصادر دقيقة وشاملة لفهم هذه الجماعة وتاريخها.": {
+        "es": "y a las personas interesadas, a buscar fuentes precisas y completas para comprender esta comunidad y su historia.",
+        "he": "ואת המתעניינים, לחפש מקורות מדויקים ומקיפים כדי להבין קהילה זו ואת תולדותיה.",
+        "de": "und die Interessierten, nach genauen und umfassenden Quellen zu suchen, um diese Gemeinschaft und ihre Geschichte zu verstehen."
+    },
+    "يضم هذا التصنيف جميع الأعضاء المنتسبين المستفيدين من خدمات المنظمة.": {
+        "es": "Esta categoría incluye a todos los miembros afiliados que se benefician de los servicios de la organización.",
+        "he": "קטגוריה זו כוללת את כל החברים הנלווים הנהנים משירותי הארגון.",
+        "de": "Diese Kategorie umfasst alle angeschlossenen Mitglieder, die die Dienste der Organisation in Anspruch nehmen."
+    },
+    "هو صاحب المبادرة في تأسيس المنظمة الذي وضع رؤيتها واهدافها الأساسية.": {
+        "es": "Es el promotor de la fundación de la organización, que estableció su visión y sus objetivos fundamentales.",
+        "he": "הוא היוזם של הקמת הארגון, אשר גיבש את חזונו ואת יעדיו הבסיסיים.",
+        "de": "Er ist der Initiator der Gründung der Organisation, der ihre Vision und ihre grundlegenden Ziele festgelegt hat."
+    },
+    "رئيس المجلس – نائب الرئيس – أمين سر – أمين صندوق – مسؤول علاقات عامة": {
+        "es": "Presidente del consejo – vicepresidente – secretario – tesorero – responsable de relaciones públicas",
+        "he": "יושב ראש המועצה – סגן היושב ראש – מזכיר – גזבר – אחראי יחסי ציבור",
+        "de": "Vorsitzender des Rates – stellvertretender Vorsitzender – Schriftführer – Schatzmeister – Öffentlichkeitsbeauftragter"
+    },
+    "ليكون مرجع لكل من يريد أن يتعرف على حقيقة الموحدين الدروز – بني معروف": {
+        "es": "Para ser una referencia para todo aquel que desee conocer la verdad sobre los Drusos unitarios – Banu Ma'ruf",
+        "he": "כדי לשמש מקור עיון לכל מי שרוצה להכיר את האמת על הדרוזים המייחדים – בני מערוף",
+        "de": "Um eine Referenz für jeden zu sein, der die Wahrheit über die unitarischen Drusen – Banu Maruf kennenlernen möchte"
+    },
+    "استخلاص العبر منها ويوجد منها قصص خرافية قالوها باقي الأمم عن الدروز .": {
+        "es": "extraer lecciones de ellas; y hay entre ellas relatos legendarios que otros pueblos contaron sobre los Drusos.",
+        "he": "הפקת לקחים מהם; ויש ביניהם סיפורים אגדיים שסיפרו שאר האומות על הדרוזים.",
+        "de": "Lehren aus ihnen zu ziehen; und darunter befinden sich legendäre Erzählungen, die andere Völker über die Drusen berichteten."
+    },
+    "دعم مشاريع شبابية صغيرة (منصات توثيق، محتوى ثقافي، صناعات تراثية ..الخ)": {
+        "es": "Apoyar pequeños proyectos juveniles (plataformas de documentación, contenido cultural, artesanías patrimoniales, etc.)",
+        "he": "תמיכה בפרויקטים צעירים קטנים (פלטפורמות תיעוד, תוכן תרבותי, מלאכות מורשת וכו')",
+        "de": "Förderung kleiner Jugendprojekte (Dokumentationsplattformen, kulturelle Inhalte, Erbe-Handwerke usw.)"
+    },
+    "تدريب على الإعلام والسوشال ميديا كي يستطيعوا أن ينشروا ثقافتهم بشكل حديث": {
+        "es": "Formación en medios y redes sociales para que puedan difundir su cultura de forma moderna",
+        "he": "הכשרה בתקשורת ובמדיה החברתית כדי שיוכלו להפיץ את תרבותם בדרך מודרנית",
+        "de": "Schulung in Medien und sozialen Medien, damit sie ihre Kultur auf moderne Weise verbreiten können"
+    },
+    "توثيق لمقولات لشخصيات غير درزية معروفة كتبت عن الدروز سلباً أو إيجاباً .": {
+        "es": "Documentación de citas de personalidades no drusas conocidas que escribieron sobre los Drusos, en sentido negativo o positivo.",
+        "he": "תיעוד של אמרות מאת דמויות לא-דרוזיות ידועות שכתבו על הדרוזים, לשלילה או לחיוב.",
+        "de": "Dokumentation von Zitaten bekannter nicht-drusischer Persönlichkeiten, die negativ oder positiv über die Drusen geschrieben haben."
+    },
+    "دعم مشاريع الصناعات اليدوية والتراثية وتشجيع متاحف المقتنيات وحراس التراث": {
+        "es": "Apoyar los proyectos de artesanía y de oficios patrimoniales y fomentar los museos de colecciones y los guardianes del patrimonio",
+        "he": "תמיכה בפרויקטים של מלאכת יד ומלאכות מורשת ועידוד מוזיאוני אספנות ושומרי המורשת",
+        "de": "Förderung von Handwerks- und Erbe-Handwerksprojekten sowie Förderung von Sammlungsmuseen und Hütern des Erbes"
+    },
+    "أرشيف غني بالأعمال الفنية والموسيقية والمسرحية والمرئية المرتبطة بالدروز.": {
+        "es": "Un rico archivo de obras artísticas, musicales, teatrales y visuales relacionadas con los Drusos.",
+        "he": "ארכיון עשיר של יצירות אמנותיות, מוזיקליות, תיאטרליות וחזותיות הקשורות לדרוזים.",
+        "de": "Ein reiches Archiv künstlerischer, musikalischer, theatralischer und visueller Werke mit Bezug zu den Drusen."
+    },
+    "ويحتوي الموقع على المعلومات التالية ضمن أقسام وتصنيفات واضحة وسهلة الوصول": {
+        "es": "Y el sitio contiene la siguiente información dentro de secciones y categorías claras y de fácil acceso",
+        "he": "והאתר מכיל את המידע הבא במסגרת מדורים וקטגוריות ברורים ונגישים",
+        "de": "Und die Website enthält die folgenden Informationen in klaren und leicht zugänglichen Abschnitten und Kategorien"
+    },
+    "وسيتم ربطه مع جميع مواقع المنظمة الإلكترونية وبالأخص مع موقع “دروز أون لاين": {
+        "es": "Y se vinculará con todos los sitios electrónicos de la organización, y en especial con el sitio “Druze Online",
+        "he": "והוא יקושר לכל אתרי הארגון האלקטרוניים, ובמיוחד לאתר “דרוז אונליין",
+        "de": "Und sie wird mit allen elektronischen Websites der Organisation verknüpft, insbesondere mit der Website „Druze Online"
+    },
+    "الحروب والثورات والمجازر (مع تخصيص موقع خاص لمجزرة 2025 وموقع خاص لثورة 1925)": {
+        "es": "Las guerras, las revueltas y las masacres (con un sitio dedicado a la masacre de 2025 y un sitio dedicado a la revuelta de 1925)",
+        "he": "המלחמות, המרידות והטבחים (עם אתר ייעודי לטבח 2025 ואתר ייעודי למרד 1925)",
+        "de": "Die Kriege, Aufstände und Massaker (mit einer eigenen Website für das Massaker von 2025 und einer eigenen Website für den Aufstand von 1925)"
+    },
+    "والانسانية والحقوقية التي تدافع عن حقوق الدروز في العالم دون انخراط سياسي أو حزبي.": {
+        "es": "y las humanitarias y de derechos que defienden los derechos de los Drusos en el mundo sin implicación política ni partidista.",
+        "he": "וההומניטריות וזכויות האדם המגנות על זכויות הדרוזים בעולם ללא מעורבות פוליטית או מפלגתית.",
+        "de": "und die humanitären und menschenrechtlichen, die die Rechte der Drusen in der Welt ohne politische oder parteiische Beteiligung verteidigen."
+    },
+    "قسم متخصص بإعداد ونشر الدراسات والتحليلات حول الواقع الدرزي في مختلف المجالات يشمل:": {
+        "es": "Una sección especializada en la elaboración y publicación de estudios y análisis sobre la realidad drusa en diversos ámbitos, que incluye:",
+        "he": "מדור המתמחה בהכנה ובפרסום של מחקרים וניתוחים על המציאות הדרוזית בתחומים שונים, הכולל:",
+        "de": "Ein Abschnitt, der auf die Erstellung und Veröffentlichung von Studien und Analysen zur drusischen Realität in verschiedenen Bereichen spezialisiert ist, darunter:"
+    },
+    "يهدف هذا القسم إلى دعم الاستثمار بالإنسان والإمكانات الفكرية والخبرات وفيها يتم نشر": {
+        "es": "Esta sección tiene como objetivo apoyar la inversión en la persona, las capacidades intelectuales y las competencias, y en ella se publican",
+        "he": "מדור זה נועד לתמוך בהשקעה באדם, ביכולות האינטלקטואליות ובמומחיות, ובו מתפרסמים",
+        "de": "Dieser Abschnitt zielt darauf ab, Investitionen in den Menschen, die geistigen Fähigkeiten und die Fachkenntnisse zu fördern, und in ihm werden veröffentlicht"
+    },
+    "الإعلام، والأبحاث، والعمل على بناء جسور التواصل بين أبناء الطائفة في الداخل والمهجر.": {
+        "es": "los medios, la investigación y el trabajo para tender puentes de comunicación entre los miembros de la comunidad en el interior y en la diáspora.",
+        "he": "התקשורת, המחקר והעבודה לבניית גשרים של תקשורת בין בני העדה בארץ ובתפוצות.",
+        "de": "die Medien, die Forschung und die Arbeit am Bau von Kommunikationsbrücken zwischen den Angehörigen der Gemeinschaft im Inland und in der Diaspora."
+    },
+    "تنقسم العضويات في المنظمة إلى ست تصنيفات كل تصنيف يعرف بدور العضو المنتسب ونشاطه فيها": {
+        "es": "Las membresías en la organización se dividen en seis categorías, cada una de las cuales define el papel del miembro afiliado y su actividad dentro de ella",
+        "he": "החברויות בארגון מחולקות לשש קטגוריות, כאשר כל קטגוריה מגדירה את תפקידו של החבר הנלווה ואת פעילותו בה",
+        "de": "Die Mitgliedschaften in der Organisation gliedern sich in sechs Kategorien, wobei jede Kategorie die Rolle des angeschlossenen Mitglieds und seine Tätigkeit darin bestimmt"
+    },
+    "يضم هذا القسم أرشيف بأسماء العائلات الدرزية في كل من سورية – الأردن – لبنان – اسرائيل .": {
+        "es": "Esta sección incluye un archivo con los nombres de las familias drusas en Siria – Jordania – Líbano – Israel.",
+        "he": "מדור זה כולל ארכיון של שמות המשפחות הדרוזיות בכל אחת מסוריה – ירדן – לבנון – ישראל.",
+        "de": "Dieser Abschnitt enthält ein Archiv mit den Namen der drusischen Familien in Syrien – Jordanien – Libanon – Israel."
+    },
+    "وللموقع روابط مباشرة من صفحة الموقع الرئيسية مع المواقع التي تقوم المنظمة بإنشائها وهي:": {
+        "es": "Y el sitio dispone de enlaces directos desde su página principal a los sitios que la organización está creando, que son:",
+        "he": "ולאתר יש קישורים ישירים מעמוד הבית שלו לאתרים שהארגון מקים, והם:",
+        "de": "Und die Website verfügt über direkte Links von ihrer Startseite zu den Websites, die die Organisation erstellt, nämlich:"
+    },
+    "يضم هذا التصنيف شخصيات اعتبارية من الطائفة أو من خارجها دعمت المنظمة أو القضية الدرزية.": {
+        "es": "Esta categoría incluye a personalidades destacadas de la comunidad o ajenas a ella que han apoyado a la organización o la causa drusa.",
+        "he": "קטגוריה זו כוללת דמויות נכבדות מן העדה או מחוצה לה שתמכו בארגון או בעניין הדרוזי.",
+        "de": "Diese Kategorie umfasst angesehene Persönlichkeiten aus der Gemeinschaft oder außerhalb von ihr, die die Organisation oder die drusische Sache unterstützt haben."
+    },
+    "وبإمكانك الضغط على أيقونة السماعة الزرقاء التي تظهر على اقصى يمين الموقع للتواصل المباشر": {
+        "es": "Y puede hacer clic en el icono azul de los auriculares que aparece en el extremo derecho del sitio para el contacto directo",
+        "he": "ותוכלו ללחוץ על סמל האוזנייה הכחולה המופיע בקצה הימני של האתר ליצירת קשר ישיר",
+        "de": "Und Sie können auf das blaue Headset-Symbol klicken, das ganz rechts auf der Website erscheint, um direkten Kontakt aufzunehmen"
+    },
+    "المساهمة في التوعية حول قضايا الضحايا المتضررين من التطرف الديني والانتهاكات الإنسانية ضد": {
+        "es": "Contribuir a la sensibilización sobre las cuestiones de las víctimas afectadas por el extremismo religioso y las violaciones humanitarias contra",
+        "he": "תרומה להעלאת המודעות לסוגיות הקורבנות שנפגעו מן הקיצוניות הדתית ומן ההפרות ההומניטריות נגד",
+        "de": "Beitrag zur Sensibilisierung für die Anliegen der Opfer, die von religiösem Extremismus und humanitären Verletzungen betroffen sind, gegen"
+    },
+    "هذا القسم ارشيف بأسماء ومواقع متاحف حراس التراث المادي والمقتنيات التاريخية الخاصة والعامة": {
+        "es": "Esta sección es un archivo con los nombres y ubicaciones de los museos de los guardianes del patrimonio material y de las colecciones históricas privadas y públicas",
+        "he": "מדור זה הוא ארכיון של שמות ומיקומים של מוזיאוני שומרי המורשת החומרית ושל אוספים היסטוריים פרטיים וציבוריים",
+        "de": "Dieser Abschnitt ist ein Archiv der Namen und Standorte der Museen der Hüter des materiellen Erbes und der privaten und öffentlichen historischen Sammlungen"
+    },
+    "صوت المجتمع لنشر المقالات والآراء وقصص النجاح من أبناء المجتمع، بهدف تعزيز المشاركة والتعبير": {
+        "es": "La voz de la comunidad para publicar artículos, opiniones e historias de éxito de los miembros de la comunidad, con el objetivo de fomentar la participación y la expresión",
+        "he": "קול הקהילה לפרסום מאמרים, דעות וסיפורי הצלחה מבני הקהילה, במטרה לחזק את ההשתתפות וההבעה",
+        "de": "Die Stimme der Gemeinschaft zur Veröffentlichung von Artikeln, Meinungen und Erfolgsgeschichten von Angehörigen der Gemeinschaft, mit dem Ziel, Teilhabe und Ausdruck zu fördern"
+    },
+    "صوت الناس … لنشر المقالات والآراء وقصص النجاح من أبناء المجتمع، بهدف تعزيز المشاركة والتعبير": {
+        "es": "La voz del pueblo … para publicar artículos, opiniones e historias de éxito de los miembros de la comunidad, con el objetivo de fomentar la participación y la expresión",
+        "he": "קול העם … לפרסום מאמרים, דעות וסיפורי הצלחה מבני הקהילה, במטרה לחזק את ההשתתפות וההבעה",
+        "de": "Die Stimme des Volkes … zur Veröffentlichung von Artikeln, Meinungen und Erfolgsgeschichten von Angehörigen der Gemeinschaft, mit dem Ziel, Teilhabe und Ausdruck zu fördern"
+    },
+    "نؤمن بأهمية المعرفة، والشفافية، والعمل الجماعي، ونلتزم بمبادئ الحياد، والمهنية، واحترام التنوع.": {
+        "es": "Creemos en la importancia del conocimiento, la transparencia y el trabajo colectivo, y nos adherimos a los principios de neutralidad, profesionalidad y respeto a la diversidad.",
+        "he": "אנו מאמינים בחשיבות הידע, השקיפות והעבודה המשותפת, ומחויבים לעקרונות הנייטרליות, המקצועיות וכיבוד הגיוון.",
+        "de": "Wir glauben an die Bedeutung von Wissen, Transparenz und gemeinschaftlicher Arbeit und halten uns an die Grundsätze der Neutralität, Professionalität und Achtung der Vielfalt."
+    },
+    "توثيق للسير الذاتية لشخصيات درزية بارزة ساهمت في مجالات مختلفة، من السياسة إلى الثقافة والعلوم.": {
+        "es": "Documentación de las biografías de personalidades drusas destacadas que han contribuido en diversos ámbitos, desde la política hasta la cultura y las ciencias.",
+        "he": "תיעוד קורות החיים של דמויות דרוזיות בולטות שתרמו בתחומים שונים, מן הפוליטיקה ועד התרבות והמדע.",
+        "de": "Dokumentation der Biografien bedeutender drusischer Persönlichkeiten, die in verschiedenen Bereichen beigetragen haben, von der Politik bis zu Kultur und Wissenschaft."
+    },
+    "دعم المشاريع التنموية الإنسانية والثقافية والتراثية والتعليمية لأبناء الطائفة الدرزية في العالم.": {
+        "es": "Apoyar los proyectos de desarrollo humanitarios, culturales, patrimoniales y educativos para los miembros de la comunidad drusa en el mundo.",
+        "he": "תמיכה בפרויקטים פיתוחיים הומניטריים, תרבותיים, מורשתיים וחינוכיים למען בני העדה הדרוזית בעולם.",
+        "de": "Förderung humanitärer, kultureller, das Erbe betreffender und bildungsbezogener Entwicklungsprojekte für die Angehörigen der drusischen Gemeinschaft in der Welt."
+    },
+    "أبناء الطائفة الدرزية حول العالم، والمتابعة مع منظمة الأمم المتحدة وكل المنظمات والجمعيات المدنية": {
+        "es": "los miembros de la comunidad drusa en todo el mundo, y el seguimiento ante la Organización de las Naciones Unidas y todas las organizaciones y asociaciones civiles",
+        "he": "בני העדה הדרוזית ברחבי העולם, ומעקב מול ארגון האומות המאוחדות וכל הארגונים והאגודות האזרחיים",
+        "de": "die Angehörigen der drusischen Gemeinschaft in aller Welt und die Nachverfolgung bei der Organisation der Vereinten Nationen und allen zivilgesellschaftlichen Organisationen und Vereinigungen"
+    },
+    "دعم المشاريع البيئية والزراعية وتربية الحيوانات ونشر ثقافة زراعة شجر السنديان والعنب والصنوبر المثمر": {
+        "es": "Apoyar los proyectos medioambientales y agrícolas y la cría de animales, y difundir la cultura de la plantación de robles, vides y pinos frutales",
+        "he": "תמיכה בפרויקטים סביבתיים וחקלאיים ובגידול בעלי חיים, והפצת תרבות נטיעת עצי אלון, גפנים ואורנים נושאי פרי",
+        "de": "Förderung von Umwelt- und Landwirtschaftsprojekten und Tierhaltung sowie Verbreitung der Kultur des Anbaus von Eichen, Weinreben und fruchttragenden Kiefern"
+    },
+    "دعم وتقوية الإعلام الدرزي وإقامة النشاطات الثقافية والندوات والمعارض التي تبرز الإسهام الحضاري للدروز.": {
+        "es": "Apoyar y fortalecer los medios drusos y organizar actividades culturales, seminarios y exposiciones que pongan de relieve la contribución civilizatoria de los Drusos.",
+        "he": "תמיכה בתקשורת הדרוזית וחיזוקה, וקיום פעילויות תרבותיות, כנסים ותערוכות המדגישים את תרומתם הציוויליזציונית של הדרוזים.",
+        "de": "Unterstützung und Stärkung der drusischen Medien sowie Durchführung kultureller Aktivitäten, Seminare und Ausstellungen, die den zivilisatorischen Beitrag der Drusen hervorheben."
+    },
+    "وفر هذا القسم قاعدة بيانات محدثة تضم القوانين والقرارات والأنظمة التي تمس المجتمع الدرزي في مختلف الدول": {
+        "es": "Esta sección ofrece una base de datos actualizada que reúne las leyes, decisiones y reglamentos que afectan a la comunidad drusa en distintos países",
+        "he": "מדור זה מספק מסד נתונים מעודכן הכולל את החוקים, ההחלטות והתקנות הנוגעים לקהילה הדרוזית במדינות שונות",
+        "de": "Dieser Abschnitt bietet eine aktualisierte Datenbank mit den Gesetzen, Beschlüssen und Vorschriften, die die drusische Gemeinschaft in verschiedenen Ländern betreffen"
+    },
+    "انشاء منصة اقتصادية للتعريف بالمشاريع الخدمية والانتاجية والمحاصيل الزراعية والفرص الاستثمارية الدرزية .": {
+        "es": "Crear una plataforma económica para dar a conocer los proyectos drusos de servicios y de producción, los cultivos agrícolas y las oportunidades de inversión.",
+        "he": "הקמת פלטפורמה כלכלית להצגת פרויקטים דרוזיים של שירותים וייצור, יבולים חקלאיים והזדמנויות השקעה.",
+        "de": "Aufbau einer wirtschaftlichen Plattform zur Präsentation drusischer Dienstleistungs- und Produktionsprojekte, landwirtschaftlicher Erzeugnisse und Investitionsmöglichkeiten."
+    },
+    "يستعرض هذا القسم أبرز العادات والتقاليد التي تميز المجتمع الدرزي، بما يعكس هويته الثقافية والاجتماعية يشمل:": {
+        "es": "Esta sección presenta las costumbres y tradiciones más destacadas que distinguen a la comunidad drusa, reflejando su identidad cultural y social. Incluye:",
+        "he": "מדור זה סוקר את המנהגים והמסורות הבולטים המייחדים את הקהילה הדרוזית, באופן המשקף את זהותה התרבותית והחברתית. הוא כולל:",
+        "de": "Dieser Abschnitt stellt die markantesten Bräuche und Traditionen vor, die die drusische Gemeinschaft auszeichnen und ihre kulturelle und soziale Identität widerspiegeln. Er umfasst:"
+    },
+    "التعريف بخبرات وكوادر أبناء الطائفة الدرزية الباحثين عن فرص عمل وتوصيلهن بالفعاليات الإقتصادية بمناطق إقامتهم .": {
+        "es": "Dar a conocer las competencias y los cuadros de los miembros de la comunidad drusa que buscan oportunidades de empleo y ponerlos en contacto con los agentes económicos de sus zonas de residencia.",
+        "he": "הצגת המומחיות והכוחות המקצועיים של בני העדה הדרוזית המחפשים הזדמנויות תעסוקה וחיבורם לגורמים הכלכליים באזורי מגוריהם.",
+        "de": "Bekanntmachung der Fachkenntnisse und Fachkräfte der Angehörigen der drusischen Gemeinschaft, die Beschäftigungsmöglichkeiten suchen, und ihre Vernetzung mit den Wirtschaftsakteuren in ihren Wohnregionen."
+    },
+    "يضم هذا القسم أرشيف بأسماء وتاريخ الزعماء الدروز ودور الإمارة الدرزية في كل من سورية – الأردن – لبنان – اسرائيل .": {
+        "es": "Esta sección incluye un archivo con los nombres y la historia de los líderes drusos y el papel del Emirato Druso en Siria – Jordania – Líbano – Israel.",
+        "he": "מדור זה כולל ארכיון של שמות ותולדות המנהיגים הדרוזים ותפקידה של האמירות הדרוזית בכל אחת מסוריה – ירדן – לבנון – ישראל.",
+        "de": "Dieser Abschnitt enthält ein Archiv mit den Namen und der Geschichte der drusischen Führer und der Rolle des drusischen Emirats in Syrien – Jordanien – Libanon – Israel."
+    },
+    "تعزيز مبادئ حقوق الإنسان لأبناء الطائفة الدرزية والدفاع عنها، بما في ذلك حرية المعتقد، وحرية الفكر، وحرية التعبير.": {
+        "es": "Promover y defender los principios de los derechos humanos de los miembros de la comunidad drusa, incluidas la libertad de creencia, la libertad de pensamiento y la libertad de expresión.",
+        "he": "קידום עקרונות זכויות האדם של בני העדה הדרוזית והגנה עליהם, לרבות חופש האמונה, חופש המחשבה וחופש הביטוי.",
+        "de": "Förderung und Verteidigung der Menschenrechtsgrundsätze der Angehörigen der drusischen Gemeinschaft, einschließlich der Glaubensfreiheit, der Gedankenfreiheit und der Meinungsfreiheit."
+    },
+    "دعم المختصين لفرض مناهج تعليم لطلاب المرحلتين الأولى والثانية تتناسب مع الثقافة التوحيدية الدرزية وتاريخ بني معروف": {
+        "es": "Apoyar a los especialistas para establecer planes de estudio para los alumnos de los ciclos primero y segundo que se ajusten a la cultura unitaria drusa y a la historia de Banu Ma'ruf",
+        "he": "תמיכה במומחים לשם הנהגת תוכניות לימוד לתלמידי שני השלבים, הראשון והשני, המתאימות לתרבות הייחוד הדרוזית ולתולדות בני מערוף",
+        "de": "Unterstützung von Fachleuten bei der Einführung von Lehrplänen für Schüler der ersten und zweiten Stufe, die mit der unitarischen drusischen Kultur und der Geschichte von Banu Maruf im Einklang stehen"
+    },
+    "دروز نيوز … موقع مستقل من حيث البنية وقواعد البيانات ولكنه مرتبط من حيث الواجهات والوصول بموقع “منظمة الهوية الدرزية": {
+        "es": "Druze News … un sitio independiente en cuanto a su estructura y sus bases de datos, pero vinculado en cuanto a las interfaces y el acceso al sitio de la “Organización de la Identidad Drusa",
+        "he": "דרוז ניוז … אתר עצמאי מבחינת המבנה ומסדי הנתונים, אך מקושר מבחינת הממשקים והגישה לאתר “ארגון הזהות הדרוזית",
+        "de": "Druze News … eine Website, die hinsichtlich Struktur und Datenbanken unabhängig ist, aber hinsichtlich der Schnittstellen und des Zugangs mit der Website der „Organisation der drusischen Identität verbunden ist"
+    },
+    "تضم مجموعة من الكتب والمؤلفات التي تناولت الدروز، سواء من مؤلفين دروز أو غير دروز، مع تصنيف منظم وسير ذاتية للمؤلفين.": {
+        "es": "Reúne una colección de libros y obras que han tratado sobre los Drusos, ya sea de autores drusos o no drusos, con una clasificación organizada y biografías de los autores.",
+        "he": "היא כוללת אוסף של ספרים וחיבורים שעסקו בדרוזים, בין אם מאת מחברים דרוזים ובין אם לא-דרוזים, עם סיווג מסודר וקורות חיים של המחברים.",
+        "de": "Sie umfasst eine Sammlung von Büchern und Schriften, die sich mit den Drusen befasst haben, sei es von drusischen oder nicht-drusischen Autoren, mit einer geordneten Klassifizierung und Biografien der Autoren."
+    },
+    "تقوم منظمتنا ببرمجة وتجهيز موقع إلكتروني متخصص بالتعريف بالإقتصاد الدرزي من مشاريع ورجال الاعمال بهدف دعم عجلة الإنتاج": {
+        "es": "Nuestra organización desarrolla y prepara un sitio web especializado en dar a conocer la economía drusa, con sus proyectos y sus empresarios, con el objetivo de apoyar la rueda de la producción",
+        "he": "הארגון שלנו בונה ומכין אתר אינטרנט המתמחה בהצגת הכלכלה הדרוזית, על פרויקטיה ואנשי העסקים שבה, במטרה לתמוך בגלגל הייצור",
+        "de": "Unsere Organisation entwickelt und richtet eine Website ein, die auf die Präsentation der drusischen Wirtschaft mit ihren Projekten und Geschäftsleuten spezialisiert ist, mit dem Ziel, das Räderwerk der Produktion zu unterstützen"
+    },
+    "يضم هذا القسم قاعدة بيانات تعريفية بالجمعيات والمنظمات والمؤسسات والشخصيات الفاعلة ضمن المجتمع الدرزي حول العالم. يهدف إلى": {
+        "es": "Esta sección incluye una base de datos informativa de las asociaciones, organizaciones, instituciones y personalidades activas dentro de la comunidad drusa en todo el mundo. Tiene como objetivo",
+        "he": "מדור זה כולל מסד נתונים מזהה של האגודות, הארגונים, המוסדות והדמויות הפעילים בתוך הקהילה הדרוזית ברחבי העולם. הוא נועד ל",
+        "de": "Dieser Abschnitt umfasst eine informative Datenbank der Vereine, Organisationen, Institutionen und aktiven Persönlichkeiten innerhalb der drusischen Gemeinschaft in aller Welt. Er zielt darauf ab"
+    },
+    "يتخصص هذا القسم في التعريف بالمشاريع القائمة والمشاريع المطروحة للاستثمار في المناطق الدرزية ضمن تصنيفات حسب الاختصاص ومنها:": {
+        "es": "Esta sección se especializa en dar a conocer los proyectos existentes y los proyectos ofrecidos para inversión en las regiones drusas, dentro de categorías según el ámbito de especialización, entre ellas:",
+        "he": "מדור זה מתמחה בהצגת הפרויקטים הקיימים והפרויקטים המוצעים להשקעה באזורים הדרוזיים, בחלוקה לקטגוריות לפי תחום ההתמחות, וביניהן:",
+        "de": "Dieser Abschnitt ist auf die Präsentation bestehender Projekte und zur Investition angebotener Projekte in den drusischen Regionen spezialisiert, unterteilt in Kategorien nach Fachgebiet, darunter:"
+    },
+    "يضم هذا القسم المبادرات والمشاريع التي تهدف إلى تعزيز الهوية الدرزية، سواء على المستوى الثقافي أو التعليمي أو الاجتماعي ومنها": {
+        "es": "Esta sección incluye las iniciativas y proyectos que tienen como objetivo fortalecer la identidad drusa, ya sea en el plano cultural, educativo o social, entre ellos",
+        "he": "מדור זה כולל את היוזמות והפרויקטים שנועדו לחזק את הזהות הדרוזית, בין אם ברמה התרבותית, החינוכית או החברתית, וביניהם",
+        "de": "Dieser Abschnitt umfasst die Initiativen und Projekte, die darauf abzielen, die drusische Identität zu stärken, sei es auf kultureller, bildungsbezogener oder sozialer Ebene, darunter"
+    },
+    ",وسنقوم في هذا القسم بنشر أسمائهم تباعاً بعدالإنتهاء من اصدار التراخيص والموافقات الازمة للمنظمة أصولاً حيب القوانين الأوروبية": {
+        "es": "Y en esta sección publicaremos sus nombres de forma sucesiva una vez concluida la emisión de las licencias y autorizaciones debidamente requeridas para la organización conforme a las leyes europeas",
+        "he": "ובמדור זה נפרסם את שמותיהם בזה אחר זה לאחר השלמת הנפקת הרישיונות והאישורים הנדרשים כדין לארגון בהתאם לחוקים האירופיים",
+        "de": "Und in diesem Abschnitt werden wir ihre Namen nach und nach veröffentlichen, sobald die Erteilung der ordnungsgemäß für die Organisation erforderlichen Lizenzen und Genehmigungen gemäß den europäischen Gesetzen abgeschlossen ist"
+    },
+    "دعم الفقراء والمحتاجين والأيتام والمرضى من أبناء الطائفة الدرزية لوجستياً من خلال المطالبة بحقوقهم بالعيش الكريم والطبابة والتعلم.": {
+        "es": "Apoyar logísticamente a los pobres, los necesitados, los huérfanos y los enfermos de los miembros de la comunidad drusa reivindicando sus derechos a una vida digna, la atención médica y la educación.",
+        "he": "תמיכה לוגיסטית בעניים, בנזקקים, ביתומים ובחולים מבני העדה הדרוזית באמצעות התביעה לזכויותיהם לחיים בכבוד, לטיפול רפואי ולחינוך.",
+        "de": "Logistische Unterstützung der Armen, Bedürftigen, Waisen und Kranken unter den Angehörigen der drusischen Gemeinschaft durch das Einfordern ihrer Rechte auf ein würdiges Leben, medizinische Versorgung und Bildung."
+    },
+    "دعم الطلاب والمبدعين من أبناء الطائفة الدرزية تعليمياً وثقافياً أينما وجدوا و إبراز الشخصيات والإنجازات الدرزية في مختلف المجالات.": {
+        "es": "Apoyar educativa y culturalmente a los estudiantes y talentos creativos de los miembros de la comunidad drusa dondequiera que estén, y poner de relieve las personalidades y los logros drusos en diversos ámbitos.",
+        "he": "תמיכה חינוכית ותרבותית בסטודנטים ובבעלי הכישרון היצירתי מבני העדה הדרוזית בכל מקום שבו הם נמצאים, והבלטת הדמויות וההישגים הדרוזיים בתחומים שונים.",
+        "de": "Bildungsbezogene und kulturelle Unterstützung der Studierenden und kreativen Talente unter den Angehörigen der drusischen Gemeinschaft, wo immer sie sich befinden, und Hervorhebung drusischer Persönlichkeiten und Errungenschaften in verschiedenen Bereichen."
+    },
+    "دعم المرأة الدرزية من خلال تمكينها إجتماعياً وثقافياً وإقتصادياً ودعمها نفسياً ومعنوياً لتقوم بدورها التاريخي في بناء المجتمع الدرزي.": {
+        "es": "Apoyar a la mujer drusa empoderándola social, cultural y económicamente, y respaldándola psicológica y moralmente para que desempeñe su papel histórico en la construcción de la sociedad drusa.",
+        "he": "תמיכה באישה הדרוזית באמצעות העצמתה החברתית, התרבותית והכלכלית, ותמיכה נפשית ומוסרית בה כדי שתמלא את תפקידה ההיסטורי בבניית החברה הדרוזית.",
+        "de": "Unterstützung der drusischen Frau durch ihre soziale, kulturelle und wirtschaftliche Stärkung sowie ihre psychologische und moralische Unterstützung, damit sie ihre historische Rolle beim Aufbau der drusischen Gesellschaft erfüllen kann."
+    },
+    "نسعى إلى بناء منصة موثوقة تجمع المعلومات الدقيقة، وتوفر مساحة للتواصل، وتساهم في نقل صورة متوازنة وحديثة عن المجتمع الدرزي إلى العالم.": {
+        "es": "Aspiramos a construir una plataforma fiable que reúna información precisa, ofrezca un espacio para la comunicación y contribuya a transmitir una imagen equilibrada y actual de la comunidad drusa al mundo.",
+        "he": "אנו שואפים לבנות פלטפורמה מהימנה המרכזת מידע מדויק, מספקת מרחב לתקשורת ותורמת להעברת תמונה מאוזנת ועכשווית של הקהילה הדרוזית אל העולם.",
+        "de": "Wir streben danach, eine zuverlässige Plattform aufzubauen, die genaue Informationen sammelt, einen Raum für Kommunikation bietet und dazu beiträgt, ein ausgewogenes und modernes Bild der drusischen Gemeinschaft in die Welt zu tragen."
+    },
+    "موقع خاص بالمضافة وآدابها وتاريخها مع ذكر لأشهر مضافات الجبل وتاريخها والاحداث التي شهدتها مع ارشيف صور ولقاءات فيديو مسجلة تحكي عنها.": {
+        "es": "Un sitio dedicado a la madafa, su etiqueta y su historia, mencionando las madafas más famosas de la Montaña, su historia y los acontecimientos que presenciaron, con un archivo de fotografías y entrevistas en vídeo grabadas que hablan de ellas.",
+        "he": "אתר ייעודי למדאפה, לכללי הנימוס שלה ולתולדותיה, עם אזכור המדאפות המפורסמות ביותר של ההר, תולדותיהן והאירועים שהתחוללו בהן, לצד ארכיון תצלומים וראיונות וידאו מוקלטים המספרים עליהן.",
+        "de": "Eine eigene Website für die Madafa, ihre Etikette und ihre Geschichte, mit Erwähnung der bekanntesten Madafas des Berges, ihrer Geschichte und der Ereignisse, die sie erlebten, mit einem Archiv von Fotos und aufgezeichneten Videointerviews, die von ihnen berichten."
+    },
+    "إلى تعزيز ارتباط الأجيال الجديدة بتاريخها وإرثها الحضاري، وإبراز القيم الإنسانية والاجتماعية التي عُرف بها المجتمع الدرزي عبر تاريخه الطويل.": {
+        "es": "a fortalecer el vínculo de las nuevas generaciones con su historia y su herencia civilizatoria, y a poner de relieve los valores humanos y sociales por los que se ha conocido a la comunidad drusa a lo largo de su larga historia.",
+        "he": "לחזק את זיקתם של הדורות החדשים לתולדותיהם ולמורשתם הציוויליזציונית, ולהבליט את הערכים האנושיים והחברתיים שבהם נודעה הקהילה הדרוזית לאורך תולדותיה הארוכות.",
+        "de": "die Verbindung der neuen Generationen mit ihrer Geschichte und ihrem zivilisatorischen Erbe zu stärken und die menschlichen und sozialen Werte hervorzuheben, für die die drusische Gemeinschaft im Laufe ihrer langen Geschichte bekannt war."
+    },
+    "تعزيز الوعي بالهوية الدرزية على المستوى الدولي من خلال تنشيط البحث العلمي والدراسات الأكاديمية والبحثية المتعلقة بتاريخ المجتمع الدرزي وهويته": {
+        "es": "Fortalecer la conciencia sobre la identidad drusa a nivel internacional mediante la dinamización de la investigación científica y los estudios académicos y de investigación relativos a la historia de la comunidad drusa y su identidad",
+        "he": "חיזוק המודעות לזהות הדרוזית ברמה הבין-לאומית באמצעות עידוד המחקר המדעי והמחקרים האקדמיים והמחקריים הנוגעים לתולדות הקהילה הדרוזית ולזהותה",
+        "de": "Stärkung des Bewusstseins für die drusische Identität auf internationaler Ebene durch die Förderung der wissenschaftlichen Forschung und der akademischen und forschungsbezogenen Studien zur Geschichte der drusischen Gemeinschaft und ihrer Identität"
+    },
+    "يقدم هذا القسم عرضًا موثقًا لتاريخ الدروز، بدءًا من نشأة الدعوة التوحيدية، مروراً بالمراحل التاريخية المختلفة، وصولاً إلى الواقع المعاصر يتضمن:": {
+        "es": "Esta sección ofrece una presentación documentada de la historia de los Drusos, desde el surgimiento del llamado unitario, pasando por las distintas etapas históricas, hasta la realidad contemporánea. Incluye:",
+        "he": "מדור זה מציג סקירה מתועדת של תולדות הדרוזים, החל מהיווצרות הקריאה לייחוד, דרך השלבים ההיסטוריים השונים, ועד למציאות בת ימינו. הוא כולל:",
+        "de": "Dieser Abschnitt bietet eine dokumentierte Darstellung der Geschichte der Drusen, angefangen bei der Entstehung des unitarischen Rufs, über die verschiedenen historischen Phasen, bis hin zur gegenwärtigen Realität. Er umfasst:"
+    },
+    "التاريخية المتعلقة بالدروز وإنشاء أرشيف رقمي عالمي متكامل للهوية والتراث الدرزي لتوفير مصادر معرفية موثوقة للباحثين والمهتمين والجمهور بلغات متعددة.": {
+        "es": "el material histórico relacionado con los Drusos, y la creación de un archivo digital mundial integrado de la identidad y el patrimonio drusos para proporcionar fuentes de conocimiento fiables a los investigadores, las personas interesadas y el público en varios idiomas.",
+        "he": "החומר ההיסטורי הקשור לדרוזים, והקמת ארכיון דיגיטלי עולמי משולב של הזהות והמורשת הדרוזית כדי לספק מקורות ידע מהימנים לחוקרים, למתעניינים ולציבור במספר שפות.",
+        "de": "das historische Material mit Bezug zu den Drusen und die Schaffung eines integrierten globalen digitalen Archivs der drusischen Identität und des drusischen Erbes, um zuverlässige Wissensquellen für Forscher, Interessierte und die Öffentlichkeit in mehreren Sprachen bereitzustellen."
+    },
+    "من أهدف منظمتنا بناء شراكات مع المجتمع المدني والمنظمات الانسانية بما يساهم في تحقيق أهدافنا وتعزيز تأثيرنا العالمي والتعريف بهويتنا وقضايانا الدرزية": {
+        "es": "Entre los objetivos de nuestra organización figura la construcción de alianzas con la sociedad civil y las organizaciones humanitarias, de manera que contribuya a alcanzar nuestros objetivos, fortalecer nuestro impacto mundial y dar a conocer nuestra identidad y nuestras causas drusas",
+        "he": "בין יעדי הארגון שלנו בניית שותפויות עם החברה האזרחית והארגונים ההומניטריים, באופן התורם להשגת יעדינו, לחיזוק השפעתנו העולמית ולהצגת זהותנו וענייננו הדרוזי",
+        "de": "Zu den Zielen unserer Organisation gehört der Aufbau von Partnerschaften mit der Zivilgesellschaft und humanitären Organisationen, was zur Erreichung unserer Ziele, zur Stärkung unserer globalen Wirkung und zur Bekanntmachung unserer drusischen Identität und Anliegen beiträgt"
+    },
+    "واللوزيات والحبوب والخضار المرتبطين بتاريخ وثقافة الدروز والذين يؤمنون الأمن الغذائي والإكتفاء الذاتي وما يتبعها من مشاريع مائية وتوليد الطاقة النظيفة.": {
+        "es": "y los frutos secos, los cereales y las hortalizas asociados a la historia y la cultura de los Drusos, que garantizan la seguridad alimentaria y la autosuficiencia, junto con los consiguientes proyectos hídricos y la generación de energía limpia.",
+        "he": "והאגוזים, הדגנים והירקות הקשורים לתולדות הדרוזים ולתרבותם, המבטיחים את הביטחון התזונתי ואת העצמאות התזונתית, לצד פרויקטי המים והפקת האנרגייה הנקייה הנובעים מהם.",
+        "de": "und die Nüsse, das Getreide und das Gemüse, die mit der Geschichte und Kultur der Drusen verbunden sind und die Ernährungssicherheit und Selbstversorgung gewährleisten, samt den daraus folgenden Wasserprojekten und der Erzeugung sauberer Energie."
+    },
+    "وهي عبارة عن قصص شعبية ذات عبرة غير موثقة تاريخياً وبعضها يصل حد الخرافة تهدف تلك القصص والحكايا إلى التعريف بقييم انسانية وأخلاقية معينة أوشحذ الهمم أو": {
+        "es": "Se trata de relatos populares con una moraleja, no documentados históricamente, algunos de los cuales llegan al nivel de la leyenda. Esos relatos y cuentos tienen como objetivo dar a conocer ciertos valores humanos y morales, o estimular la determinación, o",
+        "he": "מדובר בסיפורי עם בעלי מוסר השכל, שאינם מתועדים היסטורית, וחלקם מגיעים לכדי אגדה. סיפורים ומעשיות אלה נועדו להציג ערכים אנושיים ומוסריים מסוימים, או לעורר את הנחישות, או",
+        "de": "Es handelt sich um Volkserzählungen mit einer Moral, die historisch nicht belegt sind und von denen einige den Rang einer Legende erreichen. Diese Geschichten und Erzählungen sollen bestimmte menschliche und moralische Werte vermitteln, die Entschlossenheit anspornen oder"
+    },
+    "من خلال لقاءات دورية عبر الإنترنت تجمع أبناء المجتمع الدرزي وضيوفهم للنقاش، وتبادل الخبرات، وسرد الحكايات، وتعزيز الروابط الاجتماعية والتعريف بثقافة المضافة": {
+        "es": "a través de encuentros periódicos en línea que reúnen a los miembros de la comunidad drusa y a sus invitados para debatir, intercambiar experiencias, narrar relatos, fortalecer los vínculos sociales y dar a conocer la cultura de la madafa",
+        "he": "באמצעות מפגשים תקופתיים מקוונים המפגישים את בני הקהילה הדרוזית ואת אורחיהם לדיון, להחלפת ניסיון, לסיפור סיפורים, לחיזוק הקשרים החברתיים ולהצגת תרבות המדאפה",
+        "de": "durch regelmäßige Online-Treffen, die Angehörige der drusischen Gemeinschaft und ihre Gäste zusammenbringen, um zu diskutieren, Erfahrungen auszutauschen, Geschichten zu erzählen, die sozialen Bindungen zu stärken und die Kultur der Madafa bekannt zu machen"
+    },
+    "يهتم هذا القسم بتسليط الضوء على النشاطات المدنية والانسانية التي يقوم بها أبناء الطائفة الدرزية في مناطقهم وحول العالم والتي تعكس ثقافتهم وأفكارهم ودورهم في دعم المجتمع": {
+        "es": "Esta sección se ocupa de poner de relieve las actividades cívicas y humanitarias que llevan a cabo los miembros de la comunidad drusa en sus regiones y en todo el mundo, que reflejan su cultura, sus ideas y su papel en el apoyo a la sociedad",
+        "he": "מדור זה עוסק בהבלטת הפעילויות האזרחיות וההומניטריות שמקיימים בני העדה הדרוזית באזוריהם וברחבי העולם, המשקפות את תרבותם, את רעיונותיהם ואת תפקידם בתמיכה בחברה",
+        "de": "Dieser Abschnitt widmet sich der Hervorhebung der bürgerschaftlichen und humanitären Aktivitäten, die die Angehörigen der drusischen Gemeinschaft in ihren Regionen und in aller Welt durchführen und die ihre Kultur, ihre Ideen und ihre Rolle bei der Unterstützung der Gesellschaft widerspiegeln"
+    },
+    "وهي أخبار مقتبسة من الإعلاميين والمواقع والصفحات الدرزية الموثوقة التي سيتم التنسيق والاتفاق معها على نشر موادها بالموقع ضمن آلية بسيطة تؤمن مصدر موحد للأخبار الموثوقة.": {
+        "es": "Se trata de noticias tomadas de profesionales de los medios, sitios y páginas drusos de confianza, con quienes se coordinará y acordará la publicación de sus materiales en el sitio mediante un mecanismo sencillo que garantice una fuente unificada de noticias fiables.",
+        "he": "מדובר בחדשות המצוטטות מאנשי תקשורת, אתרים ועמודים דרוזיים מהימנים, אשר עמם יתואם ויוסכם על פרסום החומרים שלהם באתר במסגרת מנגנון פשוט המבטיח מקור אחיד לחדשות מהימנות.",
+        "de": "Dabei handelt es sich um Nachrichten, die von vertrauenswürdigen drusischen Medienschaffenden, Websites und Seiten übernommen werden, mit denen die Veröffentlichung ihrer Inhalte auf der Website über einen einfachen Mechanismus abgestimmt und vereinbart wird, der eine einheitliche Quelle für zuverlässige Nachrichten gewährleistet."
+    },
+    "حفظ وتوثيق التراث الفكري الثقافي والتاريخي والروحي لطائفة الوحدين الدروز بأسلوب علمي وموثوق ، بما يشمل المؤلفات، والموسيقى، والفنون، والموروث الشفهي وجمع وتوثيق المخطوطات والوثائق": {
+        "es": "Preservar y documentar el patrimonio intelectual, cultural, histórico y espiritual de la comunidad de los Drusos unitarios de manera científica y fiable, incluidas las obras, la música, las artes y el patrimonio oral, y recopilar y documentar los manuscritos y documentos",
+        "he": "שימור ותיעוד המורשת האינטלקטואלית, התרבותית, ההיסטורית והרוחנית של עדת הדרוזים המייחדים באופן מדעי ומהימן, לרבות החיבורים, המוזיקה, האמנויות והמורשת שבעל פה, ואיסוף ותיעוד כתבי היד והמסמכים",
+        "de": "Bewahrung und Dokumentation des geistigen, kulturellen, historischen und spirituellen Erbes der Gemeinschaft der unitarischen Drusen auf wissenschaftliche und zuverlässige Weise, einschließlich der Schriften, der Musik, der Künste und des mündlichen Erbes, sowie Sammlung und Dokumentation der Handschriften und Dokumente"
+    },
+    "منظمة الهوية الدرزية” … منظمة مدنية مستقلة غير ربحية، نعمل على توثيق التراث والتاريخ التوحيدي الدرزي، وتعزيز الهوية الثقافية، وإبراز مساهمات أبناء الطائفة الدرزية في مختلف المجالات.": {
+        "es": "Organización de la Identidad Drusa” … una organización civil independiente y sin fines de lucro; trabajamos para documentar el patrimonio y la historia unitarios drusos, fortalecer la identidad cultural y poner de relieve las contribuciones de los miembros de la comunidad drusa en diversos ámbitos.",
+        "he": "ארגון הזהות הדרוזית” … ארגון אזרחי עצמאי ללא מטרות רווח; אנו פועלים לתיעוד המורשת וההיסטוריה הדרוזית המייחדת, לחיזוק הזהות התרבותית ולהבלטת תרומותיהם של בני העדה הדרוזית בתחומים שונים.",
+        "de": "Organisation der drusischen Identität“ … eine unabhängige, gemeinnützige zivilgesellschaftliche Organisation; wir arbeiten daran, das unitarische drusische Erbe und die Geschichte zu dokumentieren, die kulturelle Identität zu stärken und die Beiträge der Angehörigen der drusischen Gemeinschaft in verschiedenen Bereichen hervorzuheben."
+    },
+    "أن تكون “منظمة الهوية الدرزية” المرجع العالمي الأول للمعلومات والدراسات المتعلقة بطائفة الموحدين الدروز – بني معروف ، ومنصة رائدة في تعزيز التواصل والتفاهم الثقافي بين المجتمعات في العالم.": {
+        "es": "Que la “Organización de la Identidad Drusa” se convierta en la primera referencia mundial para la información y los estudios relativos a la comunidad de los Drusos unitarios – Banu Ma'ruf, y en una plataforma líder para fortalecer la comunicación y el entendimiento cultural entre las comunidades del mundo.",
+        "he": "ש“ארגון הזהות הדרוזית” יהפוך למקור העיון העולמי הראשון למידע ולמחקרים הנוגעים לעדת הדרוזים המייחדים – בני מערוף, ולפלטפורמה מובילה בחיזוק התקשורת וההבנה התרבותית בין הקהילות בעולם.",
+        "de": "Dass die „Organisation der drusischen Identität“ zur ersten globalen Referenz für Informationen und Studien über die Gemeinschaft der unitarischen Drusen – Banu Maruf wird und zu einer führenden Plattform zur Stärkung der Kommunikation und des kulturellen Verständnisses zwischen den Gemeinschaften der Welt."
+    },
+    "تعمل المنظمة على توثيق التراث والتاريخ التوحيدي الدرزي، ودعم المجتمع من خلال الإعلام، والأبحاث، والمبادرات المجتمعية، بما يساهم في تعزيز الهوية والانتماء، والحفاظ على الإرث الثقافي للأجيال القادمة.": {
+        "es": "La organización trabaja para documentar el patrimonio y la historia unitarios drusos y para apoyar a la comunidad a través de los medios, la investigación y las iniciativas comunitarias, de manera que contribuya a fortalecer la identidad y la pertenencia y a preservar el legado cultural para las generaciones futuras.",
+        "he": "הארגון פועל לתעד את המורשת וההיסטוריה הדרוזית המייחדת ולתמוך בקהילה באמצעות התקשורת, המחקר והיוזמות הקהילתיות, באופן התורם לחיזוק הזהות והשייכות ולשימור המורשת התרבותית לדורות הבאים.",
+        "de": "Die Organisation arbeitet daran, das unitarische drusische Erbe und die Geschichte zu dokumentieren und die Gemeinschaft durch Medien, Forschung und Gemeinschaftsinitiativen zu unterstützen, was zur Stärkung von Identität und Zugehörigkeit und zur Bewahrung des kulturellen Erbes für künftige Generationen beiträgt."
+    },
+    "واستمراريتها. ومع مرور الزمن، ونتيجة قلة المصادر الموثوقة والدراسات الشاملة حول الطائفة، ظهرت الكثير من المفاهيم الخاطئة والروايات غير الدقيقة التي ساهمت في تشويه صورتها أو تقديمها بصورة بعيدة عن حقيقتها.": {
+        "es": "y su continuidad. Con el paso del tiempo, y como resultado de la escasez de fuentes fiables y estudios exhaustivos sobre la comunidad, surgieron muchos conceptos erróneos y relatos inexactos que contribuyeron a distorsionar su imagen o a presentarla de una manera alejada de su realidad.",
+        "he": "והמשכיותה. עם חלוף הזמן, וכתוצאה ממיעוט המקורות המהימנים והמחקרים המקיפים על העדה, צצו מושגים מוטעים רבים וסיפורים לא מדויקים שתרמו לעיוות דמותה או להצגתה באופן הרחוק ממהותה האמיתית.",
+        "de": "und ihr Fortbestehen. Im Laufe der Zeit und infolge des Mangels an zuverlässigen Quellen und umfassenden Studien über die Gemeinschaft entstanden viele Missverständnisse und ungenaue Darstellungen, die dazu beitrugen, ihr Bild zu verzerren oder sie auf eine Weise darzustellen, die weit von ihrer Wirklichkeit entfernt ist."
+    },
+    "دعم اللاجئين والمهاجرين من أبناء الطائفة الدرزية في الشتات قانونياً ومعنوياً ومادياً ومساعدتهم للإنخراط بالمجتمعات والدول التي يقيمون فيها من خلال دعمهم بتقوية لغة البلد المستضيف وايجاد العمل المناسب لهم.": {
+        "es": "Apoyar a los refugiados y migrantes de los miembros de la comunidad drusa en la diáspora jurídica, moral y materialmente, y ayudarlos a integrarse en las sociedades y los países en los que residen apoyándolos en el fortalecimiento del idioma del país de acogida y en la búsqueda de un trabajo adecuado para ellos.",
+        "he": "תמיכה בפליטים ובמהגרים מבני העדה הדרוזית בתפוצות מבחינה משפטית, מוסרית וחומרית, וסיוע להם להשתלב בחברות ובמדינות שבהן הם מתגוררים באמצעות תמיכה בהם בחיזוק שפת המדינה המארחת ובמציאת עבודה מתאימה עבורם.",
+        "de": "Unterstützung der Flüchtlinge und Migranten unter den Angehörigen der drusischen Gemeinschaft in der Diaspora in rechtlicher, moralischer und materieller Hinsicht und Hilfe bei ihrer Integration in die Gesellschaften und Länder, in denen sie leben, indem sie beim Erlernen der Sprache des Gastlandes und bei der Suche nach einer geeigneten Arbeit unterstützt werden."
+    },
+    "إنشاء منصة إعلامية مهنية تعكس واقع المجتمع الدرزي, تحتوي على أرشيف كامل للطائفة وقسم إخباري ومنصة تواصل إلكتروني لتكون بمثابة مضافة أون لاين تعكس قيم المضافات وتعرف بالعادات والتقاليد الدرزية وآدادب المضافة.": {
+        "es": "Crear una plataforma mediática profesional que refleje la realidad de la comunidad drusa, que contenga un archivo completo de la comunidad, una sección de noticias y una plataforma de comunicación electrónica, para que sirva como una madafa en línea que refleje los valores de las madafas y dé a conocer las costumbres y tradiciones drusas y la etiqueta de la madafa.",
+        "he": "הקמת פלטפורמה תקשורתית מקצועית המשקפת את מציאות הקהילה הדרוזית, המכילה ארכיון מלא של העדה, מדור חדשות ופלטפורמת תקשורת אלקטרונית, כדי לשמש כמדאפה מקוונת המשקפת את ערכי המדאפות ומציגה את המנהגים והמסורות הדרוזיים ואת כללי הנימוס של המדאפה.",
+        "de": "Aufbau einer professionellen Medienplattform, die die Realität der drusischen Gemeinschaft widerspiegelt und ein vollständiges Archiv der Gemeinschaft, einen Nachrichtenbereich und eine elektronische Kommunikationsplattform enthält, um als Online-Madafa zu dienen, die die Werte der Madafas widerspiegelt und die drusischen Bräuche und Traditionen sowie die Etikette der Madafa bekannt macht."
+    },
+    "بناء جسور التواصل للتواصل بين أبناء الطائفة الدرزية في مختلف دول العالم من خلال التشبيك مع النشطاء من أفراد ومنظمات انسانية درزية والاستفادة من تقنيات التواصل الإلكتروني عبر شبكة الانترنت والتواصل المباشر على": {
+        "es": "Tender puentes de comunicación para la comunicación entre los miembros de la comunidad drusa en los distintos países del mundo mediante la creación de redes con activistas, tanto individuos como organizaciones humanitarias drusas, y el aprovechamiento de las tecnologías de comunicación electrónica a través de la red de internet y del contacto directo en",
+        "he": "בניית גשרים של תקשורת ליצירת קשר בין בני העדה הדרוזית במדינות העולם השונות באמצעות יצירת רשת קשרים עם פעילים, יחידים וארגונים הומניטריים דרוזיים, וניצול טכנולוגיות התקשורת האלקטרונית ברשת האינטרנט והקשר הישיר ב",
+        "de": "Bau von Kommunikationsbrücken zur Verständigung zwischen den Angehörigen der drusischen Gemeinschaft in den verschiedenen Ländern der Welt durch Vernetzung mit Aktivisten, sowohl Einzelpersonen als auch drusischen humanitären Organisationen, und durch Nutzung der elektronischen Kommunikationstechnologien über das Internet und des direkten Kontakts über"
+    },
+    "تضم هذه العضوية الخبراء والأكاديميين والمميزين في مجالات : الإعلام – القانون – التعليم – الصحة – البيئة – العلاقات العامة – الدين – الإقتصاد – المنظمات الدولية واختصاصات اخرى يمكن إضافتها حسب احتياج المجتمع الدرزي لها.": {
+        "es": "Esta membresía incluye a expertos, académicos y personalidades destacadas en los ámbitos de: medios – derecho – educación – salud – medio ambiente – relaciones públicas – religión – economía – organizaciones internacionales, y otras especialidades que pueden añadirse según la necesidad que de ellas tenga la comunidad drusa.",
+        "he": "חברות זו כוללת מומחים, אקדמאים ובעלי הצטיינות בתחומים: תקשורת – משפט – חינוך – בריאות – סביבה – יחסי ציבור – דת – כלכלה – ארגונים בין-לאומיים, ותחומי התמחות נוספים שניתן להוסיף בהתאם לצורכי הקהילה הדרוזית.",
+        "de": "Diese Mitgliedschaft umfasst Experten, Akademiker und herausragende Persönlichkeiten in den Bereichen: Medien – Recht – Bildung – Gesundheit – Umwelt – Öffentlichkeitsarbeit – Religion – Wirtschaft – internationale Organisationen sowie weitere Fachgebiete, die je nach Bedarf der drusischen Gemeinschaft hinzugefügt werden können."
+    },
+    "منظمة مستقلة تُعنى بحماية وتعزيز الهوية الثقافية والاجتماعية والروحية للموحدين الدروز – بني معروف حول العالم، ومنصتها الإلكترونية ستكون بمثابة بنك معلومات لحفظ وتعريف بالتراث والتاريخ والوجود التوحيدي الدرزي من خلال التوثيق،": {
+        "es": "Una organización independiente que se ocupa de proteger y promover la identidad cultural, social y espiritual de los Drusos unitarios – Banu Ma'ruf en todo el mundo; su plataforma electrónica servirá como un banco de información para preservar y dar a conocer el patrimonio, la historia y la presencia unitarios drusos a través de la documentación,",
+        "he": "ארגון עצמאי העוסק בהגנה על הזהות התרבותית, החברתית והרוחנית של הדרוזים המייחדים – בני מערוף ברחבי העולם ובקידומה, ופלטפורמתו האלקטרונית תשמש כבנק מידע לשימור המורשת, ההיסטוריה והקיום הדרוזי המייחד ולהצגתם באמצעות התיעוד,",
+        "de": "Eine unabhängige Organisation, die sich dem Schutz und der Förderung der kulturellen, sozialen und spirituellen Identität der unitarischen Drusen – Banu Maruf in aller Welt widmet; ihre elektronische Plattform wird als Datenbank dienen, um das unitarische drusische Erbe, die Geschichte und die Präsenz durch Dokumentation zu bewahren und bekannt zu machen,"
+    },
+    "سيقوم هذا الموقع بتغطية يومية لأهم الأخبار المتعلقة بالدروز في مختلف أنحاء العالم، مع الحرص على عرض المعلومات بشكل مهني ومتوازن معتمدين على المواقع الإخبارية عموماً و الدرزية خصوصاً ذات المصداقية والمعتمدة لدينا ضمن معايير دقيقة": {
+        "es": "Este sitio ofrecerá una cobertura diaria de las noticias más importantes relacionadas con los Drusos en distintas partes del mundo, procurando presentar la información de manera profesional y equilibrada, apoyándose en los sitios de noticias en general y drusos en particular que sean creíbles y estén aprobados por nosotros conforme a criterios precisos",
+        "he": "אתר זה יספק סיקור יומי של החדשות החשובות ביותר הנוגעות לדרוזים בחלקים שונים של העולם, תוך הקפדה על הצגת המידע באופן מקצועי ומאוזן, בהתבסס על אתרי החדשות בכלל והדרוזיים בפרט, בעלי האמינות והמאושרים אצלנו על פי אמות מידה מדויקות",
+        "de": "Diese Website wird täglich über die wichtigsten Nachrichten berichten, die die Drusen in verschiedenen Teilen der Welt betreffen, wobei darauf geachtet wird, die Informationen professionell und ausgewogen darzustellen, gestützt auf Nachrichten-Websites im Allgemeinen und drusische im Besonderen, die glaubwürdig und von uns nach genauen Kriterien anerkannt sind"
+    },
+    "الديني وتفاصيله، وبصورة علمية ومتوازنة. كما ازداد الاهتمام العالمي بالتعرف على الطائفة خلال السنوات الأخيرة، خاصة بعد الأحداث والمآسي التي تعرضت لها بعض المجتمعات الدرزية في المنطقة خلال عام 2025، الأمر الذي دفع العديد من الباحثين": {
+        "es": "religioso y sus detalles, de manera científica y equilibrada. Asimismo, el interés mundial por conocer a la comunidad ha aumentado en los últimos años, especialmente tras los acontecimientos y las tragedias que sufrieron algunas comunidades drusas de la región durante el año 2025, lo que ha impulsado a numerosos investigadores",
+        "he": "הדתי ופרטיו, באופן מדעי ומאוזן. כמו כן גברה בשנים האחרונות ההתעניינות העולמית בהיכרות עם העדה, במיוחד לאחר האירועים והטרגדיות שחוו חלק מהקהילות הדרוזיות באזור במהלך שנת 2025, דבר שהניע חוקרים רבים",
+        "de": "religiöse Denken und seine Einzelheiten, auf wissenschaftliche und ausgewogene Weise. Ebenso ist das weltweite Interesse, die Gemeinschaft kennenzulernen, in den letzten Jahren gewachsen, insbesondere nach den Ereignissen und Tragödien, die einige drusische Gemeinschaften in der Region im Jahr 2025 erlitten haben, was viele Forscher veranlasst hat"
+    },
+    "شهدت طائفة الموحدين الدروز عبر تاريخها الممتد لأكثر من ألف عام مراحل عديدة من التحديات والتحولات، الأمر الذي دفعها إلى الحفاظ على خصوصيتها الدينية والثقافية والاجتماعية من خلال اتباع نظام “التقية”، كجزء من هويتها ووسيلة لصون وجودها": {
+        "es": "La comunidad de los Drusos unitarios ha atravesado, a lo largo de su historia que se extiende por más de mil años, numerosas etapas de desafíos y transformaciones, lo que la llevó a preservar su especificidad religiosa, cultural y social mediante el seguimiento del sistema de la “taqiyya” (disimulación religiosa), como parte de su identidad y un medio para salvaguardar su existencia",
+        "he": "עדת הדרוזים המייחדים חוותה לאורך תולדותיה המשתרעות על פני יותר מאלף שנה שלבים רבים של אתגרים ותמורות, דבר שהביא אותה לשמר את ייחודה הדתי, התרבותי והחברתי באמצעות נקיטת שיטת ה“תקייה” (הסתרה דתית), כחלק מזהותה וכאמצעי לשמירת קיומה",
+        "de": "Die Gemeinschaft der unitarischen Drusen hat im Laufe ihrer über tausendjährigen Geschichte zahlreiche Phasen von Herausforderungen und Umbrüchen erlebt, was sie dazu veranlasste, ihre religiöse, kulturelle und soziale Eigenart durch die Befolgung des Systems der „Taqiyya“ (religiöse Verstellung) zu bewahren, als Teil ihrer Identität und als Mittel zur Wahrung ihrer Existenz"
+    },
+    "ومع التطور الكبير في وسائل الإعلام والإنترنت، أصبحت المعلومات غير الموثقة تنتشر بسرعة واسعة، ما زاد الحاجة إلى وجود مرجع موثوق وحديث يعرّف بتاريخ الموحدين الدروز وثقافتهم وتراثهم وقيمهم الإنسانية والاجتماعية، دون الدخول في دهاليز الفكر": {
+        "es": "Y con el gran desarrollo de los medios de comunicación y de internet, la información no documentada ha pasado a difundirse con rapidez y amplitud, lo que ha aumentado la necesidad de una referencia fiable y actualizada que dé a conocer la historia de los Drusos unitarios, su cultura, su patrimonio y sus valores humanos y sociales, sin adentrarse en los laberintos del pensamiento",
+        "he": "ועם ההתפתחות הגדולה באמצעי התקשורת ובאינטרנט, החל המידע הלא-מתועד להתפשט במהירות ובהיקף רחב, דבר שהגביר את הצורך במקור עיון מהימן ועדכני המציג את תולדות הדרוזים המייחדים, את תרבותם, את מורשתם ואת ערכיהם האנושיים והחברתיים, מבלי להיכנס למבוכי ההגות",
+        "de": "Und mit der großen Entwicklung der Medien und des Internets hat sich unbelegte Information rasch und weit zu verbreiten begonnen, was den Bedarf an einer zuverlässigen und aktuellen Referenz erhöht hat, die die Geschichte der unitarischen Drusen, ihre Kultur, ihr Erbe und ihre menschlichen und sozialen Werte bekannt macht, ohne sich in die Labyrinthe des Denkens zu begeben"
+    },
+    "ومن هنا تنبع أهمية مشروع “الهوية الدرزية”، بوصفه منصة مستقلة تهدف إلى توثيق التراث الدرزي، وتعزيز الهوية الثقافية والاجتماعية للموحدين الدروز، وتوفير محتوى معرفي موثوق يخدم أبناء الطائفة والباحثين والمهتمين حول العالم. كما يسعى المشروع": {
+        "es": "Y de aquí surge la importancia del proyecto “Identidad Drusa”, como una plataforma independiente que tiene como objetivo documentar el patrimonio druso, fortalecer la identidad cultural y social de los Drusos unitarios y proporcionar un contenido de conocimiento fiable que sirva a los miembros de la comunidad, los investigadores y las personas interesadas en todo el mundo. El proyecto también busca",
+        "he": "ומכאן נובעת חשיבותו של מיזם “הזהות הדרוזית”, בהיותו פלטפורמה עצמאית שנועדה לתעד את המורשת הדרוזית, לחזק את הזהות התרבותית והחברתית של הדרוזים המייחדים ולספק תוכן ידע מהימן המשרת את בני העדה, את החוקרים ואת המתעניינים ברחבי העולם. כמו כן שואף המיזם",
+        "de": "Und hieraus ergibt sich die Bedeutung des Projekts „Drusische Identität“ als unabhängige Plattform, die darauf abzielt, das drusische Erbe zu dokumentieren, die kulturelle und soziale Identität der unitarischen Drusen zu stärken und zuverlässige Wissensinhalte bereitzustellen, die den Angehörigen der Gemeinschaft, den Forschern und den Interessierten in aller Welt dienen. Ebenso strebt das Projekt danach"
+    }
+}

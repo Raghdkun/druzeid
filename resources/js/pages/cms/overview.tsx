@@ -1,7 +1,8 @@
 import { Head, Link } from '@inertiajs/react';
-import { AlertTriangle, FileText, Images, Languages } from 'lucide-react';
+import { AlertTriangle, FileText, Images, Languages, Newspaper } from 'lucide-react';
 
 import AppLayout from '@/layouts/app-layout';
+import * as articles from '@/routes/cms/articles';
 import * as media from '@/routes/cms/media';
 import * as pages from '@/routes/cms/pages';
 import type { BreadcrumbItem } from '@/types';
@@ -13,6 +14,8 @@ interface Overview {
         drafts: number;
         media: number;
         altReviewQueue: number;
+        articles: number;
+        articlesPublished: number;
     };
     translationCoverage: Array<{ locale: string; name: string; percent: number }>;
     recentPages: Array<{
@@ -41,6 +44,13 @@ export default function CmsOverview({ stats, translationCoverage, recentPages }:
                         value={stats.pages}
                         sub={`${stats.published} منشورة · ${stats.drafts} مسودة`}
                         href={pages.index().url}
+                    />
+                    <StatTile
+                        icon={Newspaper}
+                        label="الأخبار"
+                        value={stats.articles}
+                        sub={`${stats.articlesPublished} منشور`}
+                        href={articles.index().url}
                     />
                     <StatTile icon={Images} label="الوسائط" value={stats.media} href={media.index().url} />
                     <StatTile

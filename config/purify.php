@@ -51,15 +51,19 @@ return [
         ],
 
         // Prose from the CMS rich-text editor. Matches exactly what Tiptap's
-        // StarterKit emits, so nothing an editor can produce is stripped, and
-        // nothing beyond it can slip through. Links open safely (rel added,
-        // only _blank targets allowed); scripts, styles and event handlers are
-        // removed by HTMLPurifier regardless.
+        // StarterKit (plus the text-colour extension) emits, so nothing an
+        // editor can produce is stripped, and nothing beyond it can slip
+        // through. `span[style]` with only the `color` property is permitted for
+        // the colour picker — HTMLPurifier validates the colour value and strips
+        // every other CSS property, so no url()/expression()/layout CSS can
+        // enter. Links open safely (rel added, only _blank targets allowed);
+        // scripts and event handlers are removed by HTMLPurifier regardless.
         'content' => [
             'Core.Encoding' => 'utf-8',
             'HTML.Doctype' => 'HTML 4.01 Transitional',
-            'HTML.Allowed' => 'p,h2,h3,h4,strong,em,u,s,a[href|title|target],ul,ol,li,blockquote,code,pre,br,hr',
+            'HTML.Allowed' => 'p,h2,h3,h4,strong,em,u,s,span[style],a[href|title|target],ul,ol,li,blockquote,code,pre,br,hr',
             'HTML.ForbiddenElements' => '',
+            'CSS.AllowedProperties' => 'color',
             'Attr.AllowedFrameTargets' => ['_blank'],
             'HTML.Nofollow' => false,
             'AutoFormat.AutoParagraph' => false,

@@ -46,7 +46,7 @@ export function SectionHeading({
     return (
         <header className={cn('mb-10', align === 'center' ? 'text-center' : 'text-start')}>
             {eyebrow && <p className="eyebrow">{eyebrow}</p>}
-            <h2 className="font-display text-3xl font-bold text-ink sm:text-4xl">{children}</h2>
+            <h2 className="font-display text-3xl font-bold text-druze-blue sm:text-4xl">{children}</h2>
             <span
                 aria-hidden
                 className={cn(

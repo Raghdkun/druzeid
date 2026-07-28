@@ -1,9 +1,7 @@
 {
     "skip_to_content": "Ga naar de inhoud",
-
     "site.tagline": "Een humanitaire non-profitorganisatie die de Druzen — Bani Ma'ruf — bekendmaakt",
     "site.logo_alt": "Logo van de Druzische Identiteitsorganisatie",
-
     "nav.home": "Home",
     "nav.projects": "Onze projecten",
     "nav.about": "Over de organisatie",
@@ -12,22 +10,18 @@
     "nav.open_menu": "Menu openen",
     "nav.close_menu": "Menu sluiten",
     "nav.expand": "Uitklappen",
-
     "search.label": "Zoeken op de site",
     "search.placeholder": "Zoeken…",
     "search.submit": "Zoeken",
     "search.open": "Zoeken openen",
-
     "lang.label": "Taal",
     "lang.switcher_label": "Taalkeuze",
     "lang.current": "Huidige taal",
-
     "footer.sections": "Sitesecties",
     "footer.organization": "Organisatie",
     "footer.contact": "Neem contact op",
     "footer.rights": "Alle rechten voorbehouden.",
     "footer.social_label": "Volg ons",
-
     "contact.title": "Contact",
     "contact.name": "Naam",
     "contact.email": "E-mail",
@@ -38,12 +32,10 @@
     "contact.success": "Bedankt voor uw bericht. We hebben het ontvangen en nemen spoedig contact op.",
     "contact.error": "Het bericht kon niet worden verzonden. Probeer het opnieuw.",
     "contact.required": "Verplicht veld",
-
     "status.under_construction": "In aanbouw",
     "status.coming_soon": "Binnenkort beschikbaar",
     "status.planned_sections": "Geplande secties",
     "status.visit_site": "Site bezoeken",
-
     "common.read_more": "Lees meer",
     "common.back_home": "Terug naar home",
     "common.next_page": "Volgende pagina",
@@ -51,5 +43,15 @@
     "common.page_not_found": "Pagina niet gevonden",
     "common.page_not_found_body": "De gevraagde pagina kon niet worden gevonden. Mogelijk is deze verplaatst of verwijderd.",
     "common.error": "Er is een fout opgetreden",
-    "common.loading": "Laden…"
+    "common.loading": "Laden…",
+    "nav.news": "Druzennieuws",
+    "news.title": "Nieuws",
+    "news.read_article": "Lees artikel",
+    "news.source": "Bron",
+    "news.empty": "Nog geen nieuws.",
+    "news.latest": "Laatste nieuws",
+    "contact.call": "Bel ons",
+    "contact.whatsapp": "WhatsApp",
+    "contact.bubble_label": "Neem contact op",
+    "news.all": "Alle nieuws"
 }

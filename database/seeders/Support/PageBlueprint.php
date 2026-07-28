@@ -34,6 +34,9 @@ final class PageBlueprint
                     'en' => 'Home',
                     'fr' => 'Accueil',
                     'nl' => 'Home',
+                    'es' => 'Inicio',
+                    'he' => 'בית',
+                    'de' => 'Startseite',
                 ],
             ],
             [
@@ -46,6 +49,9 @@ final class PageBlueprint
                     'en' => 'Who We Are',
                     'fr' => 'Qui sommes-nous',
                     'nl' => 'Wie wij zijn',
+                    'es' => 'Quiénes somos',
+                    'he' => 'מי אנחנו',
+                    'de' => 'Wer wir sind',
                 ],
             ],
             [
@@ -58,6 +64,9 @@ final class PageBlueprint
                     'en' => 'Druze Identity Projects',
                     'fr' => 'Projets Identité Druze',
                     'nl' => 'Druzische Identiteitsprojecten',
+                    'es' => 'Proyectos de la Identidad Drusa',
+                    'he' => 'מיזמי הזהות הדרוזית',
+                    'de' => 'Projekte der drusischen Identität',
                 ],
             ],
             [
@@ -70,6 +79,9 @@ final class PageBlueprint
                     'en' => 'Druze Community Directory',
                     'fr' => 'Annuaire de la communauté druze',
                     'nl' => 'Druzische Gemeenschapsgids',
+                    'es' => 'Directorio de la Comunidad Drusa',
+                    'he' => 'מדריך הקהילה הדרוזית',
+                    'de' => 'Verzeichnis der drusischen Gemeinschaft',
                 ],
             ],
             [
@@ -82,6 +94,9 @@ final class PageBlueprint
                     'en' => 'Druze Archives',
                     'fr' => 'Archives druzes',
                     'nl' => 'Druzisch Archief',
+                    'es' => 'Archivos Drusos',
+                    'he' => 'ארכיון הדרוזים',
+                    'de' => 'Drusisches Archiv',
                 ],
             ],
             [
@@ -94,6 +109,9 @@ final class PageBlueprint
                     'en' => 'Druze Economy',
                     'fr' => 'Économie druze',
                     'nl' => 'Druzische Economie',
+                    'es' => 'Economía Drusa',
+                    'he' => 'הכלכלה הדרוזית',
+                    'de' => 'Drusische Wirtschaft',
                 ],
             ],
             [
@@ -106,6 +124,9 @@ final class PageBlueprint
                     'en' => 'Druze News',
                     'fr' => 'Actualités druzes',
                     'nl' => 'Druzisch Nieuws',
+                    'es' => 'Noticias Drusas',
+                    'he' => 'חדשות הדרוזים',
+                    'de' => 'Drusen-Nachrichten',
                 ],
             ],
             [
@@ -118,6 +139,9 @@ final class PageBlueprint
                     'en' => 'The Druze Madafa',
                     'fr' => 'La Madafa druze',
                     'nl' => 'De Druzische Madafa',
+                    'es' => 'La Madafa Drusa',
+                    'he' => 'המדאפה הדרוזית',
+                    'de' => 'Die drusische Madafa',
                 ],
             ],
             [
@@ -130,6 +154,9 @@ final class PageBlueprint
                     'en' => 'Memberships',
                     'fr' => 'Adhésions',
                     'nl' => 'Lidmaatschappen',
+                    'es' => 'Membresías',
+                    'he' => 'חברות',
+                    'de' => 'Mitgliedschaften',
                 ],
             ],
             [
@@ -142,6 +169,9 @@ final class PageBlueprint
                     'en' => 'Partners and Supporters',
                     'fr' => 'Partenaires et soutiens',
                     'nl' => 'Partners en Ondersteuners',
+                    'es' => 'Socios y colaboradores',
+                    'he' => 'שותפים ותומכים',
+                    'de' => 'Partner und Unterstützer',
                 ],
             ],
             [
@@ -154,6 +184,9 @@ final class PageBlueprint
                     'en' => 'Contact Us',
                     'fr' => 'Nous contacter',
                     'nl' => 'Contact',
+                    'es' => 'Contáctanos',
+                    'he' => 'צור קשר',
+                    'de' => 'Kontakt',
                 ],
             ],
         ];

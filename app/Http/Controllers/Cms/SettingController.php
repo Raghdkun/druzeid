@@ -28,6 +28,7 @@ class SettingController extends Controller
                 'siteSeoDescription' => Setting::get('site.seo_description', []),
                 'footerNote' => Setting::get('footer.note', []),
                 'contactEmail' => Setting::get('contact.email', ''),
+                'contactWhatsapp' => Setting::get('contact.whatsapp', ''),
                 'contactPhones' => Setting::get('contact.phones', []),
                 'contactAddress' => Setting::get('contact.address'),
                 'socialLinks' => Setting::get('social.links', []),
@@ -59,6 +60,7 @@ class SettingController extends Controller
             'footerNote' => ['array'],
             'footerNote.*' => ['nullable', 'string', 'max:500'],
             'contactEmail' => ['nullable', 'email:rfc', 'max:190'],
+            'contactWhatsapp' => ['nullable', 'string', 'max:40', 'regex:/^\+?[0-9\s-]+$/'],
             'contactPhones' => ['array'],
             'contactPhones.*.label' => ['array'],
             'contactPhones.*.value' => ['required', 'string', 'max:40'],
@@ -77,6 +79,7 @@ class SettingController extends Controller
         Setting::put('site.seo_description', $this->pruneLocales($validated['siteSeoDescription'] ?? []), 'seo');
         Setting::put('footer.note', $this->pruneLocales($validated['footerNote'] ?? []), 'footer');
         Setting::put('contact.email', $validated['contactEmail'] ?? null, 'contact');
+        Setting::put('contact.whatsapp', $validated['contactWhatsapp'] ?? null, 'contact');
         Setting::put('contact.phones', array_values($validated['contactPhones'] ?? []), 'contact');
         Setting::put('contact.address', $validated['contactAddress'] ?? null, 'contact');
         Setting::put('social.links', array_values($validated['socialLinks'] ?? []), 'social');

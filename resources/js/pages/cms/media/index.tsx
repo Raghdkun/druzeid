@@ -173,9 +173,9 @@ function MediaThumb({ item, altLocale }: { item: MediaItem; altLocale: string })
         return (
             <>
                 {item.poster ? (
-                    <img src={item.poster} alt="" loading="lazy" className="h-full w-full object-cover" />
+                    <img src={item.poster} alt="" loading="lazy" className="absolute inset-0 h-full w-full object-cover" />
                 ) : (
-                    <span className="flex h-full w-full items-center justify-center bg-black/80 text-white/70">
+                    <span className="absolute inset-0 flex items-center justify-center bg-black/80 text-white/70">
                         <Play className="size-6" aria-hidden />
                     </span>
                 )}
@@ -198,7 +198,7 @@ function MediaThumb({ item, altLocale }: { item: MediaItem; altLocale: string })
             src={item.url}
             alt={item.alt[altLocale] ?? ''}
             loading="lazy"
-            className="h-full w-full object-cover"
+            className="absolute inset-0 h-full w-full object-cover"
             style={{ objectPosition: `${item.focalX * 100}% ${item.focalY * 100}%` }}
         />
     );

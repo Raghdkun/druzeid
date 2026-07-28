@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 use App\Models\Media;
 use App\Models\Page;
+use App\Support\Locale;
 
 it('serves a sitemap with an entry per page per locale', function () {
     Page::factory()->home()->create();
@@ -14,14 +15,17 @@ it('serves a sitemap with an entry per page per locale', function () {
     $response->assertOk()
         ->assertHeader('Content-Type', 'application/xml; charset=UTF-8');
 
-    // 2 pages x 4 locales = 8 <loc> entries.
-    expect(substr_count($response->getContent(), '<loc>'))->toBe(8);
+    // 2 pages + the news index, each once per locale.
+    $locales = count(Locale::codes());
+    expect(substr_count($response->getContent(), '<loc>'))->toBe(3 * $locales);
 
-    // hreflang alternates present, including x-default.
+    // hreflang alternates present, including x-default and the new locales.
     $response->assertSee('hreflang="ar"', false)
         ->assertSee('hreflang="en-GB"', false)
+        ->assertSee('hreflang="he"', false)
         ->assertSee('hreflang="x-default"', false)
         ->assertSee('/en/org-about-us', false)
+        ->assertSee('/news', false)
         ->assertSee('<changefreq>', false)
         ->assertSee('<priority>', false);
 });

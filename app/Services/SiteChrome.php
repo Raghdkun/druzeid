@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Services;
 
+use App\Models\Article;
 use App\Models\Menu;
 use App\Models\MenuItem;
 use App\Models\Setting;
@@ -27,7 +28,7 @@ class SiteChrome
     {
         $locale ??= App::getLocale();
 
-        return Cache::rememberForever("site.chrome.{$locale}", fn () => [
+        $chrome = Cache::rememberForever("site.chrome.{$locale}", fn () => [
             'menus' => [
                 'primary' => $this->menu(Menu::PRIMARY, $locale),
                 'footerSections' => $this->menu(Menu::FOOTER_SECTIONS, $locale),
@@ -36,6 +37,35 @@ class SiteChrome
             'settings' => $this->settings($locale),
             'contactAction' => Locale::path('contact.store', [], $locale),
         ]);
+
+        // The news ticker's headlines are computed fresh (not cached with the
+        // chrome), so a newly published article shows without a cache flush.
+        return [
+            ...$chrome,
+            'latestNews' => $this->latestNews($locale),
+            'newsIndexUrl' => Locale::path('news.index', [], $locale),
+        ];
+    }
+
+    /**
+     * The latest published headlines for the news ticker under the navbar.
+     *
+     * @return list<array{id: int, title: string, href: string}>
+     */
+    protected function latestNews(string $locale): array
+    {
+        return array_values(
+            Article::query()
+                ->published()
+                ->limit(8)
+                ->get()
+                ->map(fn (Article $article) => [
+                    'id' => $article->id,
+                    'title' => $article->getTranslation('title', $locale) ?? '',
+                    'href' => $article->urlFor($locale),
+                ])
+                ->all()
+        );
     }
 
     /**
@@ -67,7 +97,7 @@ class SiteChrome
     {
         $keys = [
             'site.tagline', 'site.short_name',
-            'contact.email', 'contact.phones', 'contact.address',
+            'contact.email', 'contact.whatsapp', 'contact.phones', 'contact.address',
             'social.links', 'footer.note',
         ];
 

@@ -38,7 +38,7 @@ export function Picture({ image, className, imgClassName, priority = false, size
         fetchPriority: priority ? ('high' as const) : ('auto' as const),
         sizes,
         'aria-hidden': decorative || undefined,
-        className: cn('h-auto max-w-full', imgClassName, className),
+        className: cn('max-w-full', imgClassName, className),
         style: { objectPosition: image.objectPosition },
     };
 
@@ -47,8 +47,13 @@ export function Picture({ image, className, imgClassName, priority = false, size
         return <img {...commonImgProps} />;
     }
 
+    // `display: contents` removes the <picture> from the box tree, so the <img>
+    // sizes against the caller's crop box (e.g. an aspect-ratio container)
+    // rather than an inline wrapper. Without it the img's object-cover/h-full
+    // resolve against a shrink-wrapped inline <picture> and images look
+    // stretched.
     return (
-        <picture>
+        <picture className="contents">
             {image.srcsetAvif && <source type="image/avif" srcSet={image.srcsetAvif} sizes={sizes} />}
             {image.srcsetWebp && <source type="image/webp" srcSet={image.srcsetWebp} sizes={sizes} />}
             <img {...commonImgProps} />

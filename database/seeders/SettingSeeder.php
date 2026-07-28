@@ -32,6 +32,9 @@ class SettingSeeder extends Seeder
 
             'contact' => [
                 'contact.email' => $contact['emails'][0] ?? 'DRUZE.IDENTITY@gmail.com',
+                // The WhatsApp line, in international format for the wa.me link
+                // used by the floating contact bubble.
+                'contact.whatsapp' => $contact['phones'][1] ?? '00963994315333',
                 // Both numbers carried over from the source contact page —
                 // the first is the mobile line, the second WhatsApp.
                 'contact.phones' => [

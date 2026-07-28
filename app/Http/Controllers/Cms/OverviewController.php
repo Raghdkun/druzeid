@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Cms;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use App\Models\Media;
 use App\Models\Page;
 use App\Support\Locale;
@@ -21,6 +22,8 @@ class OverviewController extends Controller
                 'drafts' => Page::where('status', Page::STATUS_DRAFT)->count(),
                 'media' => Media::count(),
                 'altReviewQueue' => Media::where('needs_alt_review', true)->count(),
+                'articles' => Article::count(),
+                'articlesPublished' => Article::where('status', Article::STATUS_PUBLISHED)->count(),
             ],
             'translationCoverage' => $this->translationCoverage(),
             'recentPages' => Page::query()

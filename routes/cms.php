@@ -2,6 +2,7 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Cms\ArticleController;
 use App\Http\Controllers\Cms\MediaController;
 use App\Http\Controllers\Cms\MenuController;
 use App\Http\Controllers\Cms\OverviewController;
@@ -38,6 +39,13 @@ Route::middleware(['auth', 'verified'])
             Route::get('pages/{page:id}/edit', [PageController::class, 'edit'])->name('pages.edit');
             Route::put('pages/{page:id}', [PageController::class, 'update'])->name('pages.update');
             Route::delete('pages/{page:id}', [PageController::class, 'destroy'])->name('pages.destroy');
+
+            Route::get('articles', [ArticleController::class, 'index'])->name('articles.index');
+            Route::get('articles/create', [ArticleController::class, 'create'])->name('articles.create');
+            Route::post('articles', [ArticleController::class, 'store'])->name('articles.store');
+            Route::get('articles/{article:id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
+            Route::put('articles/{article:id}', [ArticleController::class, 'update'])->name('articles.update');
+            Route::delete('articles/{article:id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
 
             Route::get('media', [MediaController::class, 'index'])->name('media.index');
             Route::post('media', [MediaController::class, 'store'])->name('media.store');

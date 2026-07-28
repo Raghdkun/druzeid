@@ -34,6 +34,9 @@ class DatabaseSeeder extends Seeder
         if (app()->environment('local')) {
             $this->seedStaff();
         }
+
+        // After staff (articles reference an author) and media.
+        $this->call(NewsSeeder::class);
     }
 
     /**

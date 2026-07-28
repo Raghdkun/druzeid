@@ -1,4 +1,4 @@
-export type LocaleCode = 'ar' | 'en' | 'fr' | 'nl';
+export type LocaleCode = 'ar' | 'en' | 'fr' | 'nl' | 'es' | 'he' | 'de';
 
 export type Direction = 'rtl' | 'ltr';
 

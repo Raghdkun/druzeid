@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
 use App\Models\Media;
 use App\Models\Page;
 use App\Support\Locale;
@@ -79,7 +80,54 @@ class SitemapController extends Controller
             }
         }
 
+        $this->appendNews($urls);
+
         return view('sitemap', ['urls' => $urls])->render();
+    }
+
+    /**
+     * Add the news index and every published article, once per locale.
+     *
+     * @param  list<array<string, mixed>>  $urls
+     */
+    private function appendNews(array &$urls): void
+    {
+        foreach (Locale::codes() as $code) {
+            $urls[] = [
+                'loc' => url(Locale::path('news.index', [], $code)),
+                'lastmod' => null,
+                'changefreq' => 'weekly',
+                'priority' => '0.6',
+                'alternates' => array_map(fn (string $c) => [
+                    'hreflang' => Locale::htmlLang($c),
+                    'href' => url(Locale::path('news.index', [], $c)),
+                ], Locale::codes()),
+                'images' => [],
+            ];
+        }
+
+        $articles = Article::query()->published()->with('featuredMedia')->get();
+
+        foreach ($articles as $article) {
+            $image = $article->featuredMedia;
+            $images = $image !== null
+                ? [['loc' => url(Storage::disk($image->disk)->url($image->path)), 'title' => null]]
+                : [];
+
+            foreach (Locale::codes() as $code) {
+                $urls[] = [
+                    'loc' => url($article->urlFor($code)),
+                    'lastmod' => $article->updated_at?->toAtomString(),
+                    'changefreq' => 'monthly',
+                    'priority' => '0.6',
+                    'alternates' => array_map(fn (string $c) => [
+                        'hreflang' => Locale::htmlLang($c),
+                        'href' => url($article->urlFor($c)),
+                    ], Locale::codes()),
+                    'images' => $images,
+                ];
+            }
+        }
     }
 
     private function locFor(Page $page, string $code): string

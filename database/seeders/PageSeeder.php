@@ -102,9 +102,6 @@ class PageSeeder extends Seeder
         $essayIndex = $this->indexOfBlockContaining($blocks, 'لماذا يحتاج الدروز');
 
         $intro = array_slice($blocks, 1, ($welcomeIndex ?? 3) - 1);
-        $welcome = $welcomeIndex !== null
-            ? array_slice($blocks, $welcomeIndex, ($essayIndex ?? count($blocks)) - $welcomeIndex)
-            : [];
         $essay = $essayIndex !== null ? array_slice($blocks, $essayIndex) : [];
 
         return array_values(array_filter([
@@ -116,6 +113,9 @@ class PageSeeder extends Seeder
                         'en' => 'Druze Identity Organization',
                         'fr' => "Organisation de l'Identité Druze",
                         'nl' => 'Druzische Identiteitsorganisatie',
+                        'es' => 'Organización de la Identidad Drusa',
+                        'he' => 'ארגון הזהות הדרוזית',
+                        'de' => 'Organisation der drusischen Identität',
                     ]),
                     'subtitle' => B::tr($blocks[0]['text'] ?? null),
                     // The original rotated four historic photographs here.
@@ -123,35 +123,22 @@ class PageSeeder extends Seeder
                     'actions' => [
                         [
                             'label' => B::locales([
-                                'ar' => 'أقســام الموقع',
-                                'en' => 'Site sections',
-                                'fr' => 'Sections du site',
-                                'nl' => 'Sitesecties',
-                            ]),
-                            'href' => '#sections',
-                        ],
-                        [
-                            'label' => B::locales([
                                 'ar' => 'تعريف بالمنظمة',
                                 'en' => 'About the organization',
                                 'fr' => "À propos de l'organisation",
                                 'nl' => 'Over de organisatie',
+                                'es' => 'Sobre la organización',
+                                'he' => 'אודות הארגון',
+                                'de' => 'Über die Organisation',
                             ]),
                             'slug' => 'org-about-us',
                         ],
                     ],
                 ],
             ],
+            // The latest news appears as a ticker under the navbar site-wide, so
+            // the home page keeps just its intro and feature essay.
             $intro === [] ? null : ['type' => 'rich_text', 'payload' => B::richText($intro)],
-            [
-                'type' => 'card_grid',
-                'payload' => [
-                    'anchor' => 'sections',
-                    'heading' => B::tr($welcome[0]['text'] ?? 'أقســام الموقع'),
-                    'intro' => B::tr($welcome[1]['text'] ?? null),
-                    'cards' => $this->projectCards(),
-                ],
-            ],
             $essay === [] ? null : [
                 'type' => 'rich_text',
                 'payload' => [
@@ -244,38 +231,6 @@ class PageSeeder extends Seeder
     // -----------------------------------------------------------------
     // Helpers
     // -----------------------------------------------------------------
-
-    /**
-     * Cards linking the six project sections, in navigation order.
-     *
-     * @return list<array<string, mixed>>
-     */
-    private function projectCards(): array
-    {
-        $cards = [];
-
-        foreach (PageBlueprint::projectSlugs() as $slug) {
-            $blueprint = collect(PageBlueprint::all())->firstWhere('slug', $slug);
-            $extracted = ExtractedPage::load($slug, $this->bundle);
-            $images = $this->mediaIdsFor($slug);
-
-            $cards[] = [
-                'slug' => $slug,
-                'title' => B::locales($blueprint['titles']),
-                'accent' => $blueprint['accent'],
-                'media_id' => $images[0] ?? null,
-                'excerpt' => $this->deriveExcerptMap(
-                    B::dropRedundantLead($extracted->blocks(), $blueprint['titles']['ar'])
-                ),
-                // Derived from the template rather than the text marker: the
-                // directory page describes a planned section without ever
-                // using the words "قيد الإنشاء", but it is just as unbuilt.
-                'underConstruction' => $blueprint['template'] === 'under_construction',
-            ];
-        }
-
-        return $cards;
-    }
 
     /**
      * A card-sized excerpt as a locale map: the first substantial paragraph,
