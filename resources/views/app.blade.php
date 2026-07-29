@@ -56,6 +56,40 @@
         <link rel="manifest" href="{{ url('/site.webmanifest') }}">
         <meta name="theme-color" content="{{ \App\Support\Branding::themeColor() }}">
 
+        {{-- Matomo analytics — public site pages only (never the CMS/auth), and
+             only when configured + enabled in the dashboard. Values are
+             JSON-encoded so nothing from the settings can break out of the
+             script, and the script carries the CSP nonce. When a Tag Manager
+             container id is set the MTM container loads (it owns the tracking
+             configuration); otherwise the plain tracker is used. --}}
+        @php $matomo = \App\Support\Matomo::trackerConfig(); @endphp
+        @if ($matomo && \Illuminate\Support\Str::startsWith($page['component'] ?? '', 'site/'))
+        @if ($matomo['containerId'])
+        <script nonce="{{ \Illuminate\Support\Facades\Vite::cspNonce() }}">
+            var _mtm = window._mtm = window._mtm || [];
+            _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+            (function () {
+                var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                g.async = true; g.src = @json($matomo['url'].'js/container_'.$matomo['containerId'].'.js');
+                s.parentNode.insertBefore(g, s);
+            })();
+        </script>
+        @else
+        <script nonce="{{ \Illuminate\Support\Facades\Vite::cspNonce() }}">
+            var _paq = window._paq = window._paq || [];
+            _paq.push(['trackPageView']);
+            _paq.push(['enableLinkTracking']);
+            (function () {
+                var u = @json($matomo['url']);
+                _paq.push(['setTrackerUrl', u + 'matomo.php']);
+                _paq.push(['setSiteId', @json((string) $matomo['siteId'])]);
+                var d = document, g = d.createElement('script'), s = d.getElementsByTagName('script')[0];
+                g.async = true; g.src = u + 'matomo.js'; s.parentNode.insertBefore(g, s);
+            })();
+        </script>
+        @endif
+        @endif
+
         @fonts
 
         {{-- SEO meta rendered server-side so social scrapers and non-JS

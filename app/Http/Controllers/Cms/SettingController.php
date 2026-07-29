@@ -11,6 +11,7 @@ use App\Services\SiteChrome;
 use App\Services\SiteIcons;
 use App\Support\Branding;
 use App\Support\Locale;
+use App\Support\Matomo;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Inertia\Response;
@@ -36,6 +37,13 @@ class SettingController extends Controller
                 'logoMediaId' => Setting::get('site.logo_media_id'),
                 'ogImageMediaId' => Setting::get('site.og_image_media_id'),
                 'themeColor' => Branding::themeColor(),
+                // Matomo — the public config, plus a boolean for the secret
+                // token (its value is never sent to the browser).
+                'matomoEnabled' => (bool) Setting::get('matomo.enabled', false),
+                'matomoUrl' => Setting::get('matomo.url', ''),
+                'matomoSiteId' => Setting::get('matomo.site_id', ''),
+                'matomoContainerId' => Setting::get('matomo.container_id', ''),
+                'matomoTokenSet' => Matomo::hasToken(),
             ],
             'iconPreview' => Branding::icons()[192] ?? null,
             'mediaLibrary' => $this->mediaLibrary(),
@@ -63,7 +71,10 @@ class SettingController extends Controller
             'contactWhatsapp' => ['nullable', 'string', 'max:40', 'regex:/^\+?[0-9\s-]+$/'],
             'contactPhones' => ['array'],
             'contactPhones.*.label' => ['array'],
-            'contactPhones.*.value' => ['required', 'string', 'max:40'],
+            // Same digit/format constraint as the WhatsApp field, so a phone
+            // number can only ever be a phone number (defence in depth for the
+            // tel: links the contact bubble and footer build from it).
+            'contactPhones.*.value' => ['required', 'string', 'max:40', 'regex:/^\+?[0-9()\s-]+$/'],
             'contactAddress' => ['nullable', 'string', 'max:500'],
             'socialLinks' => ['array'],
             'socialLinks.*.platform' => ['required', 'string', 'max:40'],
@@ -72,6 +83,16 @@ class SettingController extends Controller
             'logoMediaId' => ['nullable', 'integer', 'exists:media,id'],
             'ogImageMediaId' => ['nullable', 'integer', 'exists:media,id'],
             'themeColor' => ['nullable', 'regex:/^#[0-9a-fA-F]{6}$/'],
+            'matomoEnabled' => ['boolean'],
+            'matomoUrl' => ['nullable', 'url', 'max:2048'],
+            'matomoSiteId' => ['nullable', 'integer', 'min:1'],
+            // Tag Manager container id — alphanumeric only (e.g. `rkUM09pP`), so
+            // it can only ever be a safe path segment in the container URL.
+            'matomoContainerId' => ['nullable', 'string', 'max:64', 'regex:/^[A-Za-z0-9]+$/'],
+            // The token is optional on every save: blank keeps the stored one,
+            // a value replaces it, and the clear flag removes it.
+            'matomoToken' => ['nullable', 'string', 'max:191'],
+            'matomoTokenClear' => ['boolean'],
         ]);
 
         Setting::put('site.short_name', $this->pruneLocales($validated['siteShortName'] ?? []), 'general');
@@ -88,11 +109,35 @@ class SettingController extends Controller
         Setting::put('site.og_image_media_id', $validated['ogImageMediaId'] ?? null, 'branding');
         Setting::put('site.theme_color', $validated['themeColor'] ?? Branding::DEFAULT_THEME_COLOR, 'branding');
 
+        Setting::put('matomo.enabled', $validated['matomoEnabled'] ?? false, 'analytics');
+        Setting::put('matomo.url', $validated['matomoUrl'] ?? null, 'analytics');
+        Setting::put('matomo.site_id', $validated['matomoSiteId'] ?? null, 'analytics');
+        Setting::put('matomo.container_id', $validated['matomoContainerId'] ?? null, 'analytics');
+        $this->syncMatomoToken($validated['matomoToken'] ?? null, $validated['matomoTokenClear'] ?? false);
+
         $this->syncIcon($validated['iconMediaId'] ?? null);
 
         SiteChrome::flush();
 
         return back()->with('success', __('Settings saved.'));
+    }
+
+    /**
+     * Persist the Matomo Reporting API token, encrypted. A blank token leaves
+     * the stored one untouched (so the value never has to round-trip to the
+     * browser); the clear flag removes it.
+     */
+    private function syncMatomoToken(?string $token, bool $clear): void
+    {
+        if ($clear) {
+            Setting::put('matomo.token', null, 'analytics');
+
+            return;
+        }
+
+        if (filled($token)) {
+            Setting::put('matomo.token', Matomo::encryptToken($token), 'analytics');
+        }
     }
 
     /**

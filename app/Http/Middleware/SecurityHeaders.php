@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Http\Middleware;
 
+use App\Support\Matomo;
 use Closure;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Vite;
@@ -33,13 +34,17 @@ class SecurityHeaders
             return $response;
         }
 
+        // When Matomo is on, its origin is allowed to load the tracker script,
+        // send the tracking beacon, and serve the fallback tracking image.
+        $matomo = Matomo::enabled() ? Matomo::host() : null;
+
         $directives = [
             "default-src 'self'",
-            $this->scriptSrc(),
+            $this->scriptSrc($matomo),
             "style-src 'self' 'unsafe-inline'",
-            "img-src 'self' data: blob:",
+            'img-src '.trim("'self' data: blob: ".(string) $matomo),
             "font-src 'self' data:",
-            $this->connectSrc(),
+            $this->connectSrc($matomo),
             "media-src 'self' blob:",
             "worker-src 'self' blob:",
             "object-src 'none'",
@@ -84,10 +89,14 @@ class SecurityHeaders
      * available. When the Vite dev server is running (`npm run dev`), its origin
      * and 'unsafe-eval' are allowed so HMR works — never the case in production.
      */
-    private function scriptSrc(): string
+    private function scriptSrc(?string $matomo = null): string
     {
         $nonce = Vite::cspNonce();
         $src = "script-src 'self' blob:".($nonce !== null ? " 'nonce-{$nonce}'" : " 'unsafe-inline'");
+
+        if ($matomo !== null) {
+            $src .= " {$matomo}";
+        }
 
         if (Vite::isRunningHot()) {
             $src .= " 'unsafe-eval' ".$this->hotOrigin();
@@ -96,9 +105,13 @@ class SecurityHeaders
         return $src;
     }
 
-    private function connectSrc(): string
+    private function connectSrc(?string $matomo = null): string
     {
         $src = "connect-src 'self'";
+
+        if ($matomo !== null) {
+            $src .= " {$matomo}";
+        }
 
         if (Vite::isRunningHot()) {
             $origin = $this->hotOrigin();

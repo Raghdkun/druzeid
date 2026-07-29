@@ -43,6 +43,33 @@ it('renders a published article and 404s an unpublished one', function () {
     expect($draft->isPublished())->toBeFalse();
 });
 
+it('creates an article from the dashboard that shows in the ticker and news index (no seed)', function () {
+    $admin = User::factory()->create(['role' => 'admin']);
+
+    // Exactly what the CMS form posts — no seeder involved.
+    $this->actingAs($admin)
+        ->post('/cms/articles', [
+            'slug' => 'newly-authored',
+            'title' => ['ar' => 'خبر من لوحة التحكم'],
+            'excerpt' => ['ar' => 'مقتطف'],
+            'body' => ['ar' => '<p>نص الخبر</p>'],
+            'status' => 'published',
+            'isFeatured' => false,
+        ])
+        ->assertRedirect();
+
+    $article = Article::sole();
+    expect($article->status)->toBe('published')
+        ->and($article->author_id)->toBe($admin->id);
+
+    // It surfaces in the ticker (shared chrome) and the public news index.
+    $this->get('/')->assertInertia(fn (Assert $p) => expect(
+        collect($p->toArray()['props']['latestNews'])->pluck('title')
+    )->toContain('خبر من لوحة التحكم'));
+
+    $this->get('/news')->assertOk()->assertInertia(fn (Assert $p) => $p->has('articles.data', 1));
+});
+
 it('feeds the news ticker with the latest headlines site-wide', function () {
     Article::factory()->create(['title' => ['ar' => 'خبر منشور']]);
     Article::factory()->draft()->create();

@@ -35,7 +35,22 @@ interface SettingsData {
     logoMediaId: number | null;
     ogImageMediaId: number | null;
     themeColor: string;
+    matomoEnabled: boolean;
+    matomoUrl: string;
+    matomoSiteId: string | number;
+    matomoContainerId: string;
+    /** Whether a token is stored — the value itself is never sent here. */
+    matomoTokenSet: boolean;
 }
+
+/**
+ * The form omits the read-only `matomoTokenSet` and adds the write-only token
+ * controls (a blank token keeps the stored one; the clear flag removes it).
+ */
+type SettingsForm = Omit<SettingsData, 'matomoTokenSet'> & {
+    matomoToken: string;
+    matomoTokenClear: boolean;
+};
 
 const breadcrumbs: BreadcrumbItem[] = [
     { title: 'لوحة التحكم', href: '/cms' },
@@ -53,7 +68,7 @@ export default function SettingsEdit({
     mediaLibrary: LibraryImage[];
     iconPreview: string | null;
 }) {
-    const form = useForm<SettingsData>({
+    const form = useForm<SettingsForm>({
         siteShortName: settings.siteShortName ?? {},
         siteTagline: settings.siteTagline ?? {},
         siteSeoDescription: settings.siteSeoDescription ?? {},
@@ -67,6 +82,12 @@ export default function SettingsEdit({
         logoMediaId: settings.logoMediaId ?? null,
         ogImageMediaId: settings.ogImageMediaId ?? null,
         themeColor: settings.themeColor ?? '#0057B8',
+        matomoEnabled: settings.matomoEnabled ?? false,
+        matomoUrl: settings.matomoUrl ?? '',
+        matomoSiteId: settings.matomoSiteId ?? '',
+        matomoContainerId: settings.matomoContainerId ?? '',
+        matomoToken: '',
+        matomoTokenClear: false,
     });
 
     return (
@@ -326,6 +347,100 @@ export default function SettingsEdit({
                             </Button>
                         </div>
                     ))}
+                </section>
+
+                <section className="space-y-4 rounded-xl border border-border bg-card p-5">
+                    <h2 className="font-display text-lg font-bold">التحليلات (Matomo)</h2>
+                    <p className="text-sm text-muted-foreground">
+                        اربط الموقع بحساب Matomo لتتبّع الزيارات وعرضها في لوحة «التحليلات». يُخزَّن
+                        رمز الوصول مشفّراً ويُستخدم من الخادم فقط.
+                    </p>
+
+                    <label className="flex items-center gap-2 text-sm">
+                        <input
+                            type="checkbox"
+                            className="size-4"
+                            checked={form.data.matomoEnabled}
+                            onChange={(e) => form.setData('matomoEnabled', e.target.checked)}
+                        />
+                        تفعيل تتبّع الزوّار على الموقع العام
+                    </label>
+
+                    <div className="grid gap-4 sm:grid-cols-2">
+                        <div className="space-y-1.5">
+                            <Label htmlFor="matomoUrl">عنوان Matomo</Label>
+                            <Input
+                                id="matomoUrl"
+                                dir="ltr"
+                                placeholder="https://matomo.druze.id/matomo/"
+                                value={form.data.matomoUrl}
+                                onChange={(e) => form.setData('matomoUrl', e.target.value)}
+                            />
+                            {form.errors.matomoUrl && (
+                                <p className="text-sm text-destructive">{form.errors.matomoUrl}</p>
+                            )}
+                        </div>
+                        <div className="space-y-1.5">
+                            <Label htmlFor="matomoSiteId">معرّف الموقع (Site ID)</Label>
+                            <Input
+                                id="matomoSiteId"
+                                dir="ltr"
+                                type="number"
+                                min={1}
+                                placeholder="1"
+                                value={form.data.matomoSiteId}
+                                onChange={(e) => form.setData('matomoSiteId', e.target.value)}
+                            />
+                            {form.errors.matomoSiteId && (
+                                <p className="text-sm text-destructive">{form.errors.matomoSiteId}</p>
+                            )}
+                        </div>
+                    </div>
+
+                    <div className="space-y-1.5">
+                        <Label htmlFor="matomoContainerId">معرّف حاوية Tag Manager (اختياري)</Label>
+                        <Input
+                            id="matomoContainerId"
+                            dir="ltr"
+                            placeholder="rkUM09pP"
+                            value={form.data.matomoContainerId}
+                            onChange={(e) => form.setData('matomoContainerId', e.target.value)}
+                        />
+                        <p className="text-sm text-muted-foreground">
+                            عند إدخاله، يُحمّل الموقع حاوية Matomo Tag Manager بدل المتتبّع المباشر. اتركه فارغاً لاستخدام المتتبّع الافتراضي.
+                        </p>
+                        {form.errors.matomoContainerId && (
+                            <p className="text-sm text-destructive">{form.errors.matomoContainerId}</p>
+                        )}
+                    </div>
+
+                    <div className="space-y-1.5">
+                        <Label htmlFor="matomoToken">رمز الوصول (Auth Token)</Label>
+                        <Input
+                            id="matomoToken"
+                            dir="ltr"
+                            type="password"
+                            autoComplete="off"
+                            placeholder={settings.matomoTokenSet ? '•••••••• (محفوظ — اتركه فارغاً للإبقاء عليه)' : 'أدخل رمز الوصول'}
+                            value={form.data.matomoToken}
+                            onChange={(e) => form.setData('matomoToken', e.target.value)}
+                            disabled={form.data.matomoTokenClear}
+                        />
+                        {settings.matomoTokenSet && (
+                            <label className="flex items-center gap-2 text-xs text-muted-foreground">
+                                <input
+                                    type="checkbox"
+                                    className="size-3.5"
+                                    checked={form.data.matomoTokenClear}
+                                    onChange={(e) => form.setData('matomoTokenClear', e.target.checked)}
+                                />
+                                إزالة الرمز المحفوظ
+                            </label>
+                        )}
+                        {form.errors.matomoToken && (
+                            <p className="text-sm text-destructive">{form.errors.matomoToken}</p>
+                        )}
+                    </div>
                 </section>
             </form>
         </AppLayout>

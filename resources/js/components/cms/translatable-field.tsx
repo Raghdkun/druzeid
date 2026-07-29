@@ -47,13 +47,13 @@ export function TranslatableField({
 
     return (
         <div className="space-y-1.5">
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-2">
                 <Label>
                     {label}
                     {required && <span className="ms-1 text-destructive">*</span>}
                 </Label>
 
-                <div className="flex items-center gap-0.5 rounded-md bg-muted p-0.5">
+                <div className="flex flex-wrap items-center gap-0.5 rounded-md bg-muted p-0.5">
                     {locales.map((locale) => {
                         const filled = Boolean(value[locale.code]);
 

@@ -22,14 +22,18 @@ interface VideoPlayerProps {
  */
 export function VideoPlayer({ media, className, autoplay = false }: VideoPlayerProps) {
     const videoRef = useRef<HTMLVideoElement>(null);
-    const [motionOk, setMotionOk] = useState(true);
+    // Seed from the current preference so the first render is already correct
+    // (guarding SSR, where there is no `window`); the effect then only has to
+    // keep it in sync if the setting is toggled while the page is open.
+    const [motionOk, setMotionOk] = useState(() =>
+        typeof window === 'undefined' ? true : ! window.matchMedia('(prefers-reduced-motion: reduce)').matches,
+    );
     const [started, setStarted] = useState(autoplay);
 
     // Honour prefers-reduced-motion: an ambient autoplay becomes a normal
     // click-to-play so the page never moves on its own for those who opt out.
     useEffect(() => {
         const query = window.matchMedia('(prefers-reduced-motion: reduce)');
-        setMotionOk(!query.matches);
         const onChange = () => setMotionOk(!query.matches);
         query.addEventListener('change', onChange);
 

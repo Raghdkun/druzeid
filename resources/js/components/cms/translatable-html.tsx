@@ -50,10 +50,10 @@ export function TranslatableHtml({
 
     return (
         <div className="space-y-1.5">
-            <div className="flex items-center justify-between gap-2">
+            <div className="flex flex-wrap items-center justify-between gap-2">
                 {label ? <Label>{label}</Label> : <span />}
 
-                <div className="flex items-center gap-0.5 rounded-md bg-muted p-0.5">
+                <div className="flex flex-wrap items-center gap-0.5 rounded-md bg-muted p-0.5">
                     {locales.map((locale) => (
                         <button
                             key={locale.code}

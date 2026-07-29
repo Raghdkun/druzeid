@@ -23,7 +23,7 @@ export function CompletenessBadges({
     className?: string;
 }) {
     return (
-        <div className={cn('flex items-center gap-1', className)}>
+        <div className={cn('flex flex-wrap items-center gap-1', className)}>
             {locales.map((locale) => {
                 const percent = completeness[locale.code] ?? 0;
 

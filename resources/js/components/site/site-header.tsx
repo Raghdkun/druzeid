@@ -29,8 +29,10 @@ export function SiteHeader({
 
     return (
         <header className="relative z-30">
-            {/* Utility strip — language row */}
-            <div className="border-b border-hairline bg-surface-alt">
+            {/* Utility strip — language row. Desktop only: on mobile/tablet the
+                language switcher lives inside the nav drawer instead, so this
+                top strip is hidden below lg. */}
+            <div className="hidden border-b border-hairline bg-surface-alt lg:block">
                 <div className="mx-auto flex max-w-6xl items-center justify-end px-4 sm:px-6 lg:px-8">
                     <LanguageSwitcher className="py-1.5" />
                 </div>

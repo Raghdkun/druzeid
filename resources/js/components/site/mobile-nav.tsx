@@ -25,7 +25,7 @@ export function MobileNav({ items }: { items: NavItem[] }) {
     return (
         <Sheet open={open} onOpenChange={setOpen}>
             <SheetTrigger
-                className="inline-flex size-11 items-center justify-center rounded-md text-ink hover:bg-surface-alt lg:hidden"
+                className="inline-flex size-11 items-center justify-center rounded-md text-white transition-colors hover:bg-white/10 lg:hidden"
                 aria-label={t('nav.open_menu')}
             >
                 <BurgerIcon />

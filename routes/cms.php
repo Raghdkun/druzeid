@@ -2,7 +2,9 @@
 
 declare(strict_types=1);
 
+use App\Http\Controllers\Cms\AnalyticsController;
 use App\Http\Controllers\Cms\ArticleController;
+use App\Http\Controllers\Cms\BackupController;
 use App\Http\Controllers\Cms\MediaController;
 use App\Http\Controllers\Cms\MenuController;
 use App\Http\Controllers\Cms\OverviewController;
@@ -54,12 +56,23 @@ Route::middleware(['auth', 'verified'])
 
             Route::get('menus', [MenuController::class, 'index'])->name('menus.index');
             Route::put('menus/{menu:id}', [MenuController::class, 'update'])->name('menus.update');
+
+            Route::get('analytics', [AnalyticsController::class, 'index'])->name('analytics.index');
         });
 
         // Settings and users — admins only.
         Route::middleware('can:manage-settings')->group(function (): void {
             Route::get('settings', [SettingController::class, 'edit'])->name('settings.edit');
             Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
+
+            Route::get('backups', [BackupController::class, 'index'])->name('backups.index');
+            Route::post('backups', [BackupController::class, 'store'])->name('backups.store');
+            Route::get('backups/{name}/download', [BackupController::class, 'download'])
+                ->where('name', 'backup-[0-9_-]+\.zip')
+                ->name('backups.download');
+            Route::delete('backups/{name}', [BackupController::class, 'destroy'])
+                ->where('name', 'backup-[0-9_-]+\.zip')
+                ->name('backups.destroy');
         });
 
         Route::middleware('can:manage-users')->group(function (): void {

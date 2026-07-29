@@ -27,9 +27,11 @@ export function NewsTicker() {
         if (items.length < 2 || paused) {
             return;
         }
+
         if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
             return;
         }
+
         const timer = setInterval(() => setActive((c) => (c + 1) % items.length), 4500);
 
         return () => clearInterval(timer);

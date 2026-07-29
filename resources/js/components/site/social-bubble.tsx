@@ -31,6 +31,7 @@ export function SocialBubble({ settings }: { settings: SiteSettings }) {
         if (!open) {
             return;
         }
+
         const onKey = (event: KeyboardEvent) => event.key === 'Escape' && setOpen(false);
         document.addEventListener('keydown', onKey);
 
