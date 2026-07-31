@@ -3,6 +3,7 @@
 declare(strict_types=1);
 
 use App\Http\Controllers\Cms\AnalyticsController;
+use App\Http\Controllers\Cms\ArticleCategoryController;
 use App\Http\Controllers\Cms\ArticleController;
 use App\Http\Controllers\Cms\BackupController;
 use App\Http\Controllers\Cms\MediaController;
@@ -48,6 +49,13 @@ Route::middleware(['auth', 'verified'])
             Route::get('articles/{article:id}/edit', [ArticleController::class, 'edit'])->name('articles.edit');
             Route::put('articles/{article:id}', [ArticleController::class, 'update'])->name('articles.update');
             Route::delete('articles/{article:id}', [ArticleController::class, 'destroy'])->name('articles.destroy');
+
+            Route::get('categories', [ArticleCategoryController::class, 'index'])->name('categories.index');
+            Route::get('categories/create', [ArticleCategoryController::class, 'create'])->name('categories.create');
+            Route::post('categories', [ArticleCategoryController::class, 'store'])->name('categories.store');
+            Route::get('categories/{category:id}/edit', [ArticleCategoryController::class, 'edit'])->name('categories.edit');
+            Route::put('categories/{category:id}', [ArticleCategoryController::class, 'update'])->name('categories.update');
+            Route::delete('categories/{category:id}', [ArticleCategoryController::class, 'destroy'])->name('categories.destroy');
 
             Route::get('media', [MediaController::class, 'index'])->name('media.index');
             Route::post('media', [MediaController::class, 'store'])->name('media.store');

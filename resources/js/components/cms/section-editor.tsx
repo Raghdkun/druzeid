@@ -3,6 +3,7 @@ import { useState } from 'react';
 
 import type { LocaleMeta } from '@/components/cms/locale-badges';
 import type { LibraryImage } from '@/components/cms/media-picker';
+import type { SectionReferences } from '@/components/cms/section-forms';
 import { SectionForm, STRUCTURED_TYPES } from '@/components/cms/section-forms';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
@@ -25,6 +26,7 @@ export interface EditorSection {
 
 const SECTION_LABELS: Record<string, string> = {
     hero: 'واجهة (Hero)',
+    hero_slider: 'شريط الواجهة (سلايدر)',
     rich_text: 'نص منسّق',
     card_grid: 'شبكة بطاقات',
     stat_band: 'شريط إحصائيات',
@@ -48,6 +50,7 @@ export function SectionEditor({
     total,
     locales,
     library,
+    references,
     onChange,
     onMove,
     onRemove,
@@ -57,6 +60,7 @@ export function SectionEditor({
     total: number;
     locales: LocaleMeta[];
     library: LibraryImage[];
+    references?: SectionReferences;
     onChange: (next: EditorSection) => void;
     onMove: (dir: -1 | 1) => void;
     onRemove: () => void;
@@ -136,6 +140,7 @@ export function SectionEditor({
                         payload={section.payload}
                         locales={locales}
                         library={library}
+                        references={references}
                         onChange={(payload) => onChange({ ...section, payload })}
                     />
                 ) : (

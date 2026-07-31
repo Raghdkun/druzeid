@@ -53,5 +53,14 @@
     "contact.call": "Llámanos",
     "contact.whatsapp": "WhatsApp",
     "contact.bubble_label": "Contáctanos",
-    "news.all": "Todas las noticias"
+    "news.all": "Todas las noticias",
+    "slider.label": "Presentación",
+    "slider.status": "Diapositiva :current de :total",
+    "slider.previous": "Diapositiva anterior",
+    "slider.next": "Diapositiva siguiente",
+    "slider.play": "Reproducir presentación",
+    "slider.pause": "Pausar presentación",
+    "slider.go_to_slide": "Ir a la diapositiva :number",
+    "common.back_to_top": "Volver arriba",
+    "a11y.breadcrumb": "Ruta de navegación"
 }

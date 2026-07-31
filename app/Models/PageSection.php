@@ -30,6 +30,7 @@ class PageSection extends Model
      */
     public const TYPES = [
         'hero',
+        'hero_slider',
         'rich_text',
         'card_grid',
         'stat_band',

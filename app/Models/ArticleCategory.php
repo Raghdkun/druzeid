@@ -8,12 +8,14 @@ use App\Concerns\HasTranslations;
 use Database\Factories\ArticleCategoryFactory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
  * @property int $id
  * @property string $slug
  * @property string|null $accent
+ * @property int|null $image_media_id
  * @property int $sort
  */
 class ArticleCategory extends Model
@@ -49,5 +51,15 @@ class ArticleCategory extends Model
     public function articles(): HasMany
     {
         return $this->hasMany(Article::class);
+    }
+
+    /**
+     * The representative image shown on a dynamic hero slide for this category.
+     *
+     * @return BelongsTo<Media, $this>
+     */
+    public function featuredMedia(): BelongsTo
+    {
+        return $this->belongsTo(Media::class, 'image_media_id');
     }
 }

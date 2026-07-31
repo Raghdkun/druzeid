@@ -3,6 +3,7 @@ import { Head, Link } from '@inertiajs/react';
 import { PageHeader } from '@/components/site/page-header';
 import { Picture } from '@/components/site/picture';
 import { SectionShell } from '@/components/site/section-shell';
+import { SiteBreadcrumbs } from '@/components/site/site-breadcrumbs';
 import { useI18n } from '@/hooks/use-i18n';
 import { SiteLayout } from '@/layouts/site-layout';
 import { cn } from '@/lib/utils';
@@ -30,6 +31,8 @@ export default function NewsIndex({ articles, meta, menus, settings }: Props) {
             <Head title={meta.title ?? t('news.title')} />
 
             <PageHeader title={t('news.title')} excerpt={null} image={null} accent="blue" />
+
+            <SiteBreadcrumbs />
 
             <SectionShell>
                 {articles.data.length === 0 ? (

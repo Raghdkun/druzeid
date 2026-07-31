@@ -8,6 +8,8 @@ use App\Actions\Cms\SavePage;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Cms\PageRequest;
 use App\Http\Resources\CmsPageResource;
+use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Models\Media;
 use App\Models\Page;
 use App\Models\PageSection;
@@ -36,6 +38,7 @@ class PageController extends Controller
             'page' => null,
             'mediaLibrary' => $this->mediaLibrary(),
             'sectionTypes' => PageSection::TYPES,
+            'references' => $this->references(),
             'templates' => $this->templates(),
             'accents' => ['blue', 'green', 'red', 'yellow', 'white'],
             'locales' => $this->localeMeta(),
@@ -57,6 +60,7 @@ class PageController extends Controller
             'page' => CmsPageResource::detail($page),
             'mediaLibrary' => $this->mediaLibrary(),
             'sectionTypes' => PageSection::TYPES,
+            'references' => $this->references(),
             'templates' => $this->templates(),
             'accents' => ['blue', 'green', 'red', 'yellow', 'white'],
             'locales' => $this->localeMeta(),
@@ -115,6 +119,53 @@ class PageController extends Controller
             'dir' => Locale::dir($code),
             'default' => $code === Locale::default(),
         ], Locale::codes());
+    }
+
+    /**
+     * Lightweight `{id, name}` lists of the content a dynamic hero slide can
+     * point at — articles, categories and pages — collapsed to the default
+     * locale for the editor's reference pickers.
+     *
+     * @return array{articles: list<array{id: int, name: string}>, categories: list<array{id: int, name: string}>, pages: list<array{id: int, name: string}>}
+     */
+    private function references(): array
+    {
+        $default = Locale::default();
+
+        return [
+            'articles' => array_values(
+                Article::query()
+                    ->orderByDesc('published_at')
+                    ->orderByDesc('id')
+                    ->take(200)
+                    ->get()
+                    ->map(fn (Article $a) => [
+                        'id' => $a->id,
+                        'name' => $a->getTranslation('title', $default) ?: $a->slug,
+                    ])
+                    ->all()
+            ),
+            'categories' => array_values(
+                ArticleCategory::query()
+                    ->orderBy('sort')
+                    ->get()
+                    ->map(fn (ArticleCategory $c) => [
+                        'id' => $c->id,
+                        'name' => $c->getTranslation('name', $default) ?: $c->slug,
+                    ])
+                    ->all()
+            ),
+            'pages' => array_values(
+                Page::query()
+                    ->orderBy('sort')
+                    ->get()
+                    ->map(fn (Page $p) => [
+                        'id' => $p->id,
+                        'name' => $p->getTranslation('title', $default) ?: $p->slug,
+                    ])
+                    ->all()
+            ),
+        ];
     }
 
     /**

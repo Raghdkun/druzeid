@@ -2,6 +2,7 @@ import { Head } from '@inertiajs/react';
 
 import { Picture } from '@/components/site/picture';
 import { ProseHtml } from '@/components/site/prose-html';
+import { SiteBreadcrumbs } from '@/components/site/site-breadcrumbs';
 import { useI18n } from '@/hooks/use-i18n';
 import { SiteLayout } from '@/layouts/site-layout';
 import type { ImageProps, PageMeta, SiteMenus, SiteSettings } from '@/types/site';
@@ -63,6 +64,8 @@ export default function Article({ article, meta, menus, settings }: Props) {
                     </div>
                 </header>
             )}
+
+            <SiteBreadcrumbs />
 
             <div className="mx-auto max-w-3xl px-4 py-14 sm:px-6">
                 {/* Tinted reading surface, a few shades off the page ground, so

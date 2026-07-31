@@ -5,6 +5,8 @@ declare(strict_types=1);
 namespace App\Http\Controllers\Site;
 
 use App\Http\Controllers\Controller;
+use App\Models\Article;
+use App\Models\ArticleCategory;
 use App\Models\Page;
 use App\Models\PageSection;
 use App\Models\Setting;
@@ -53,11 +55,19 @@ class PageController extends Controller
                 'excerpt' => $page->getTranslation('excerpt'),
                 'heroImage' => $page->heroMedia?->toImageProps(),
                 'sections' => $page->sections
-                    ->map(fn (PageSection $section) => [
-                        'id' => $section->id,
-                        'type' => $section->type,
-                        ...$this->resolveSlugHrefs($section->resolvedPayload($locale), $locale),
-                    ])
+                    ->map(function (PageSection $section) use ($locale) {
+                        $payload = $this->resolveSlugHrefs($section->resolvedPayload($locale), $locale);
+
+                        if ($section->type === 'hero_slider') {
+                            $payload = $this->hydrateSlider($payload, $locale);
+                        }
+
+                        return [
+                            'id' => $section->id,
+                            'type' => $section->type,
+                            ...$payload,
+                        ];
+                    })
                     ->all(),
             ],
             'meta' => [
@@ -98,6 +108,132 @@ class PageController extends Controller
         }
 
         return $payload;
+    }
+
+    /**
+     * Normalise a hero_slider payload: every slide is reduced to the uniform
+     * shape the carousel consumes — `{kind, title, subtitle, image, href,
+     * actions}`. Manual slides already carry a resolved title/subtitle/image
+     * (locale-collapsed + media-hydrated upstream); dynamic slides resolve
+     * their article/category/page reference here. Unresolvable refs (deleted or
+     * unpublished) are dropped so the slider never shows an empty slide.
+     *
+     * @param  array<string, mixed>  $payload
+     * @return array<string, mixed>
+     */
+    protected function hydrateSlider(array $payload, string $locale): array
+    {
+        $slides = is_array($payload['slides'] ?? null) ? $payload['slides'] : [];
+
+        $payload['slides'] = array_values(array_filter(array_map(
+            fn ($slide): ?array => $this->resolveSlide(is_array($slide) ? $slide : [], $locale),
+            $slides
+        )));
+
+        return $payload;
+    }
+
+    /**
+     * @param  array<string, mixed>  $slide
+     * @return array<string, mixed>|null
+     */
+    protected function resolveSlide(array $slide, string $locale): ?array
+    {
+        $kind = is_string($slide['kind'] ?? null) ? $slide['kind'] : 'manual';
+
+        // Actions arrive already resolved (label locale-collapsed, href/slug
+        // handled upstream); keep at most two, in order.
+        $actions = array_values(array_filter(
+            is_array($slide['actions'] ?? null) ? $slide['actions'] : [],
+            'is_array'
+        ));
+        $actions = array_slice($actions, 0, 2);
+
+        if ($kind === 'manual') {
+            return [
+                'kind' => 'manual',
+                'title' => is_string($slide['title'] ?? null) ? $slide['title'] : null,
+                'subtitle' => is_string($slide['subtitle'] ?? null) ? $slide['subtitle'] : null,
+                'image' => is_array($slide['image'] ?? null) ? $slide['image'] : null,
+                'href' => null,
+                'actions' => $actions,
+            ];
+        }
+
+        $refId = is_int($slide['ref_id'] ?? null) ? $slide['ref_id'] : null;
+
+        $resolved = $refId === null ? null : match ($kind) {
+            'article' => $this->resolveArticleSlide($refId, $locale),
+            'category' => $this->resolveCategorySlide($refId, $locale),
+            'page' => $this->resolvePageSlide($refId, $locale),
+            default => null,
+        };
+
+        if ($resolved === null) {
+            return null;
+        }
+
+        return [...$resolved, 'kind' => $kind, 'actions' => $actions];
+    }
+
+    /**
+     * @return array{title: string, subtitle: ?string, image: ?array<string, mixed>, href: ?string}|null
+     */
+    protected function resolveArticleSlide(int $id, string $locale): ?array
+    {
+        $article = Article::query()->published()->find($id);
+
+        if ($article === null) {
+            return null;
+        }
+
+        $card = $article->toCardProps($locale);
+
+        return [
+            'title' => (string) $card['title'],
+            'subtitle' => $card['excerpt'],
+            'image' => $card['image'],
+            'href' => $card['href'],
+        ];
+    }
+
+    /**
+     * @return array{title: string, subtitle: ?string, image: ?array<string, mixed>, href: ?string}|null
+     */
+    protected function resolveCategorySlide(int $id, string $locale): ?array
+    {
+        $category = ArticleCategory::query()->with('featuredMedia')->find($id);
+
+        if ($category === null) {
+            return null;
+        }
+
+        return [
+            'title' => $category->getTranslation('name', $locale) ?? '',
+            'subtitle' => $category->getTranslation('description', $locale),
+            'image' => $category->featuredMedia?->toImageProps(),
+            // Categories have no public archive route yet; link to the news index.
+            'href' => Locale::path('news.index', [], $locale),
+        ];
+    }
+
+    /**
+     * @return array{title: string, subtitle: ?string, image: ?array<string, mixed>, href: ?string}|null
+     */
+    protected function resolvePageSlide(int $id, string $locale): ?array
+    {
+        $page = Page::query()->published()->with('heroMedia')->find($id);
+
+        if ($page === null) {
+            return null;
+        }
+
+        return [
+            'title' => $page->getTranslation('title', $locale) ?? '',
+            'subtitle' => $page->getTranslation('excerpt', $locale),
+            'image' => $page->heroMedia?->toImageProps(),
+            'href' => Locale::path('pages.show', ['slug' => $page->slug], $locale),
+        ];
     }
 
     /**

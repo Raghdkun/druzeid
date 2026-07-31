@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { BarChart3, DatabaseBackup, FileText, Home, Images, LayoutGrid, ListTree, Newspaper, Settings, Users } from 'lucide-react';
+import { BarChart3, DatabaseBackup, FileText, Home, Images, LayoutGrid, ListTree, Newspaper, Settings, Tags, Users } from 'lucide-react';
 
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -18,6 +18,7 @@ import { overview } from '@/routes/cms';
 import * as analytics from '@/routes/cms/analytics';
 import * as articles from '@/routes/cms/articles';
 import * as backups from '@/routes/cms/backups';
+import * as categories from '@/routes/cms/categories';
 import * as media from '@/routes/cms/media';
 import * as menus from '@/routes/cms/menus';
 import * as pages from '@/routes/cms/pages';
@@ -40,6 +41,7 @@ export function AppSidebar() {
         { title: 'لوحة التحكم', href: overview(), icon: LayoutGrid },
         { title: 'الصفحات', href: pages.index(), icon: FileText },
         { title: 'الأخبار', href: articles.index(), icon: Newspaper },
+        { title: 'التصنيفات', href: categories.index(), icon: Tags },
         { title: 'الوسائط', href: media.index(), icon: Images },
         { title: 'القوائم', href: menus.index(), icon: ListTree },
         { title: 'التحليلات', href: analytics.index(), icon: BarChart3 },

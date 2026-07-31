@@ -53,5 +53,14 @@
     "contact.call": "Rufen Sie uns an",
     "contact.whatsapp": "WhatsApp",
     "contact.bubble_label": "Kontakt aufnehmen",
-    "news.all": "Alle Nachrichten"
+    "news.all": "Alle Nachrichten",
+    "slider.label": "Diashow",
+    "slider.status": "Folie :current von :total",
+    "slider.previous": "Vorherige Folie",
+    "slider.next": "Nächste Folie",
+    "slider.play": "Diashow abspielen",
+    "slider.pause": "Diashow pausieren",
+    "slider.go_to_slide": "Zu Folie :number",
+    "common.back_to_top": "Nach oben",
+    "a11y.breadcrumb": "Brotkrümelnavigation"
 }

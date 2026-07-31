@@ -53,5 +53,14 @@
     "contact.call": "התקשרו אלינו",
     "contact.whatsapp": "וואטסאפ",
     "contact.bubble_label": "צרו קשר",
-    "news.all": "כל החדשות"
+    "news.all": "כל החדשות",
+    "slider.label": "מצגת שקופיות",
+    "slider.status": "שקופית :current מתוך :total",
+    "slider.previous": "השקופית הקודמת",
+    "slider.next": "השקופית הבאה",
+    "slider.play": "הפעל מצגת",
+    "slider.pause": "השהה מצגת",
+    "slider.go_to_slide": "עבור לשקופית :number",
+    "common.back_to_top": "חזרה למעלה",
+    "a11y.breadcrumb": "נתיב ניווט"
 }

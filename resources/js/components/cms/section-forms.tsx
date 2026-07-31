@@ -1,4 +1,4 @@
-import { Plus, Trash2 } from 'lucide-react';
+import { ChevronDown, ChevronUp, Plus, Trash2 } from 'lucide-react';
 
 import type { LocaleMeta } from '@/components/cms/locale-badges';
 import type { LibraryImage } from '@/components/cms/media-picker';
@@ -12,16 +12,30 @@ import { Label } from '@/components/ui/label';
 type LocaleMap = Record<string, string>;
 type Payload = Record<string, unknown>;
 
+export interface Reference {
+    id: number;
+    name: string;
+}
+
+/** Content a dynamic hero slide can point at, provided by the page editor. */
+export interface SectionReferences {
+    articles: Reference[];
+    categories: Reference[];
+    pages: Reference[];
+}
+
 export interface SectionFormProps {
     payload: Payload;
     onChange: (payload: Payload) => void;
     locales: LocaleMeta[];
     library: LibraryImage[];
+    references?: SectionReferences;
 }
 
 /** Section types that have a structured editor; others fall back to raw JSON. */
 export const STRUCTURED_TYPES = [
     'hero',
+    'hero_slider',
     'rich_text',
     'card_grid',
     'gallery',
@@ -36,6 +50,8 @@ export function SectionForm({ type, ...props }: SectionFormProps & { type: strin
     switch (type) {
         case 'hero':
             return <HeroForm {...props} />;
+        case 'hero_slider':
+            return <SliderForm {...props} />;
         case 'rich_text':
             return <RichTextForm {...props} />;
         case 'card_grid':
@@ -87,6 +103,157 @@ function HeroForm({ payload, onChange, locales, library }: SectionFormProps) {
                     <Plus className="size-3.5" /> إضافة زر
                 </Button>
             </div>
+        </div>
+    );
+}
+
+const SLIDE_KINDS: Array<{ value: string; label: string }> = [
+    { value: 'manual', label: 'صورة وعنوان مخصّص' },
+    { value: 'article', label: 'خبر (ديناميكي)' },
+    { value: 'category', label: 'تصنيف (ديناميكي)' },
+    { value: 'page', label: 'صفحة (ديناميكي)' },
+];
+
+function refListFor(kind: string, references?: SectionReferences): Reference[] {
+    if (!references) {
+        return [];
+    }
+
+    return kind === 'article' ? references.articles : kind === 'category' ? references.categories : kind === 'page' ? references.pages : [];
+}
+
+/** Up to two optional call-to-action buttons — shared by every slide kind. */
+function ActionsEditor({
+    actions,
+    locales,
+    onChange,
+}: {
+    actions: Array<Record<string, unknown>>;
+    locales: LocaleMeta[];
+    onChange: (actions: Array<Record<string, unknown>>) => void;
+}) {
+    return (
+        <div className="space-y-2">
+            <Label>الأزرار (حتى زرّين، اختياري)</Label>
+            {actions.map((action, i) => (
+                <div key={i} className="grid gap-2 rounded border border-border p-2 sm:grid-cols-2">
+                    <TranslatableField label="النص" value={asMap(action.label)} locales={locales} onChange={(label) => onChange(actions.map((a, j) => (j === i ? { ...a, label } : a)))} />
+                    <div className="space-y-1.5">
+                        <Label>الوجهة (رابط أو #مرساة)</Label>
+                        <Input dir="ltr" value={(action.href as string) ?? ''} onChange={(e) => onChange(actions.map((a, j) => (j === i ? { ...a, href: e.target.value } : a)))} />
+                    </div>
+                    <button type="button" className="text-xs text-destructive hover:underline sm:col-span-2" onClick={() => onChange(actions.filter((_, j) => j !== i))}>حذف الزر</button>
+                </div>
+            ))}
+            {actions.length < 2 && (
+                <Button type="button" variant="ghost" size="sm" onClick={() => onChange([...actions, { label: {}, href: '' }])}>
+                    <Plus className="size-3.5" /> إضافة زر
+                </Button>
+            )}
+        </div>
+    );
+}
+
+function SlideEditor({
+    slide,
+    index,
+    total,
+    locales,
+    library,
+    references,
+    onChange,
+    onRemove,
+    onMove,
+}: {
+    slide: Record<string, unknown>;
+    index: number;
+    total: number;
+    locales: LocaleMeta[];
+    library: LibraryImage[];
+    references?: SectionReferences;
+    onChange: (patch: Record<string, unknown>) => void;
+    onRemove: () => void;
+    onMove: (dir: -1 | 1) => void;
+}) {
+    const kind = (slide.kind as string) ?? 'manual';
+    const actions = Array.isArray(slide.actions) ? (slide.actions as Array<Record<string, unknown>>) : [];
+    const refList = refListFor(kind, references);
+
+    return (
+        <div className="space-y-3 rounded-lg border border-border p-3">
+            <div className="flex items-center gap-2">
+                <span className="text-xs font-semibold text-muted-foreground">الشريحة #{index + 1}</span>
+                <div className="ms-auto flex items-center gap-1">
+                    <button type="button" disabled={index === 0} onClick={() => onMove(-1)} aria-label="نقل لأعلى" className="text-muted-foreground disabled:opacity-30"><ChevronUp className="size-4" /></button>
+                    <button type="button" disabled={index === total - 1} onClick={() => onMove(1)} aria-label="نقل لأسفل" className="text-muted-foreground disabled:opacity-30"><ChevronDown className="size-4" /></button>
+                    <button type="button" onClick={onRemove} aria-label="حذف الشريحة" className="text-destructive"><Trash2 className="size-4" /></button>
+                </div>
+            </div>
+
+            <div className="space-y-1.5">
+                <Label>نوع الشريحة</Label>
+                <select value={kind} onChange={(e) => onChange({ kind: e.target.value })} className="h-9 w-full rounded-md border border-input bg-background px-3 text-sm">
+                    {SLIDE_KINDS.map((k) => <option key={k.value} value={k.value}>{k.label}</option>)}
+                </select>
+            </div>
+
+            {kind === 'manual' ? (
+                <div className="space-y-3">
+                    <MediaPicker label="الصورة" value={(slide.media_id as number) ?? null} onChange={(media_id) => onChange({ media_id })} library={library} />
+                    <TranslatableField label="العنوان" value={asMap(slide.title)} locales={locales} onChange={(title) => onChange({ title })} />
+                    <TranslatableField label="الوصف" value={asMap(slide.subtitle)} locales={locales} onChange={(subtitle) => onChange({ subtitle })} multiline />
+                </div>
+            ) : (
+                <div className="space-y-1.5">
+                    <Label>المحتوى المرتبط</Label>
+                    <select value={(slide.ref_id as number) ?? ''} onChange={(e) => onChange({ ref_id: e.target.value ? Number(e.target.value) : null })} className="h-9 w-full rounded-md border border-input bg-background px-3 text-sm">
+                        <option value="">— اختر —</option>
+                        {refList.map((r) => <option key={r.id} value={r.id}>{r.name}</option>)}
+                    </select>
+                    <p className="text-xs text-muted-foreground">يُسحب العنوان والوصف والصورة تلقائياً من المحتوى المختار.</p>
+                </div>
+            )}
+
+            <ActionsEditor actions={actions} locales={locales} onChange={(next) => onChange({ actions: next })} />
+        </div>
+    );
+}
+
+function SliderForm({ payload, onChange, locales, library, references }: SectionFormProps) {
+    const slides = Array.isArray(payload.slides) ? (payload.slides as Array<Record<string, unknown>>) : [];
+
+    const moveSlide = (i: number, dir: -1 | 1) => {
+        const target = i + dir;
+
+        if (target < 0 || target >= slides.length) {
+            return;
+        }
+
+        const next = [...slides];
+        [next[i], next[target]] = [next[target], next[i]];
+        onChange({ ...payload, slides: next });
+    };
+
+    return (
+        <div className="space-y-3">
+            <Label>الشرائح</Label>
+            {slides.map((slide, i) => (
+                <SlideEditor
+                    key={i}
+                    slide={slide}
+                    index={i}
+                    total={slides.length}
+                    locales={locales}
+                    library={library}
+                    references={references}
+                    onChange={(patch) => onChange({ ...payload, slides: slides.map((s, j) => (j === i ? { ...s, ...patch } : s)) })}
+                    onRemove={() => onChange({ ...payload, slides: slides.filter((_, j) => j !== i) })}
+                    onMove={(dir) => moveSlide(i, dir)}
+                />
+            ))}
+            <Button type="button" variant="outline" size="sm" onClick={() => onChange({ ...payload, slides: [...slides, { kind: 'manual', title: {}, subtitle: {}, media_id: null, actions: [] }] })}>
+                <Plus className="size-3.5" /> إضافة شريحة
+            </Button>
         </div>
     );
 }

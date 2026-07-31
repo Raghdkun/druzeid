@@ -80,6 +80,32 @@ export interface HeroSection {
     actions: HeroAction[];
 }
 
+export interface SlideAction {
+    label: string;
+    href: string;
+}
+
+/**
+ * One slide of a `hero_slider`. Manual slides carry their own image/title/
+ * subtitle; dynamic slides (article/category/page) have those fields filled
+ * server-side from the referenced content. Both may carry up to two actions.
+ */
+export interface HeroSlide {
+    kind: 'manual' | 'article' | 'category' | 'page';
+    title: string | null;
+    subtitle: string | null;
+    image: ImageProps | null;
+    /** Where the slide's headline links (dynamic slides); null for manual. */
+    href: string | null;
+    actions: SlideAction[];
+}
+
+export interface HeroSliderSection {
+    id: number;
+    type: 'hero_slider';
+    slides: HeroSlide[];
+}
+
 export interface RichTextSection {
     id: number;
     type: 'rich_text';
@@ -169,6 +195,7 @@ export interface ContactSection {
 
 export type Section =
     | HeroSection
+    | HeroSliderSection
     | RichTextSection
     | CardGridSection
     | AccordionSection

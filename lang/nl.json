@@ -53,5 +53,14 @@
     "contact.call": "Bel ons",
     "contact.whatsapp": "WhatsApp",
     "contact.bubble_label": "Neem contact op",
-    "news.all": "Alle nieuws"
+    "news.all": "Alle nieuws",
+    "slider.label": "Diavoorstelling",
+    "slider.status": "Dia :current van :total",
+    "slider.previous": "Vorige dia",
+    "slider.next": "Volgende dia",
+    "slider.play": "Diavoorstelling afspelen",
+    "slider.pause": "Diavoorstelling pauzeren",
+    "slider.go_to_slide": "Ga naar dia :number",
+    "common.back_to_top": "Terug naar boven",
+    "a11y.breadcrumb": "Broodkruimelpad"
 }

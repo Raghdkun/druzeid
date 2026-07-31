@@ -53,5 +53,14 @@
     "contact.call": "Appelez-nous",
     "contact.whatsapp": "WhatsApp",
     "contact.bubble_label": "Contactez-nous",
-    "news.all": "Toutes les actualités"
+    "news.all": "Toutes les actualités",
+    "slider.label": "Diaporama",
+    "slider.status": "Diapositive :current sur :total",
+    "slider.previous": "Diapositive précédente",
+    "slider.next": "Diapositive suivante",
+    "slider.play": "Lancer le diaporama",
+    "slider.pause": "Mettre en pause le diaporama",
+    "slider.go_to_slide": "Aller à la diapositive :number",
+    "common.back_to_top": "Retour en haut",
+    "a11y.breadcrumb": "Fil d'Ariane"
 }

@@ -2,6 +2,7 @@ import { Head, usePage } from '@inertiajs/react';
 
 import { SectionRenderer } from '@/components/sections/section-renderer';
 import { PageHeader } from '@/components/site/page-header';
+import { SiteBreadcrumbs } from '@/components/site/site-breadcrumbs';
 import { SiteLayout } from '@/layouts/site-layout';
 import type { PageData, PageMeta, SiteMenus, SiteSettings } from '@/types/site';
 
@@ -26,7 +27,7 @@ export default function Page() {
     const flash = (props.flash as { success?: string } | undefined)?.success;
 
     const isHome = page.template === 'home';
-    const leadsWithHero = page.sections[0]?.type === 'hero';
+    const leadsWithHero = page.sections[0]?.type === 'hero' || page.sections[0]?.type === 'hero_slider';
 
     const title = meta.title ?? page.title;
 
@@ -46,6 +47,8 @@ export default function Page() {
                     accent={page.accent}
                 />
             )}
+
+            <SiteBreadcrumbs />
 
             <SectionRenderer
                 sections={page.sections}

@@ -3,6 +3,7 @@ import { CardGridSection } from '@/components/sections/card-grid-section';
 import { ContactSection } from '@/components/sections/contact-section';
 import { GallerySection } from '@/components/sections/gallery-section';
 import { HeroSection } from '@/components/sections/hero-section';
+import { HeroSliderSection } from '@/components/sections/hero-slider-section';
 import { RichTextSection } from '@/components/sections/rich-text-section';
 import { UnderConstructionSection } from '@/components/sections/under-construction-section';
 import { VideoSection } from '@/components/sections/video-section';
@@ -32,7 +33,7 @@ export function SectionRenderer({
     let band = 0;
 
     for (const section of sections) {
-        if (section.type !== 'hero') {
+        if (section.type !== 'hero' && section.type !== 'hero_slider') {
             bandTone.set(section.id, band % 2 === 0 ? 'default' : 'alt');
             band += 1;
         }
@@ -43,6 +44,10 @@ export function SectionRenderer({
             {sections.map((section) => {
                 if (section.type === 'hero') {
                     return <HeroSection key={section.id} section={section} />;
+                }
+
+                if (section.type === 'hero_slider') {
+                    return <HeroSliderSection key={section.id} section={section} />;
                 }
 
                 const tone = bandTone.get(section.id) ?? 'default';

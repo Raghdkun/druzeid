@@ -7,6 +7,7 @@ import type { LibraryImage } from '@/components/cms/media-picker';
 import { MediaPicker } from '@/components/cms/media-picker';
 import type { EditorSection } from '@/components/cms/section-editor';
 import { SECTION_LABELS, SectionEditor } from '@/components/cms/section-editor';
+import type { SectionReferences } from '@/components/cms/section-forms';
 import { TranslatableField } from '@/components/cms/translatable-field';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -33,6 +34,7 @@ interface PageDetail {
 interface Props {
     page: PageDetail | null;
     sectionTypes: string[];
+    references: SectionReferences;
     templates: string[];
     accents: string[];
     locales: LocaleMeta[];
@@ -55,7 +57,7 @@ interface PageMetaForm {
     seoDescription: Record<string, string>;
 }
 
-export default function PageEdit({ page, sectionTypes, templates, accents, locales, mediaLibrary }: Props) {
+export default function PageEdit({ page, sectionTypes, references, templates, accents, locales, mediaLibrary }: Props) {
     const isNew = page === null;
 
     const form = useForm<PageMetaForm>({
@@ -243,6 +245,7 @@ return;
                                     total={sections.length}
                                     locales={locales}
                                     library={mediaLibrary}
+                                    references={references}
                                     onChange={(next) => updateSection(index, next)}
                                     onMove={(dir) => moveSection(index, dir)}
                                     onRemove={() =>

@@ -1,6 +1,7 @@
 import { useLayoutEffect } from 'react';
 import type { PropsWithChildren } from 'react';
 
+import { BackToTop } from '@/components/site/back-to-top';
 import { ContactBubble } from '@/components/site/contact-bubble';
 import { SiteFooter } from '@/components/site/site-footer';
 import { SiteHeader } from '@/components/site/site-header';
@@ -58,6 +59,7 @@ export function SiteLayout({
 
             <ContactBubble settings={settings} />
             <SocialBubble settings={settings} />
+            <BackToTop />
         </div>
     );
 }

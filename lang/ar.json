@@ -53,5 +53,14 @@
     "contact.call": "اتصل بنا هاتفياً",
     "contact.whatsapp": "واتساب",
     "contact.bubble_label": "تواصل معنا",
-    "news.all": "كل الأخبار"
+    "news.all": "كل الأخبار",
+    "slider.label": "شرائح العرض",
+    "slider.status": "الشريحة :current من :total",
+    "slider.previous": "الشريحة السابقة",
+    "slider.next": "الشريحة التالية",
+    "slider.play": "تشغيل العرض",
+    "slider.pause": "إيقاف العرض مؤقتاً",
+    "slider.go_to_slide": "الانتقال إلى الشريحة :number",
+    "common.back_to_top": "العودة إلى الأعلى",
+    "a11y.breadcrumb": "مسار التنقل"
 }
