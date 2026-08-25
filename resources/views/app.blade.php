@@ -158,6 +158,16 @@
 
         @viteReactRefresh
         @vite(['resources/css/app.css', 'resources/js/app.tsx', "resources/js/pages/{$page['component']}.tsx"])
+
+        {{-- Admin-configured theme (brand colours + per-language fonts) as CSS
+             variable overrides. Rendered after the app stylesheet so it wins,
+             and only emitted when something is actually customised. Carries the
+             CSP nonce like the other inline styles/scripts. --}}
+        @php $themeCss = \App\Support\Theme::cssVariables(); @endphp
+        @if ($themeCss !== '')
+        <style nonce="{{ \Illuminate\Support\Facades\Vite::cspNonce() }}">:root { {!! $themeCss !!} }</style>
+        @endif
+
         <x-inertia::head>
             <title>{{ $meta['title'] ?? config('app.name', 'Laravel') }}</title>
         </x-inertia::head>

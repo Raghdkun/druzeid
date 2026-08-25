@@ -119,7 +119,7 @@ export default function ArticleEdit({ article, categories, mediaLibrary, locales
                 </section>
 
                 <section className="space-y-4 rounded-xl border border-border bg-card p-5">
-                    <TranslatableHtml label="نص الخبر" value={form.data.body} locales={locales} onChange={(v) => form.setData('body', v)} />
+                    <TranslatableHtml label="نص الخبر" value={form.data.body} locales={locales} onChange={(v) => form.setData('body', v)} library={mediaLibrary} />
                 </section>
 
                 <section className="grid gap-4 rounded-xl border border-border bg-card p-5 sm:grid-cols-2">

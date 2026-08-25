@@ -150,11 +150,19 @@ class PageController extends Controller
         $actions = array_slice($actions, 0, 2);
 
         if ($kind === 'manual') {
+            $image = is_array($slide['image'] ?? null) ? $slide['image'] : null;
+
+            // A per-slide focal point overrides the media's own object-position,
+            // so the same photo can be framed differently on different slides.
+            if ($image !== null && is_string($slide['object_position'] ?? null) && $slide['object_position'] !== '') {
+                $image['objectPosition'] = $slide['object_position'];
+            }
+
             return [
                 'kind' => 'manual',
                 'title' => is_string($slide['title'] ?? null) ? $slide['title'] : null,
                 'subtitle' => is_string($slide['subtitle'] ?? null) ? $slide['subtitle'] : null,
-                'image' => is_array($slide['image'] ?? null) ? $slide['image'] : null,
+                'image' => $image,
                 'href' => null,
                 'actions' => $actions,
             ];

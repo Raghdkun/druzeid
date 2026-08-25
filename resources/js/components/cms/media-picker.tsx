@@ -194,7 +194,7 @@ export function MultiMediaPicker({
     );
 }
 
-function MediaPickerModal({
+export function MediaPickerModal({
     library,
     accept,
     selectedId,

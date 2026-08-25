@@ -14,6 +14,7 @@ use App\Support\Locale;
 use App\Support\Matomo;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Validation\Rule;
 use Inertia\Response;
 
 class SettingController extends Controller
@@ -44,6 +45,8 @@ class SettingController extends Controller
                 'matomoSiteId' => Setting::get('matomo.site_id', ''),
                 'matomoContainerId' => Setting::get('matomo.container_id', ''),
                 'matomoTokenSet' => Matomo::hasToken(),
+                // Visible-in-switcher locale whitelist (defaults to all).
+                'enabledLocales' => Setting::get('locales.enabled', Locale::codes()),
             ],
             'iconPreview' => Branding::icons()[192] ?? null,
             'mediaLibrary' => $this->mediaLibrary(),
@@ -93,6 +96,8 @@ class SettingController extends Controller
             // a value replaces it, and the clear flag removes it.
             'matomoToken' => ['nullable', 'string', 'max:191'],
             'matomoTokenClear' => ['boolean'],
+            'enabledLocales' => ['array'],
+            'enabledLocales.*' => [Rule::in(Locale::codes())],
         ]);
 
         Setting::put('site.short_name', $this->pruneLocales($validated['siteShortName'] ?? []), 'general');
@@ -104,6 +109,7 @@ class SettingController extends Controller
         Setting::put('contact.phones', array_values($validated['contactPhones'] ?? []), 'contact');
         Setting::put('contact.address', $validated['contactAddress'] ?? null, 'contact');
         Setting::put('social.links', array_values($validated['socialLinks'] ?? []), 'social');
+        Setting::put('locales.enabled', $this->normalizeEnabledLocales($validated['enabledLocales'] ?? null), 'general');
 
         Setting::put('site.logo_media_id', $validated['logoMediaId'] ?? null, 'branding');
         Setting::put('site.og_image_media_id', $validated['ogImageMediaId'] ?? null, 'branding');
@@ -188,6 +194,26 @@ class SettingController extends Controller
                 ])
                 ->all()
         );
+    }
+
+    /**
+     * The visible-locale whitelist, always kept in config order, always
+     * including the default locale, and defaulting to all locales when none are
+     * given (so the switcher is never empty).
+     *
+     * @param  list<string>|null  $codes
+     * @return list<string>
+     */
+    private function normalizeEnabledLocales(?array $codes): array
+    {
+        $selected = $codes === null || $codes === [] ? Locale::codes() : $codes;
+
+        $ordered = array_values(array_filter(
+            Locale::codes(),
+            fn (string $code) => in_array($code, $selected, true) || $code === Locale::default(),
+        ));
+
+        return $ordered;
     }
 
     /**

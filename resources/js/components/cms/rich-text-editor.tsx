@@ -1,4 +1,5 @@
 import { Color } from '@tiptap/extension-color';
+import { Image } from '@tiptap/extension-image';
 import { TextStyle } from '@tiptap/extension-text-style';
 import { EditorContent, useEditor  } from '@tiptap/react';
 import type {Editor} from '@tiptap/react';
@@ -7,6 +8,7 @@ import {
     Bold,
     Heading2,
     Heading3,
+    Image as ImageIcon,
     Italic,
     Link as LinkIcon,
     List,
@@ -19,6 +21,8 @@ import {
 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 
+import type { LibraryImage } from '@/components/cms/media-picker';
+import { MediaPickerModal } from '@/components/cms/media-picker';
 import { Separator } from '@/components/ui/separator';
 import { Toggle } from '@/components/ui/toggle';
 import { cn } from '@/lib/utils';
@@ -52,11 +56,14 @@ export function RichTextEditor({
     onChange,
     dir = 'rtl',
     placeholder,
+    library,
 }: {
     value: string;
     onChange: (html: string) => void;
     dir?: 'rtl' | 'ltr';
     placeholder?: string;
+    /** When provided, a toolbar button inserts an image from this library. */
+    library?: LibraryImage[];
 }) {
     const editor = useEditor({
         immediatelyRender: false,
@@ -72,6 +79,9 @@ export function RichTextEditor({
             // <span style="color:…">, allowed by the `content` purifier profile.
             TextStyle,
             Color,
+            // Block images inserted from the media library; <img> is allowlisted
+            // in the `content` purifier profile.
+            Image.configure({ inline: false, allowBase64: false }),
         ],
         content: value || '',
         editorProps: {
@@ -109,13 +119,13 @@ return;
 
     return (
         <div className="overflow-hidden rounded-md border border-input bg-background focus-within:border-ring focus-within:ring-[3px] focus-within:ring-ring/50">
-            <Toolbar editor={editor} />
+            <Toolbar editor={editor} library={library} />
             <EditorContent editor={editor} />
         </div>
     );
 }
 
-function Toolbar({ editor }: { editor: Editor }) {
+function Toolbar({ editor, library }: { editor: Editor; library?: LibraryImage[] }) {
     const setLink = () => {
         const previous = editor.getAttributes('link').href as string | undefined;
         const url = window.prompt('الرابط (URL):', previous ?? 'https://');
@@ -175,6 +185,7 @@ return;
             <Divider />
 
             <ColorControl editor={editor} />
+            {library && library.length > 0 && <ImageControl editor={editor} library={library} />}
 
             <Divider />
 
@@ -232,6 +243,26 @@ function ColorControl({ editor }: { editor: Editor }) {
                                 style={{ backgroundColor: color.value }}
                             />
                         ))}
+
+                        {/* Custom colour — the full picker/wheel for any hue. */}
+                        <label
+                            className="relative flex size-6 cursor-pointer items-center justify-center overflow-hidden rounded-full border border-border"
+                            title="لون مخصّص"
+                            aria-label="لون مخصّص"
+                        >
+                            <span
+                                className="pointer-events-none absolute inset-0 rounded-full"
+                                style={{ background: 'conic-gradient(red, yellow, lime, aqua, blue, magenta, red)' }}
+                                aria-hidden
+                            />
+                            <input
+                                type="color"
+                                value={active ?? '#000000'}
+                                onChange={(e) => editor.chain().focus().setColor(e.target.value).run()}
+                                className="absolute inset-0 cursor-pointer opacity-0"
+                            />
+                        </label>
+
                         <Separator orientation="vertical" className="mx-0.5 h-5" />
                         <button
                             type="button"
@@ -249,6 +280,35 @@ function ColorControl({ editor }: { editor: Editor }) {
                 </>
             )}
         </div>
+    );
+}
+
+function ImageControl({ editor, library }: { editor: Editor; library: LibraryImage[] }) {
+    const [open, setOpen] = useState(false);
+
+    return (
+        <>
+            <Btn onClick={() => setOpen(true)} label="إدراج صورة">
+                <ImageIcon className="size-4" />
+            </Btn>
+
+            {open && (
+                <MediaPickerModal
+                    library={library}
+                    accept="image"
+                    onSelect={(id) => {
+                        const image = library.find((m) => m.id === id);
+
+                        if (image) {
+                            editor.chain().focus().setImage({ src: image.url, alt: image.alt }).run();
+                        }
+
+                        setOpen(false);
+                    }}
+                    onClose={() => setOpen(false)}
+                />
+            )}
+        </>
     );
 }
 

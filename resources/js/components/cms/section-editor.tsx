@@ -6,6 +6,8 @@ import type { LibraryImage } from '@/components/cms/media-picker';
 import type { SectionReferences } from '@/components/cms/section-forms';
 import { SectionForm, STRUCTURED_TYPES } from '@/components/cms/section-forms';
 import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
 
 /**
@@ -133,7 +135,22 @@ export function SectionEditor({
                 </div>
             </header>
 
-            <div className="p-3">
+            <div className="space-y-3 p-3">
+                {/* Universal anchor — an in-page #id for any section type. */}
+                <div className="space-y-1.5">
+                    <Label htmlFor={`anchor-${index}`} className="text-xs text-muted-foreground">
+                        مُعرّف الرابط (#مرساة)
+                    </Label>
+                    <Input
+                        id={`anchor-${index}`}
+                        dir="ltr"
+                        placeholder="section-id"
+                        value={(section.payload.anchor as string) ?? ''}
+                        onChange={(e) => onChange({ ...section, payload: { ...section.payload, anchor: e.target.value } })}
+                        className="h-8 font-mono text-xs"
+                    />
+                </div>
+
                 {hasStructuredForm && !showJson ? (
                     <SectionForm
                         type={section.type}

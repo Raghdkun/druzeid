@@ -8,6 +8,7 @@ import { TranslatableHtml } from '@/components/cms/translatable-html';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { cn } from '@/lib/utils';
 
 type LocaleMap = Record<string, string>;
 type Payload = Record<string, unknown>;
@@ -154,6 +155,64 @@ function ActionsEditor({
     );
 }
 
+const FOCAL_PRESETS: Array<{ label: string; value: string }> = [
+    { label: '↖', value: '0% 0%' }, { label: '↑', value: '50% 0%' }, { label: '↗', value: '100% 0%' },
+    { label: '←', value: '0% 50%' }, { label: '●', value: '50% 50%' }, { label: '→', value: '100% 50%' },
+    { label: '↙', value: '0% 100%' }, { label: '↓', value: '50% 100%' }, { label: '↘', value: '100% 100%' },
+];
+
+/**
+ * Choose which part of a slide image stays visible when it is cropped to fill.
+ * A live cover-preview reflects the choice; click the preview for a precise
+ * point or a preset arrow for a common one. Stored as an `x% y%` object-position.
+ */
+function FocalPicker({ imageUrl, value, onChange }: { imageUrl: string | null; value: string; onChange: (v: string) => void }) {
+    if (!imageUrl) {
+        return null;
+    }
+
+    const position = value || '50% 50%';
+
+    const setFromClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+        const rect = e.currentTarget.getBoundingClientRect();
+        const clamp = (n: number) => Math.min(100, Math.max(0, Math.round(n)));
+        onChange(`${clamp(((e.clientX - rect.left) / rect.width) * 100)}% ${clamp(((e.clientY - rect.top) / rect.height) * 100)}%`);
+    };
+
+    return (
+        <div className="space-y-2">
+            <Label>نقطة تركيز الصورة</Label>
+            <button
+                type="button"
+                onClick={setFromClick}
+                aria-label="اضغط لتحديد الجزء الظاهر من الصورة"
+                className="relative block aspect-[16/7] w-full overflow-hidden rounded-md border border-border"
+            >
+                <img src={imageUrl} alt="" className="h-full w-full object-cover" style={{ objectPosition: position }} />
+            </button>
+            <div className="flex items-start gap-3">
+                <div className="grid shrink-0 grid-cols-3 gap-0.5">
+                    {FOCAL_PRESETS.map((p) => (
+                        <button
+                            key={p.value}
+                            type="button"
+                            onClick={() => onChange(p.value)}
+                            aria-label={p.value}
+                            className={cn(
+                                'flex size-6 items-center justify-center rounded border border-border text-xs hover:bg-muted',
+                                position === p.value && 'border-druze-blue bg-druze-blue/10 text-druze-blue',
+                            )}
+                        >
+                            {p.label}
+                        </button>
+                    ))}
+                </div>
+                <p className="text-xs text-muted-foreground">اضغط على الصورة أو اختر اتجاهاً لتحديد الجزء الذي يبقى ظاهراً عند الاقتصاص.</p>
+            </div>
+        </div>
+    );
+}
+
 function SlideEditor({
     slide,
     index,
@@ -200,6 +259,11 @@ function SlideEditor({
             {kind === 'manual' ? (
                 <div className="space-y-3">
                     <MediaPicker label="الصورة" value={(slide.media_id as number) ?? null} onChange={(media_id) => onChange({ media_id })} library={library} />
+                    <FocalPicker
+                        imageUrl={library.find((m) => m.id === slide.media_id)?.url ?? null}
+                        value={(slide.object_position as string) ?? ''}
+                        onChange={(object_position) => onChange({ object_position })}
+                    />
                     <TranslatableField label="العنوان" value={asMap(slide.title)} locales={locales} onChange={(title) => onChange({ title })} />
                     <TranslatableField label="الوصف" value={asMap(slide.subtitle)} locales={locales} onChange={(subtitle) => onChange({ subtitle })} multiline />
                 </div>
@@ -258,14 +322,14 @@ function SliderForm({ payload, onChange, locales, library, references }: Section
     );
 }
 
-function RichTextForm({ payload, onChange, locales }: SectionFormProps) {
+function RichTextForm({ payload, onChange, locales, library }: SectionFormProps) {
     return (
         <div className="space-y-3">
             <label className="flex items-center gap-2 text-sm">
                 <input type="checkbox" className="size-4" checked={payload.variant === 'feature'} onChange={(e) => onChange({ ...payload, variant: e.target.checked ? 'feature' : undefined })} />
                 عرض كمقال مميز (وسط الصفحة)
             </label>
-            <TranslatableHtml label="المحتوى" value={asMap(payload.html)} locales={locales} onChange={(html) => onChange({ ...payload, html })} />
+            <TranslatableHtml label="المحتوى" value={asMap(payload.html)} locales={locales} onChange={(html) => onChange({ ...payload, html })} library={library} />
         </div>
     );
 }
@@ -278,10 +342,6 @@ function CardGridForm({ payload, onChange, locales, library }: SectionFormProps)
         <div className="space-y-4">
             <TranslatableField label="العنوان" value={asMap(payload.heading)} locales={locales} onChange={(heading) => onChange({ ...payload, heading })} />
             <TranslatableField label="مقدمة" value={asMap(payload.intro)} locales={locales} onChange={(intro) => onChange({ ...payload, intro })} multiline />
-            <div className="space-y-1.5">
-                <Label>مرساة (Anchor)</Label>
-                <Input dir="ltr" value={(payload.anchor as string) ?? ''} onChange={(e) => onChange({ ...payload, anchor: e.target.value })} />
-            </div>
 
             <div className="space-y-3">
                 <Label>البطاقات</Label>
@@ -335,7 +395,7 @@ function VideoForm({ payload, onChange, locales, library }: SectionFormProps) {
     );
 }
 
-function ContactForm({ payload, onChange, locales }: SectionFormProps) {
+function ContactForm({ payload, onChange, locales, library }: SectionFormProps) {
     const phones = Array.isArray(payload.phones) ? (payload.phones as string[]) : [];
 
     return (
@@ -358,7 +418,7 @@ function ContactForm({ payload, onChange, locales }: SectionFormProps) {
                 <input type="checkbox" className="size-4" checked={payload.showForm !== false} onChange={(e) => onChange({ ...payload, showForm: e.target.checked })} />
                 إظهار نموذج التواصل
             </label>
-            <TranslatableHtml label="نص تمهيدي" value={asMap(payload.html)} locales={locales} onChange={(html) => onChange({ ...payload, html })} />
+            <TranslatableHtml label="نص تمهيدي" value={asMap(payload.html)} locales={locales} onChange={(html) => onChange({ ...payload, html })} library={library} />
         </div>
     );
 }
@@ -371,12 +431,12 @@ function UnderConstructionForm({ payload, onChange, locales, library }: SectionF
                 <Input dir="ltr" placeholder="www.example.com" value={(payload.domain as string) ?? ''} onChange={(e) => onChange({ ...payload, domain: e.target.value })} />
             </div>
             <MediaPicker label="صورة" value={(payload.media_id as number) ?? null} onChange={(media_id) => onChange({ ...payload, media_id })} library={library} />
-            <TranslatableHtml label="الوصف" value={asMap(payload.html)} locales={locales} onChange={(html) => onChange({ ...payload, html })} />
+            <TranslatableHtml label="الوصف" value={asMap(payload.html)} locales={locales} onChange={(html) => onChange({ ...payload, html })} library={library} />
         </div>
     );
 }
 
-function AccordionForm({ payload, onChange, locales }: SectionFormProps) {
+function AccordionForm({ payload, onChange, locales, library }: SectionFormProps) {
     const items = Array.isArray(payload.items) ? (payload.items as Array<Record<string, unknown>>) : [];
     const setItem = (i: number, patch: Record<string, unknown>) => onChange({ ...payload, items: items.map((it, j) => (j === i ? { ...it, ...patch } : it)) });
 
@@ -388,7 +448,7 @@ function AccordionForm({ payload, onChange, locales }: SectionFormProps) {
                 {items.map((item, i) => (
                     <div key={i} className="space-y-2 rounded border border-border p-3">
                         <TranslatableField label="عنوان العنصر" value={asMap(item.title)} locales={locales} onChange={(title) => setItem(i, { title })} />
-                        <TranslatableHtml label="المحتوى" value={asMap(item.html)} locales={locales} onChange={(html) => setItem(i, { html })} />
+                        <TranslatableHtml label="المحتوى" value={asMap(item.html)} locales={locales} onChange={(html) => setItem(i, { html })} library={library} />
                         <button type="button" className="text-xs text-destructive hover:underline" onClick={() => onChange({ ...payload, items: items.filter((_, j) => j !== i) })}>حذف العنصر</button>
                     </div>
                 ))}

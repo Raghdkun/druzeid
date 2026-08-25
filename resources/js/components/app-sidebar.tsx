@@ -1,5 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
-import { BarChart3, DatabaseBackup, FileText, Home, Images, LayoutGrid, ListTree, Newspaper, Settings, Tags, Users } from 'lucide-react';
+import { BarChart3, DatabaseBackup, FileText, Home, Images, LayoutGrid, ListTree, Newspaper, Palette, Settings, Tags, Users } from 'lucide-react';
 
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -23,6 +23,7 @@ import * as media from '@/routes/cms/media';
 import * as menus from '@/routes/cms/menus';
 import * as pages from '@/routes/cms/pages';
 import * as settings from '@/routes/cms/settings';
+import * as themeRoutes from '@/routes/cms/theme';
 import * as users from '@/routes/cms/users';
 import type { NavItem } from '@/types';
 
@@ -49,6 +50,7 @@ export function AppSidebar() {
 
     const adminNav: NavItem[] = [
         { title: 'الإعدادات', href: settings.edit(), icon: Settings },
+        { title: 'المظهر', href: themeRoutes.edit(), icon: Palette },
         { title: 'النسخ الاحتياطي', href: backups.index(), icon: DatabaseBackup },
         { title: 'المستخدمون', href: users.index(), icon: Users },
     ];

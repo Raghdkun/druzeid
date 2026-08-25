@@ -62,10 +62,23 @@ it('sanitises html nested inside accordion items', function () {
 
     $payload = Page::where('slug', 'nested-html')->firstOrFail()->sections->first()->payload;
 
+    // Images are allowed (editor-inserted media), but the dangerous event
+    // handler is still stripped by the nested sanitiser.
     expect($payload['items'][0]['html']['ar'])
         ->toContain('نص')
-        ->not->toContain('onerror')
-        ->not->toContain('<img');
+        ->toContain('<img')
+        ->not->toContain('onerror');
+});
+
+it('allows images but strips non-colour inline CSS in rich text', function () {
+    $clean = Html::clean('<p><img src="/storage/media/x.jpg" alt="a" onclick="evil()"><span style="color:#069ed9;background:url(x);width:9px">t</span></p>');
+
+    expect($clean)->toContain('<img')
+        ->toContain('src="/storage/media/x.jpg"')
+        ->not->toContain('onclick')
+        ->toContain('color:#069ed9')
+        ->not->toContain('url(')
+        ->not->toContain('width');
 });
 
 it('keeps every tag the editor can produce', function () {

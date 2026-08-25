@@ -41,6 +41,8 @@ interface SettingsData {
     matomoContainerId: string;
     /** Whether a token is stored — the value itself is never sent here. */
     matomoTokenSet: boolean;
+    /** Locale codes shown in the public language switcher. */
+    enabledLocales: string[];
 }
 
 /**
@@ -88,6 +90,7 @@ export default function SettingsEdit({
         matomoContainerId: settings.matomoContainerId ?? '',
         matomoToken: '',
         matomoTokenClear: false,
+        enabledLocales: settings.enabledLocales ?? locales.map((l) => l.code),
     });
 
     return (
@@ -347,6 +350,43 @@ export default function SettingsEdit({
                             </Button>
                         </div>
                     ))}
+                </section>
+
+                <section className="space-y-4 rounded-xl border border-border bg-card p-5">
+                    <div>
+                        <h2 className="font-display text-lg font-bold">اللغات الظاهرة</h2>
+                        <p className="mt-1 text-sm text-muted-foreground">
+                            اختر اللغات التي تظهر في مبدّل اللغة أعلى الموقع. اللغات المخفية تبقى صفحاتها
+                            تعمل عبر الروابط المباشرة، ويمكن تجهيز ترجمتها قبل إظهارها.
+                        </p>
+                    </div>
+                    <div className="flex flex-wrap gap-2">
+                        {locales.map((locale) => {
+                            const checked = locale.default || form.data.enabledLocales.includes(locale.code);
+
+                            return (
+                                <label
+                                    key={locale.code}
+                                    className={`flex cursor-pointer items-center gap-2 rounded-lg border px-3 py-2 text-sm ${checked ? 'border-druze-blue bg-druze-blue/5' : 'border-border'} ${locale.default ? 'cursor-not-allowed opacity-70' : ''}`}
+                                >
+                                    <input
+                                        type="checkbox"
+                                        className="size-4"
+                                        checked={checked}
+                                        disabled={locale.default}
+                                        onChange={(e) => {
+                                            const next = e.target.checked
+                                                ? [...form.data.enabledLocales, locale.code]
+                                                : form.data.enabledLocales.filter((c) => c !== locale.code);
+                                            form.setData('enabledLocales', Array.from(new Set(next)));
+                                        }}
+                                    />
+                                    {locale.name}
+                                    {locale.default && <span className="text-xs text-muted-foreground">(افتراضي)</span>}
+                                </label>
+                            );
+                        })}
+                    </div>
                 </section>
 
                 <section className="space-y-4 rounded-xl border border-border bg-card p-5">

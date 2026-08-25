@@ -1,6 +1,7 @@
 import { useState } from 'react';
 
 import type { LocaleMeta } from '@/components/cms/locale-badges';
+import type { LibraryImage } from '@/components/cms/media-picker';
 import { RichTextEditor } from '@/components/cms/rich-text-editor';
 import { Label } from '@/components/ui/label';
 import { cn } from '@/lib/utils';
@@ -19,12 +20,14 @@ export function TranslatableHtml({
     locales,
     onChange,
     hint,
+    library,
 }: {
     label: string;
     value: LocaleMap;
     locales: LocaleMeta[];
     onChange: (next: LocaleMap) => void;
     hint?: string;
+    library?: LibraryImage[];
 }) {
     const [active, setActive] = useState(locales.find((l) => l.default)?.code ?? locales[0].code);
     const activeLocale = locales.find((l) => l.code === active) ?? locales[0];
@@ -87,6 +90,7 @@ export function TranslatableHtml({
                 value={value[active] ?? ''}
                 dir={activeLocale.dir}
                 onChange={setHtml}
+                library={library}
             />
 
             {hint && <p className="text-xs text-muted-foreground">{hint}</p>}

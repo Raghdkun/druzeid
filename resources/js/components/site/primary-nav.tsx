@@ -1,6 +1,7 @@
-import { Link, usePage } from '@inertiajs/react';
+import { usePage } from '@inertiajs/react';
 import { useEffect, useRef, useState } from 'react';
 
+import { NavLink } from '@/components/site/nav-link';
 import { useI18n } from '@/hooks/use-i18n';
 import { cn } from '@/lib/utils';
 import type { NavItem } from '@/types/site';
@@ -66,9 +67,7 @@ function NavTopItem({ item }: { item: NavItem }) {
     if (!hasChildren) {
         return (
             <li>
-                <Link href={item.href ?? '#'} className={itemClasses}>
-                    {item.label}
-                </Link>
+                <NavLink item={item} className={itemClasses} />
             </li>
         );
     }
@@ -95,13 +94,11 @@ function NavTopItem({ item }: { item: NavItem }) {
                 <ul className="absolute top-full z-40 min-w-60 border-t-2 border-druze-blue bg-white py-2 shadow-lg start-0">
                     {item.children.map((child) => (
                         <li key={child.id}>
-                            <Link
-                                href={child.href ?? '#'}
+                            <NavLink
+                                item={child}
                                 className="block px-5 py-2.5 text-sm text-ink-soft transition-colors hover:bg-surface-alt hover:text-druze-blue"
                                 onClick={() => setOpen(false)}
-                            >
-                                {child.label}
-                            </Link>
+                            />
                         </li>
                     ))}
                 </ul>

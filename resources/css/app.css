@@ -343,6 +343,9 @@
     .prose-content code {
         @apply rounded bg-surface-alt px-1.5 py-0.5 font-mono text-sm;
     }
+    .prose-content img {
+        @apply my-6 h-auto max-w-full rounded-lg;
+    }
 
     /* Editor-only affordances layered over the shared prose styles (the
        editor element carries both `prose-content` and `tiptap-content`). */

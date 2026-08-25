@@ -11,6 +11,7 @@ use App\Http\Controllers\Cms\MenuController;
 use App\Http\Controllers\Cms\OverviewController;
 use App\Http\Controllers\Cms\PageController;
 use App\Http\Controllers\Cms\SettingController;
+use App\Http\Controllers\Cms\ThemeController;
 use App\Http\Controllers\Cms\UserController;
 use Illuminate\Support\Facades\Route;
 
@@ -72,6 +73,9 @@ Route::middleware(['auth', 'verified'])
         Route::middleware('can:manage-settings')->group(function (): void {
             Route::get('settings', [SettingController::class, 'edit'])->name('settings.edit');
             Route::put('settings', [SettingController::class, 'update'])->name('settings.update');
+
+            Route::get('theme', [ThemeController::class, 'edit'])->name('theme.edit');
+            Route::put('theme', [ThemeController::class, 'update'])->name('theme.update');
 
             Route::get('backups', [BackupController::class, 'index'])->name('backups.index');
             Route::post('backups', [BackupController::class, 'store'])->name('backups.store');

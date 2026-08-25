@@ -1,5 +1,5 @@
 import { Link } from '@inertiajs/react';
-import { ChevronLeft, ChevronRight, Pause, Play } from 'lucide-react';
+import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 
 import { Picture } from '@/components/site/picture';
@@ -23,7 +23,6 @@ export function HeroSliderSection({ section }: { section: HeroSliderData }) {
     const count = slides.length;
 
     const [active, setActive] = useState(0);
-    const [paused, setPaused] = useState(false);
     const [hovered, setHovered] = useState(false);
     // Seed from the current preference so the first render is correct (SSR-safe).
     const [motionOk, setMotionOk] = useState(() =>
@@ -44,7 +43,7 @@ export function HeroSliderSection({ section }: { section: HeroSliderData }) {
     );
 
     const rootRef = useRef<HTMLElement>(null);
-    const autoplay = motionOk && !paused && !hovered && count > 1;
+    const autoplay = motionOk && !hovered && count > 1;
 
     useEffect(() => {
         if (!autoplay) {
@@ -118,16 +117,7 @@ export function HeroSliderSection({ section }: { section: HeroSliderData }) {
                     <NavButton edge="start" label={t('slider.previous')} onClick={() => go(active - 1)} />
                     <NavButton edge="end" label={t('slider.next')} onClick={() => go(active + 1)} />
 
-                    <div className="absolute inset-x-0 bottom-5 z-10 flex items-center justify-center gap-3">
-                        <button
-                            type="button"
-                            onClick={() => setPaused((p) => !p)}
-                            aria-label={paused || !motionOk ? t('slider.play') : t('slider.pause')}
-                            className="inline-flex size-8 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                        >
-                            {paused || !motionOk ? <Play className="size-4" /> : <Pause className="size-4" />}
-                        </button>
-
+                    <div className="absolute inset-x-0 bottom-5 z-10 flex items-center justify-center">
                         <div className="flex items-center gap-2" role="tablist" aria-label={t('slider.label')}>
                             {slides.map((_, index) => (
                                 <button
@@ -192,7 +182,7 @@ function Slide({
                 <div className="absolute inset-0 bg-black/55" />
             </div>
 
-            <div className="mx-auto flex min-h-[60vh] w-full max-w-6xl flex-col items-center justify-center px-4 py-20 text-center sm:min-h-[70vh] sm:px-6 lg:px-8">
+            <div className="mx-auto flex min-h-[60vh] w-full max-w-6xl flex-col items-center justify-center px-12 py-20 text-center sm:min-h-[70vh] sm:px-6 lg:px-8">
                 {heading &&
                     (slide.href ? (
                         <Link href={slide.href} className="group/heading rounded-sm focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white">
@@ -238,8 +228,8 @@ function NavButton({ edge, label, onClick }: { edge: 'start' | 'end'; label: str
             onClick={onClick}
             aria-label={label}
             className={cn(
-                'absolute top-1/2 z-10 hidden size-11 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:inline-flex',
-                edge === 'start' ? 'start-4' : 'end-4',
+                'absolute top-1/2 z-10 inline-flex size-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/15 text-white backdrop-blur-sm transition-colors hover:bg-white/25 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white sm:size-11',
+                edge === 'start' ? 'start-2 sm:start-4' : 'end-2 sm:end-4',
             )}
         >
             {forward ? (

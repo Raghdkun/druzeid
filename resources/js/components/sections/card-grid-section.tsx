@@ -15,7 +15,7 @@ export function CardGridSection({
     tone?: 'default' | 'alt' | 'tint';
 }) {
     return (
-        <SectionShell id={section.anchor} tone={tone ?? 'alt'}>
+        <SectionShell tone={tone ?? 'alt'}>
             {section.heading && <SectionHeading>{section.heading}</SectionHeading>}
 
             {section.intro && (

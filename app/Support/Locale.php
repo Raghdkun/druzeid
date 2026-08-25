@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Support;
 
+use App\Models\Setting;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -171,13 +172,48 @@ final class Locale
     }
 
     /**
-     * Locale list shaped for the front-end language switcher.
+     * The locale codes shown in the PUBLIC language switcher. Editors can hide a
+     * locale (e.g. Hebrew until reviewed) via the `locales.enabled` setting — a
+     * whitelist of visible codes. The default locale is always kept (so the site
+     * is never switcher-less), and an unset/empty setting means "show all".
+     * Route registration and the CMS locale tabs are unaffected, so hidden-locale
+     * deep links keep working and translations can still be prepared.
+     *
+     * @return list<string>
+     */
+    public static function visibleCodes(): array
+    {
+        $enabled = Setting::get('locales.enabled');
+        $all = self::codes();
+
+        if (! is_array($enabled) || $enabled === []) {
+            return $all;
+        }
+
+        $visible = array_values(array_filter(
+            $all,
+            fn (string $code) => in_array($code, $enabled, true) || $code === self::default(),
+        ));
+
+        return $visible === [] ? $all : $visible;
+    }
+
+    /**
+     * Locale list shaped for the front-end language switcher — the visible set,
+     * plus the locale the visitor is currently on (so a deep link to a hidden
+     * language still shows where they are). Preserves config order.
      *
      * @return list<array{code: string, name: string, dir: string, active: bool, url: string}>
      */
     public static function switcher(): array
     {
         $active = App::getLocale();
+        $visible = self::visibleCodes();
+
+        $codes = array_values(array_filter(
+            self::codes(),
+            fn (string $code) => in_array($code, $visible, true) || $code === $active,
+        ));
 
         return array_map(fn (string $code) => [
             'code' => $code,
@@ -185,6 +221,6 @@ final class Locale
             'dir' => self::dir($code),
             'active' => $code === $active,
             'url' => self::currentUrlIn($code),
-        ], self::codes());
+        ], $codes);
     }
 }

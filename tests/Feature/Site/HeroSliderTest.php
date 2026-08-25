@@ -99,6 +99,39 @@ it('drops a slide whose reference is missing or unpublished', function () {
     });
 });
 
+it('applies a per-slide focal point to the manual slide image', function () {
+    $media = Media::factory()->create();
+
+    homeWithSlides([[
+        'kind' => 'manual',
+        'media_id' => $media->id,
+        'object_position' => '20% 80%',
+        'title' => ['ar' => 'شريحة'],
+        'actions' => [],
+    ]]);
+
+    $this->get('/')->assertOk()->assertInertia(function (Assert $p) {
+        $slides = collect($p->toArray()['props']['page']['sections'])->firstWhere('type', 'hero_slider')['slides'];
+
+        expect($slides[0]['image']['objectPosition'])->toBe('20% 80%');
+    });
+});
+
+it('exposes a section anchor to the front-end for in-page links', function () {
+    Page::factory()->home()->create()->sections()->create([
+        'type' => 'rich_text',
+        'payload' => ['anchor' => 'my-section', 'html' => ['ar' => '<p>محتوى</p>']],
+        'sort' => 0,
+        'is_visible' => true,
+    ]);
+
+    $this->get('/')->assertOk()->assertInertia(function (Assert $p) {
+        $section = collect($p->toArray()['props']['page']['sections'])->firstWhere('type', 'rich_text');
+
+        expect($section['anchor'])->toBe('my-section');
+    });
+});
+
 it('accepts a hero_slider section when an admin saves a page', function () {
     $admin = User::factory()->create(['role' => 'admin']);
 

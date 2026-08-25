@@ -1,7 +1,7 @@
-import { Link } from '@inertiajs/react';
 import { useState } from 'react';
 
 import { LanguageSwitcher } from '@/components/site/language-switcher';
+import { NavLink } from '@/components/site/nav-link';
 import {
     Collapsible,
     CollapsibleContent,
@@ -42,14 +42,12 @@ export function MobileNav({ items }: { items: NavItem[] }) {
                         item.children.length > 0 ? (
                             <MobileGroup key={item.id} item={item} onNavigate={() => setOpen(false)} />
                         ) : (
-                            <Link
+                            <NavLink
                                 key={item.id}
-                                href={item.href ?? '#'}
+                                item={item}
                                 onClick={() => setOpen(false)}
                                 className="border-b border-hairline px-6 py-4 font-display text-lg font-semibold text-ink"
-                            >
-                                {item.label}
-                            </Link>
+                            />
                         ),
                     )}
                 </nav>
@@ -87,13 +85,11 @@ function MobileGroup({ item, onNavigate }: { item: NavItem; onNavigate: () => vo
                 <ul className="bg-surface-alt pb-2">
                     {item.children.map((child) => (
                         <li key={child.id}>
-                            <Link
-                                href={child.href ?? '#'}
+                            <NavLink
+                                item={child}
                                 onClick={onNavigate}
                                 className="block px-8 py-3 text-ink-soft"
-                            >
-                                {child.label}
-                            </Link>
+                            />
                         </li>
                     ))}
                 </ul>

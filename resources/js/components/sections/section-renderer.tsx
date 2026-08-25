@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+
 import { AccordionSection } from '@/components/sections/accordion-section';
 import { CardGridSection } from '@/components/sections/card-grid-section';
 import { ContactSection } from '@/components/sections/contact-section';
@@ -14,6 +16,11 @@ import type { Accent, Section } from '@/types/site';
  * a new section type is added (one component, one case here). The hero spans
  * full width; everything else is banded, and the band alternates by the
  * section's position among the banded ones.
+ *
+ * Any section may carry an optional `anchor` (a payload key edited in the CMS
+ * chrome); when present it becomes the `id` of a wrapper so in-page `#anchor`
+ * links land on it — handled once here so hero/hero_slider (which render
+ * outside the banded `SectionShell`) get anchors too.
  */
 export function SectionRenderer({
     sections,
@@ -39,52 +46,55 @@ export function SectionRenderer({
         }
     }
 
+    const renderNode = (section: Section): React.ReactNode => {
+        if (section.type === 'hero') {
+            return <HeroSection section={section} />;
+        }
+
+        if (section.type === 'hero_slider') {
+            return <HeroSliderSection section={section} />;
+        }
+
+        const tone = bandTone.get(section.id) ?? 'default';
+
+        switch (section.type) {
+            case 'rich_text':
+                return <RichTextSection section={section} tone={tone} />;
+            case 'card_grid':
+                return <CardGridSection section={section} tone={tone} />;
+            case 'accordion':
+                return <AccordionSection section={section} tone={tone} />;
+            case 'under_construction':
+                return <UnderConstructionSection section={section} accent={accent} tone={tone} />;
+            case 'gallery':
+                return <GallerySection section={section} tone={tone} />;
+            case 'video':
+                return <VideoSection section={section} tone={tone} />;
+            case 'contact':
+                return <ContactSection section={section} action={contactAction} flash={contactFlash} tone={tone} />;
+            default:
+                return null;
+        }
+    };
+
     return (
         <>
             {sections.map((section) => {
-                if (section.type === 'hero') {
-                    return <HeroSection key={section.id} section={section} />;
+                const node = renderNode(section);
+
+                if (node === null) {
+                    return null;
                 }
 
-                if (section.type === 'hero_slider') {
-                    return <HeroSliderSection key={section.id} section={section} />;
-                }
+                const anchor = (section as { anchor?: string }).anchor;
 
-                const tone = bandTone.get(section.id) ?? 'default';
-
-                switch (section.type) {
-                    case 'rich_text':
-                        return <RichTextSection key={section.id} section={section} tone={tone} />;
-                    case 'card_grid':
-                        return <CardGridSection key={section.id} section={section} tone={tone} />;
-                    case 'accordion':
-                        return <AccordionSection key={section.id} section={section} tone={tone} />;
-                    case 'under_construction':
-                        return (
-                            <UnderConstructionSection
-                                key={section.id}
-                                section={section}
-                                accent={accent}
-                                tone={tone}
-                            />
-                        );
-                    case 'gallery':
-                        return <GallerySection key={section.id} section={section} tone={tone} />;
-                    case 'video':
-                        return <VideoSection key={section.id} section={section} tone={tone} />;
-                    case 'contact':
-                        return (
-                            <ContactSection
-                                key={section.id}
-                                section={section}
-                                action={contactAction}
-                                flash={contactFlash}
-                                tone={tone}
-                            />
-                        );
-                    default:
-                        return null;
-                }
+                return anchor ? (
+                    <div key={section.id} id={anchor} className="scroll-mt-28">
+                        {node}
+                    </div>
+                ) : (
+                    <Fragment key={section.id}>{node}</Fragment>
+                );
             })}
         </>
     );
