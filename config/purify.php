@@ -51,20 +51,23 @@ return [
         ],
 
         // Prose from the CMS rich-text editor. Matches exactly what Tiptap's
-        // StarterKit (plus the text-colour extension) emits, so nothing an
-        // editor can produce is stripped, and nothing beyond it can slip
-        // through. `span[style]` with only the `color` property is permitted for
-        // the colour picker — HTMLPurifier validates the colour value and strips
-        // every other CSS property, so no url()/expression()/layout CSS can
-        // enter. `img` is permitted for editor-inserted media (src URI-filtered
-        // by HTMLPurifier). Links open safely (rel added, only _blank targets
-        // allowed); scripts and event handlers are removed by HTMLPurifier regardless.
+        // StarterKit (plus the text-colour and text-align extensions) emits, so
+        // nothing an editor can produce is stripped, and nothing beyond it can
+        // slip through. `[style]` is permitted only on inline spans and the
+        // block elements, and `CSS.AllowedProperties` is limited to `color` and
+        // `text-align` — HTMLPurifier validates each value (a colour, or one of
+        // left/right/center/justify) and strips every other property, so no
+        // url()/expression()/layout CSS can enter. `img` is permitted for
+        // editor-inserted media (src URI-filtered by HTMLPurifier; a `width`
+        // percentage from the resize control is a valid HTML 4.01 length). Links
+        // open safely (rel added, only _blank targets allowed); scripts and
+        // event handlers are removed by HTMLPurifier regardless.
         'content' => [
             'Core.Encoding' => 'utf-8',
             'HTML.Doctype' => 'HTML 4.01 Transitional',
-            'HTML.Allowed' => 'p,h2,h3,h4,strong,em,u,s,span[style],a[href|title|target],ul,ol,li,blockquote,code,pre,br,hr,img[src|alt|width|height]',
+            'HTML.Allowed' => 'p[style],h2[style],h3[style],h4[style],strong,em,u,s,span[style],a[href|title|target],ul,ol,li,blockquote,code,pre,br,hr,img[src|alt|width|height]',
             'HTML.ForbiddenElements' => '',
-            'CSS.AllowedProperties' => 'color',
+            'CSS.AllowedProperties' => 'color,text-align',
             'Attr.AllowedFrameTargets' => ['_blank'],
             'HTML.Nofollow' => false,
             'AutoFormat.AutoParagraph' => false,

@@ -1,10 +1,14 @@
 import { Color } from '@tiptap/extension-color';
 import { Image } from '@tiptap/extension-image';
+import { TextAlign } from '@tiptap/extension-text-align';
 import { TextStyle } from '@tiptap/extension-text-style';
 import { EditorContent, useEditor  } from '@tiptap/react';
 import type {Editor} from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import {
+    AlignCenter,
+    AlignLeft,
+    AlignRight,
     Bold,
     Heading2,
     Heading3,
@@ -38,6 +42,42 @@ const TEXT_COLORS: Array<{ label: string; value: string }> = [
     { label: 'أحمر', value: '#c8102e' },
     { label: 'رمادي', value: '#555555' },
 ];
+
+/**
+ * Preset widths for a selected image. Stored as a percentage on the HTML
+ * `width` attribute (`null` = the image's natural, container-capped size), so
+ * sizing stays responsive and survives the `content` purifier untouched.
+ */
+const IMAGE_SIZES: Array<{ label: string; value: string | null }> = [
+    { label: 'صغيرة', value: '25%' },
+    { label: 'متوسطة', value: '50%' },
+    { label: 'كبيرة', value: '75%' },
+    { label: 'كاملة', value: null },
+];
+
+/**
+ * The image node, extended with a `width` attribute so a selected image can be
+ * resized from the toolbar. Kept as the HTML `width` attribute holding a
+ * percentage (e.g. `"50%"`) — HTML 4.01 permits a percentage there, and the
+ * `content` purifier profile already allows `img[…|width|…]`, so it round-trips
+ * through save with no sanitiser change.
+ */
+const ResizableImage = Image.extend({
+    addAttributes() {
+        return {
+            ...this.parent?.(),
+            width: {
+                default: null,
+                parseHTML: (element) => element.getAttribute('width'),
+                renderHTML: (attributes) => {
+                    const width = attributes.width as string | null;
+
+                    return width ? { width } : {};
+                },
+            },
+        };
+    },
+});
 
 /**
  * Rich-text (HTML) editor built on Tiptap with a shadcn-styled toolbar.
@@ -79,9 +119,13 @@ export function RichTextEditor({
             // <span style="color:…">, allowed by the `content` purifier profile.
             TextStyle,
             Color,
-            // Block images inserted from the media library; <img> is allowlisted
-            // in the `content` purifier profile.
-            Image.configure({ inline: false, allowBase64: false }),
+            // Paragraph/heading alignment. `defaultAlignment: 'start'` means an
+            // untouched block emits no style (so RTL keeps its natural start
+            // edge); only an explicit left/center/right is written out.
+            TextAlign.configure({ types: ['heading', 'paragraph'], defaultAlignment: 'start' }),
+            // Block images inserted from the media library, resizable via a
+            // `width` attribute; <img> is allowlisted in the `content` profile.
+            ResizableImage.configure({ inline: false, allowBase64: false }),
         ],
         content: value || '',
         editorProps: {
@@ -184,8 +228,21 @@ return;
 
             <Divider />
 
+            <Btn active={editor.isActive({ textAlign: 'right' })} onClick={() => editor.chain().focus().setTextAlign('right').run()} label="محاذاة لليمين">
+                <AlignRight className="size-4" />
+            </Btn>
+            <Btn active={editor.isActive({ textAlign: 'center' })} onClick={() => editor.chain().focus().setTextAlign('center').run()} label="توسيط">
+                <AlignCenter className="size-4" />
+            </Btn>
+            <Btn active={editor.isActive({ textAlign: 'left' })} onClick={() => editor.chain().focus().setTextAlign('left').run()} label="محاذاة لليسار">
+                <AlignLeft className="size-4" />
+            </Btn>
+
+            <Divider />
+
             <ColorControl editor={editor} />
             {library && library.length > 0 && <ImageControl editor={editor} library={library} />}
+            <ImageSizeControl editor={editor} />
 
             <Divider />
 
@@ -308,6 +365,40 @@ function ImageControl({ editor, library }: { editor: Editor; library: LibraryIma
                     onClose={() => setOpen(false)}
                 />
             )}
+        </>
+    );
+}
+
+/**
+ * Contextual size controls: appears only while an image is selected, and sets
+ * its stored `width` percentage (or clears it for the full/natural size).
+ */
+function ImageSizeControl({ editor }: { editor: Editor }) {
+    if (!editor.isActive('image')) {
+        return null;
+    }
+
+    const current = (editor.getAttributes('image').width as string | null | undefined) ?? null;
+
+    return (
+        <>
+            <Divider />
+            <div className="flex items-center gap-0.5" role="group" aria-label="حجم الصورة">
+                {IMAGE_SIZES.map((size) => (
+                    <button
+                        key={size.label}
+                        type="button"
+                        title={`حجم الصورة: ${size.label}`}
+                        onClick={() => editor.chain().focus().updateAttributes('image', { width: size.value }).run()}
+                        className={cn(
+                            'h-8 rounded-md px-2 text-xs font-medium text-muted-foreground transition hover:bg-background hover:text-foreground',
+                            current === size.value && 'bg-background text-druze-blue',
+                        )}
+                    >
+                        {size.label}
+                    </button>
+                ))}
+            </div>
         </>
     );
 }

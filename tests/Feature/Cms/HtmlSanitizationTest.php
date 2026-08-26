@@ -81,6 +81,18 @@ it('allows images but strips non-colour inline CSS in rich text', function () {
         ->not->toContain('width');
 });
 
+it('keeps text alignment and an image width but strips other block CSS', function () {
+    $clean = Html::clean(
+        '<p style="text-align:center;color:#069ed9;margin:40px">وسط</p>'
+        .'<img src="/storage/media/x.jpg" alt="a" width="50%">',
+    );
+
+    expect($clean)->toContain('text-align:center')
+        ->toContain('color:#069ed9')
+        ->not->toContain('margin')
+        ->toContain('width="50%"');
+});
+
 it('keeps every tag the editor can produce', function () {
     $rich = '<h2>ع</h2><h3>ع</h3><p><strong>ب</strong> <em>ج</em> <u>د</u> <s>ه</s></p>'
         .'<ul><li>و</li></ul><ol><li>ز</li></ol><blockquote>ح</blockquote>'
